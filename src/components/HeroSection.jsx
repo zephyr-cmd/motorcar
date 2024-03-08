@@ -21,13 +21,13 @@ const HeroSection = () => {
             Stay informed
           </button>
         </div>
-        <div className="mx-auto flex flex-col justify-center sm:w-full sm:max-w-[900px] sm:flex-row sm:justify-between gap-y-2 sm:p-5 ">
+        <div className="mx-auto flex flex-col justify-center sm:w-full sm:max-w-[900px] sm:flex-row sm:justify-between px-5">
           <HighlightItem title="Projected Range" content="Over 440 mi" />
-          <div className="h-full bg-white sm:h-auto sm:w-[2px] mt-6" />
+          <div className="h-full bg-white sm:h-auto sm:w-[2px] mt-5" />
           <HighlightItem title="Peak Power" content="Over 800 hp" />
-          <div className="h-full bg-white sm:h-auto sm:w-[2px] mt-6" />
+          <div className="h-full bg-white sm:h-auto sm:w-[2px] mt-5" />
           <HighlightItem title="Seating" content="Up to 7" />
-          <div className="h-full bg-white sm:h-auto sm:w-[2px] mt-6" />
+          <div className="h-full bg-white sm:h-auto sm:w-[2px] mt-5" />
           <HighlightItem title="0-60 mph" content="Under 3.5 secs" />
         </div>
       </div>
