@@ -14,21 +14,21 @@ const HeroSection = () => {
       <div className="flex flex-col items-center gap-24">
         <div className="flex flex-col items-center gap-8">
           <h1 className="max-w-[15ch] text-center font-serif text-6xl">
-            Experience the draw of Gravity.
+            Experience the Water.
           </h1>
-          <p>Redefining the future of SUVs</p>
-          <button className="rounded-md bg-white px-6 py-2 uppercase text-black">
+          <p>Redefining the future of Sea Plane</p>
+          <button className="rounded-md bg-white px-6 py-2 uppercase text-black hover:bg-gray-500/55">
             Stay informed
           </button>
         </div>
         <div className="mx-auto flex flex-col justify-center sm:w-full sm:max-w-[900px] sm:flex-row sm:justify-between px-5">
-          <HighlightItem title="Projected Range" content="Over 440 mi" />
+          <HighlightItem title="Projected Range" content="Over 440 NM" />
           <div className="h-full bg-white sm:h-auto sm:w-[2px] mt-5" />
-          <HighlightItem title="Peak Power" content="Over 800 hp" />
+          <HighlightItem title="Peak Power" content="Over 800 horse" />
           <div className="h-full bg-white sm:h-auto sm:w-[2px] mt-5" />
-          <HighlightItem title="Seating" content="Up to 7" />
+          <HighlightItem title="Seating" content="Up to None" />
           <div className="h-full bg-white sm:h-auto sm:w-[2px] mt-5" />
-          <HighlightItem title="0-60 mph" content="Under 3.5 secs" />
+          <HighlightItem title="0-60 mph" content="Under 3.5 light" />
         </div>
       </div>
     </section>
