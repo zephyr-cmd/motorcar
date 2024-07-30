@@ -12,6 +12,25 @@ module.exports = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      keyframes: {
+        fadeInRight: {
+          "0%": { opacity: 0, transform: "translateX(100%)" },
+          "100%": { opacity: 1, transform: "translateX(0)" },
+        },
+        fadeOutLeft: {
+          "0%": { opacity: 1, transform: "translateX(0)" },
+          "100%": { opacity: 0, transform: "translateX(-100%)" },
+        },
+        wiggle: {
+          "0%, 100%": { transform: "rotate(-3deg)" },
+          "50%": { transform: "rotate(3deg)" },
+        },
+      },
+      animation: {
+        fadeInRight: "fadeInRight 1000ms ease-out",
+        fadeOutLeft: "fadeOutLeft 1000ms ease-out",
+        wiggle: "wiggle 1s ease-in-out infinite",
+      },
     },
   },
   plugins: [],
