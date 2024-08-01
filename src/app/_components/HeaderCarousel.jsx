@@ -9,7 +9,7 @@ const HeaderCarousel = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isSticky, setIsSticky] = useState(false);
-  const [animateIn, setAnimateIn] = useState(true);
+  const [animateIn, setAnimateIn] = useState(false);
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
 
   useEffect(() => {
@@ -23,10 +23,14 @@ const HeaderCarousel = () => {
       setIsVideoLoaded(true);
     }, 4000);
   };
+  const handlesideBar = () => {
+    setIsOpen(!isOpen);
+    setAnimateIn(!animateIn);
+  };
 
-  useEffect(() => {
-    setAnimateIn(true);
-  }, [currentSlide]);
+  // useEffect(() => {
+  //   setAnimateIn(true);
+  // }, [currentSlide]);
 
   const slides = [
     {
@@ -69,11 +73,14 @@ const HeaderCarousel = () => {
   return (
     <div className="bg-green-950">
       <header
-        className={`fixed top-0 left-0 w-full z-10 transition ease-in-out duration-700 ${
-          isSticky
-            ? "bg-black/95 text-white px-5 py-3 transition ease-linear duration-700"
-            : "bg-transparent text-zinc-300 p-7 transition ease-linear duration-700"
-        }
+        className={`fixed top-0 left-0 w-full z-10 transition ease-in-out duration-700 
+                ${
+                  isSticky
+                    ? "bg-black/95 text-white px-5 py-3 transition ease-linear duration-700"
+                    : "bg-transparent text-zinc-300 p-7 transition ease-linear duration-700"
+                }
+              ${animateIn ? "bg-black/90" : ""}
+
         `}
       >
         <nav className="flex items-center justify-between">
@@ -94,7 +101,7 @@ const HeaderCarousel = () => {
           </div>
           <div className="sm:hidden">
             <button
-              onClick={() => setIsOpen(!isOpen)}
+              onClick={() => handlesideBar()}
               className="focus:outline-none p-2 hover:rounded-full hover:bg-gray-600"
             >
               {isOpen ? (
@@ -151,9 +158,9 @@ const HeaderCarousel = () => {
           </div>
         )}
       </header>
-      <div className="carousel relative min-h-dvh overflow-hidden">
+      <div className="carousel relative min-h-screen overflow-hidden">
         <div
-          className="flex w-full min-h-dvh transition-transform ease-in duration-500"
+          className="flex w-full min-h-screen transition-transform ease-in duration-500"
           style={{ transform: `translateX(-${currentSlide * 100}%)` }}
         >
           {[...slides].map((slide, index) => {
@@ -165,7 +172,7 @@ const HeaderCarousel = () => {
                 {slide.type === "video" ? (
                   <video
                     src={slide.src}
-                    className="w-full min-h-dvh object-cover"
+                    className="w-full min-h-screen object-cover"
                     autoPlay
                     playsInline
                     loop
