@@ -177,7 +177,7 @@ const HeaderCarousel = () => {
                     playsInline
                     loop
                     muted
-                    poster="introThumbnail.png"
+                    // poster="introThumbnail.png"
                     onLoadedData={handleVideoLoad}
                   />
                 ) : (
