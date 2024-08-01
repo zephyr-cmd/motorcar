@@ -12,14 +12,15 @@ const HeaderCarousel = () => {
   const [animateIn, setAnimateIn] = useState(true);
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
 
-  // useEffect(() => {
-  //   // Reset the loaded state when the slide changes
-  //   setIsVideoLoaded(false);
-  // }, [currentSlide]);
+  useEffect(() => {
+    // Reset the loaded state when the slide changes
+    setIsVideoLoaded(false);
+  }, [currentSlide]);
 
   const handleVideoLoad = () => {
+    console.log("Video data is loaded and ready to play.");
     setTimeout(() => {
-      // setIsVideoLoaded(true);
+      setIsVideoLoaded(true);
     }, 4000);
   };
 
@@ -150,9 +151,9 @@ const HeaderCarousel = () => {
           </div>
         )}
       </header>
-      <div className="carousel relative min-h-screen overflow-hidden">
+      <div className="carousel relative min-h-dvh overflow-hidden">
         <div
-          className="flex w-full min-h-screen transition-transform ease-in duration-500"
+          className="flex w-full min-h-dvh transition-transform ease-in duration-500"
           style={{ transform: `translateX(-${currentSlide * 100}%)` }}
         >
           {[...slides].map((slide, index) => {
@@ -164,12 +165,12 @@ const HeaderCarousel = () => {
                 {slide.type === "video" ? (
                   <video
                     src={slide.src}
-                    className="w-full h-full object-cover"
+                    className="w-full min-h-dvh object-cover"
                     autoPlay
                     playsInline
                     loop
                     muted
-                    poster="introThumbnail.jpg"
+                    poster="introThumbnail.png"
                     onLoadedData={handleVideoLoad}
                   />
                 ) : (
@@ -181,14 +182,14 @@ const HeaderCarousel = () => {
                   />
                 )}
                 <div
-                  className={`absolute inset-y-1/2 left-10 md:left-20 transition-all duration-1000 transform ${
+                  className={`absolute inset-y-1/2 md:left-20 p-5 transition-all duration-1000 transform animate-fadeInRight ${
                     isVideoLoaded ? "animate-fadeInRight" : ""
                   }`}
                 >
-                  <h2 className="text-3xl md:text-5xl font-bold text-white mb-4 animate-fadeInRight">
+                  <h2 className=" text-2xl sm:text-3xl md:text-5xl font-bold text-white mb-4">
                     {slide.heading}
                   </h2>
-                  <p className="text-white mb-4 max-w-md">
+                  <p className=" text-white text-sm sm:text-base mb-4 text-justify max-w-md">
                     {slide.description}
                   </p>
                   <Link href={slide.buttonLink}>
