@@ -27,7 +27,7 @@ module.exports = {
         },
       },
       animation: {
-        fadeInRight: "fadeInRight 1000ms ease-out",
+        fadeInRight: "fadeInRight 1500ms ease-out",
         fadeOutLeft: "fadeOutLeft 1000ms ease-out",
         wiggle: "wiggle 1s ease-in-out infinite",
       },

@@ -10,6 +10,18 @@ const HeaderCarousel = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isSticky, setIsSticky] = useState(false);
   const [animateIn, setAnimateIn] = useState(true);
+  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
+
+  // useEffect(() => {
+  //   // Reset the loaded state when the slide changes
+  //   setIsVideoLoaded(false);
+  // }, [currentSlide]);
+
+  const handleVideoLoad = () => {
+    setTimeout(() => {
+      // setIsVideoLoaded(true);
+    }, 4000);
+  };
 
   useEffect(() => {
     setAnimateIn(true);
@@ -54,7 +66,7 @@ const HeaderCarousel = () => {
   }, []);
 
   return (
-    <div className="">
+    <div className="bg-green-950">
       <header
         className={`fixed top-0 left-0 w-full z-10 transition ease-in-out duration-700 ${
           isSticky
@@ -147,15 +159,18 @@ const HeaderCarousel = () => {
             return (
               <div
                 key={index}
-                className="relative flex justify-center items-center min-w-full"
+                className="relative flex justify-center items-center min-w-full max-h-dvh"
               >
                 {slide.type === "video" ? (
                   <video
                     src={slide.src}
                     className="w-full h-full object-cover"
                     autoPlay
+                    playsInline
                     loop
                     muted
+                    poster="introThumbnail.jpg"
+                    onLoadedData={handleVideoLoad}
                   />
                 ) : (
                   <Image
@@ -165,7 +180,11 @@ const HeaderCarousel = () => {
                     style={{ objectFit: "cover", overflow: "hidden" }}
                   />
                 )}
-                <div className={`absolute inset-y-1/2 left-10 md:left-20`}>
+                <div
+                  className={`absolute inset-y-1/2 left-10 md:left-20 transition-all duration-1000 transform ${
+                    isVideoLoaded ? "animate-fadeInRight" : ""
+                  }`}
+                >
                   <h2 className="text-3xl md:text-5xl font-bold text-white mb-4 animate-fadeInRight">
                     {slide.heading}
                   </h2>
