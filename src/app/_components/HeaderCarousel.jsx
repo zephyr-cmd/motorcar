@@ -10,6 +10,7 @@ const HeaderCarousel = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isSticky, setIsSticky] = useState(false);
   const [animateIn, setAnimateIn] = useState(false);
+  const [sideBar, setSideBar] = useState(false);
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
 
   useEffect(() => {
@@ -25,17 +26,19 @@ const HeaderCarousel = () => {
   };
   const handlesideBar = () => {
     setIsOpen(!isOpen);
-    setAnimateIn(!animateIn);
+    setSideBar(!sideBar);
+    console.log("handle side bar., isOpen", isOpen, "setSideBar", sideBar);
   };
 
-  // useEffect(() => {
-  //   setAnimateIn(true);
-  // }, [currentSlide]);
+  useEffect(() => {
+    setAnimateIn(true);
+  }, [currentSlide]);
 
   const slides = [
     {
       type: "video",
-      src: "introVideo2.mp4",
+      src: "introVideo4.mp4",
+      thumbnail: "/introThumbnail.png",
       heading: "#EngineeringTomorrow",
       description:
         "We provide innovative IT services and consultation, leveraging technology to drive sustainable digital transformation. Our commitment extends to caring for our customers and the environment, aligning our practices with the Sustainable Development Goals (SDGs) to create a positive impact.",
@@ -71,7 +74,7 @@ const HeaderCarousel = () => {
   }, []);
 
   return (
-    <div className="bg-green-950">
+    <div className="">
       <header
         className={`fixed top-0 left-0 w-full z-10 transition ease-in-out duration-700 
                 ${
@@ -79,7 +82,7 @@ const HeaderCarousel = () => {
                     ? "bg-black/95 text-white px-5 py-3 transition ease-linear duration-700"
                     : "bg-transparent text-zinc-300 p-7 transition ease-linear duration-700"
                 }
-              ${animateIn ? "bg-black/90" : ""}
+              ${sideBar ? "bg-black" : ""}
 
         `}
       >
@@ -167,33 +170,51 @@ const HeaderCarousel = () => {
             return (
               <div
                 key={index}
-                className="relative flex justify-center items-center min-w-full max-h-dvh"
+                className="relative flex justify-center items-center min-w-full"
               >
                 {slide.type === "video" ? (
-                  <video
-                    src={slide.src}
-                    className="w-full min-h-screen object-cover"
-                    autoPlay
-                    playsInline
-                    loop
-                    muted
-                    // poster="introThumbnail.png"
-                    onLoadedData={handleVideoLoad}
-                  />
+                  <div className="video-player flex-none w-full min-h-screen overflow-hidden relative">
+                    <div className="flex-none w-full min-h-screen overflow-hidden relative">
+                      <Image
+                        src={slide?.thumbnail}
+                        alt={slide?.heading}
+                        fill
+                        style={{
+                          objectFit: "cover",
+                          overflow: "hidden",
+                          background: "rgb(2 44 34)",
+                        }}
+                        priority={true}
+                      />
+                    </div>
+                    <div className="absolute inset-0 w-screen min-h-screen">
+                      <video
+                        src={slide.src}
+                        className="w-full h-full object-cover"
+                        autoPlay
+                        playsInline
+                        loop
+                        muted
+                        poster="introThumbnail.png"
+                        // onLoadedData={handleVideoLoad}
+                      />
+                    </div>
+                  </div>
                 ) : (
                   <Image
                     src={slide.src}
                     alt={`Slide ${index + 1}`}
                     fill
+                    priority={true}
                     style={{ objectFit: "cover", overflow: "hidden" }}
                   />
                 )}
                 <div
-                  className={`absolute inset-y-1/2 md:left-20 p-5 transition-all duration-1000 transform animate-fadeInRight ${
-                    isVideoLoaded ? "animate-fadeInRight" : ""
+                  className={`absolute inset-y-1/2 md:left-20 p-5 transition-all duration-1000 transform ${
+                    animateIn ? "animate-fadeInRight" : ""
                   }`}
                 >
-                  <h2 className=" text-2xl sm:text-3xl md:text-5xl font-bold text-white mb-4">
+                  <h2 className=" text-2xl sm:text-3xl md:text-5xl font-bold text-justify text-white mb-4">
                     {slide.heading}
                   </h2>
                   <p className=" text-white text-sm sm:text-base mb-4 text-justify max-w-md">
@@ -213,6 +234,10 @@ const HeaderCarousel = () => {
           <button
             key={index}
             onClick={() => setCurrentSlide(index)}
+            // onClick={() => {
+            //   setAnimateIn(false);
+            //   setTimeout(() => setCurrentSlide(index), 700);
+            // }}
             className={`w-4 h-4 rounded-tr-xl  ${
               currentSlide === index ? "bg-white" : "bg-gray-500"
             }`}
