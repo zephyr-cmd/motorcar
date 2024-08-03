@@ -77,14 +77,13 @@ const HeaderCarousel = () => {
     <div className="">
       <header
         className={`fixed top-0 left-0 w-full z-10 transition ease-in-out duration-700 
-                ${
-                  isSticky
-                    ? "bg-black/95 text-white px-5 py-3 transition ease-linear duration-700"
-                    : "bg-transparent text-zinc-300 p-7 transition ease-linear duration-700"
-                }
-              ${sideBar ? "bg-black" : ""}
-
-        `}
+              ${
+                isSticky
+                  ? "bg-black/95 text-white px-5 py-3"
+                  : "bg-transparent text-zinc-300 p-7"
+              } 
+              ${sideBar && !isSticky ? `bg-zinc-950/95` : ""}
+            `}
       >
         <nav className="flex items-center justify-between">
           <div className="text-2xl font-bold">AdaLabs</div>
@@ -142,10 +141,7 @@ const HeaderCarousel = () => {
           </div>
         </nav>
         {isOpen && (
-          <div
-            className={`md:hidden relative w-full min-h-dvh p-5
-          `}
-          >
+          <div className="md:hidden relative w-full min-h-dvh p-5">
             <Link href="#industries" className="block py-2 hover:text-gray-300">
               Industries
             </Link>
@@ -161,6 +157,7 @@ const HeaderCarousel = () => {
           </div>
         )}
       </header>
+
       <div className="carousel relative min-h-screen overflow-hidden">
         <div
           className="flex w-full min-h-screen transition-transform ease-in duration-500"
@@ -196,7 +193,7 @@ const HeaderCarousel = () => {
                         loop
                         muted
                         poster="introThumbnail.png"
-                        // onLoadedData={handleVideoLoad}
+                        onLoadedData={handleVideoLoad}
                       />
                     </div>
                   </div>
@@ -211,7 +208,7 @@ const HeaderCarousel = () => {
                 )}
                 <div
                   className={`absolute inset-y-1/2 md:left-20 p-5 transition-all duration-1000 transform ${
-                    animateIn ? "animate-fadeInRight" : ""
+                    isVideoLoaded ? "" : "animate-fadeInRight"
                   }`}
                 >
                   <h2 className=" text-2xl sm:text-3xl md:text-5xl font-bold text-justify text-white mb-4">
