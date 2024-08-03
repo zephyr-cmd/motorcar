@@ -192,7 +192,7 @@ const HeaderCarousel = () => {
                         playsInline
                         loop
                         muted
-                        poster="introThumbnail.png"
+                        // poster="introThumbnail.png"
                         onLoadedData={handleVideoLoad}
                       />
                     </div>
@@ -206,20 +206,24 @@ const HeaderCarousel = () => {
                     style={{ objectFit: "cover", overflow: "hidden" }}
                   />
                 )}
-                <div
-                  className={`absolute inset-y-1/2 md:left-20 p-5 transition-all duration-1000 transform ${
-                    isVideoLoaded ? "" : "animate-fadeInRight"
-                  }`}
-                >
-                  <h2 className=" text-2xl sm:text-3xl md:text-5xl font-bold text-justify text-white mb-4">
-                    {slide.heading}
-                  </h2>
-                  <p className=" text-white text-sm sm:text-base mb-4 text-justify max-w-md">
-                    {slide.description}
-                  </p>
-                  <Link href={slide.buttonLink}>
-                    <Button variant="transparentBtn">{slide.buttonText}</Button>
-                  </Link>
+                <div className="absolute w-full h-full bg-transparent">
+                  <div
+                    className={`absolute inset-y-1/2 md:left-20 p-5 transition-all duration-1000 transform ${
+                      isVideoLoaded ? "" : "animate-fadeInRight"
+                    }`}
+                  >
+                    <h2 className=" text-2xl sm:text-3xl md:text-5xl font-bold text-justify text-white mb-4">
+                      {slide.heading}
+                    </h2>
+                    <p className=" text-white text-sm sm:text-base mb-4 text-justify max-w-md">
+                      {slide.description}
+                    </p>
+                    <Link href={slide.buttonLink}>
+                      <Button variant="transparentBtn">
+                        {slide.buttonText}
+                      </Button>
+                    </Link>
+                  </div>
                 </div>
               </div>
             );
