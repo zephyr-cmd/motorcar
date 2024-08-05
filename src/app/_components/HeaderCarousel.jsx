@@ -47,19 +47,20 @@ const HeaderCarousel = () => {
     },
     {
       type: "image",
-      src: "/image1.jpg",
+      src: "/two-lady.jpg",
       heading: "Explore Our Services",
       description: "We offer a wide range of solutions to meet your needs.",
       buttonText: "Explore",
-      buttonLink: "/services",
+      // buttonLink: "/services",
+      buttonLink: "/coming-soon",
     },
     {
       type: "image",
-      src: "/image2.jpg",
+      src: "/thestandingdesk3.jpg",
       heading: "Join Our Team",
       description: "We are looking for talented individuals to join us.",
       buttonText: "Careers",
-      buttonLink: "/careers",
+      buttonLink: "/comming-soon",
     },
   ];
 
@@ -206,7 +207,7 @@ const HeaderCarousel = () => {
                     style={{ objectFit: "cover", overflow: "hidden" }}
                   />
                 )}
-                <div className="absolute w-full h-full bg-transparent">
+                <div className="absolute w-full h-full bg-black/30">
                   <div
                     className={`absolute inset-y-1/2 md:left-20 p-5 transition-all duration-1000 transform ${
                       isVideoLoaded ? "" : "animate-fadeInRight"

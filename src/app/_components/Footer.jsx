@@ -10,7 +10,7 @@ import {
 
 export default function Footer() {
   return (
-    <footer className="text-black bg-white py-12">
+    <footer className="text-gray-300 bg-black py-12">
       {/* <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"> */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full p-5">
         <div className="flex flex-col gap-y-2">
@@ -25,7 +25,7 @@ export default function Footer() {
               aria-label="mail to : info@adalabs.in"
               className="flex flex-row gap-2 items-center"
             >
-              <EnvelopeOpenIcon className="h-5 w-5" />
+              <EnvelopeOpenIcon className="h-5 w-5" textColor="fill-white" />
               info@adalabs.in
             </Link>
             {/* <Link
@@ -111,24 +111,24 @@ export default function Footer() {
             aria-label="Facebook"
             target="_blank"
           >
-            <FacebookIcon className="h-5 w-5" />
+            <FacebookIcon className="h-5 w-5" textColor="fill-white" />
           </Link>
           <Link href="#" aria-label="Instagram" target="_blank">
-            <InstagramIcon className="h-5 w-5" />
+            <InstagramIcon className="h-5 w-5" textColor="fill-white" />
           </Link>
           <Link
             href="https://x.com/adalabs.in"
             aria-label="Twitter"
             target="_blank"
           >
-            <XIcon className="h-5 w-5" />
+            <XIcon className="h-5 w-5" textColor="fill-white" />
           </Link>
           <Link
             href="#https://www.linkedin.com/company/adalabs"
             aria-label="LinkedIn"
             target="_blank"
           >
-            <LinkedinIcon className="h-5 w-5" />
+            <LinkedinIcon className="h-5 w-5" textColor="fill-white" />
           </Link>
         </div>
       </div>
