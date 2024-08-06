@@ -10,16 +10,15 @@ import {
 
 export default function Footer() {
   return (
-    <footer className="text-gray-300 bg-black py-12">
+    <footer className="text-white bg-black py-12">
       {/* <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"> */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full p-5">
         <div className="flex flex-col gap-y-2">
           {/* <HospitalIcon className="text-[#c9ac5c] h-8 w-8" /> */}
           <p className="text-2xl font-bold">Adalabs & Co.</p>
-          <p className="text-sm sm:text-justify">
-            C-Block, Sector 62, Noida, India
-          </p>
-          <p className="flex flex-col mt-2 gap-y-2">
+          <p className="text-sm sm:text-justify">Westend Marg, Saket, 110030</p>
+          <p className="text-sm sm:text-justify">New Delhi, India</p>
+          <p className="flex flex-col mt-5 gap-y-2">
             <Link
               href={"mailto:info@adalabs.in"}
               aria-label="mail to : info@adalabs.in"
@@ -96,15 +95,15 @@ export default function Footer() {
         </div>
         <Subscribe />
       </div>
-      <div className="border-t border-gray-700 mt-8 pt-5 flex flex-col md:flex-row lg:px-8 justify-between text-sm lg:text-lg mx-5">
+      <div className="border-t border-gray-700 mt-8 pt-5 flex flex-col-reverse gap-7 md:flex-row lg:px-8 justify-between text-sm lg:text-lg mx-5">
         <div>
           <p>© 2024 Adalabs & Co. </p>
         </div>
-        <div className="flex space-x-6 mt-4 md:mt-0">
+        {/* <div className="flex space-x-6 mt-4 md:mt-0">
           <p>
             <span className="text-red-700">❤</span> from India
           </p>
-        </div>
+        </div> */}
         <div className="flex space-x-4 mt-4 md:mt-0">
           <Link
             href="https://www.facebook.com/adalabs.in/"

@@ -50,10 +50,10 @@ function Subscribe() {
         </p> */}
       </form>
       {}
-      <p className="text-xs text-gray-300 mt-2">
+      <p className="text-xs text-white mt-2">
         By subscribing you agree to our{" "}
         <span>
-          <Link className="text-gray-500 underline" href="#">
+          <Link className="text-gray-200 underline" href="#">
             Privacy Policy
           </Link>{" "}
         </span>
