@@ -25,7 +25,7 @@ export default function Footer() {
               aria-label="mail to : info@adalabs.in"
               className="flex flex-row gap-2 items-center"
             >
-              <EnvelopeOpenIcon className="h-5 w-5" textColor="fill-white" />
+              <EnvelopeOpenIcon className="h-5 w-5" textcolor="fill-white" />
               info@adalabs.in
             </Link>
             {/* <Link
@@ -111,24 +111,24 @@ export default function Footer() {
             aria-label="Facebook"
             target="_blank"
           >
-            <FacebookIcon className="h-5 w-5" textColor="fill-white" />
+            <FacebookIcon className="h-5 w-5" textcolor="fill-white" />
           </Link>
           <Link href="#" aria-label="Instagram" target="_blank">
-            <InstagramIcon className="h-5 w-5" textColor="fill-white" />
+            <InstagramIcon className="h-5 w-5" textcolor="fill-white" />
           </Link>
           <Link
             href="https://x.com/adalabs.in"
             aria-label="Twitter"
             target="_blank"
           >
-            <XIcon className="h-5 w-5" textColor="fill-white" />
+            <XIcon className="h-5 w-5" textcolor="fill-white" />
           </Link>
           <Link
-            href="#https://www.linkedin.com/company/adalabs"
+            href="https://www.linkedin.com/company/adalabs"
             aria-label="LinkedIn"
             target="_blank"
           >
-            <LinkedinIcon className="h-5 w-5" textColor="fill-white" />
+            <LinkedinIcon className="h-5 w-5" textcolor="fill-white" />
           </Link>
         </div>
       </div>

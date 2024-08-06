@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const ContactForm = () => {
   return (
-    <div className="bg-gradient-to-r from-gray-50 to-gray-100 text-black">
+    <div className="bg-gradient-to-r from-gray-50 to-gray-100 text-black py-10">
       {/* <Image
         src="/logo.svg"
         alt="Descriptive Alt Text"
@@ -13,13 +13,13 @@ const ContactForm = () => {
         layout="responsive"
         className=" bg-blue-700 p-5"
       /> */}
-      <h2 className="font-extrabold flex py-10 justify-center items-center text-5xl">
+      {/* <h2 className="font-extrabold flex py-10 justify-center items-center text-2xl sm:text-4xl">
         #EngineeringTomorrow
-      </h2>
-      <div className="flex flex-col md:flex-row md:flex-wrap border border-indigo-950">
+      </h2> */}
+      <div className="flex flex-col md:flex-row md:flex-wrap">
         {/* Image Part */}
         <div className="w-full md:w-1/2 flex flex-col p-5 space-y-7 flex-shrink-0">
-          <h2 className="font-extrabold text-3xl">Let&apos;s get in touch</h2>
+          <h2 className="font-extrabold text-3xl">Let&apos;s talk</h2>
           <p>
             Reach out to us today and find out how we can assist you in making a
             better world.
@@ -29,15 +29,15 @@ const ContactForm = () => {
         {/* Form Part */}
         <div className="w-full md:w-1/2 flex-grow mt-6 md:mt-0">
           <form
-            action="https://go.pardot.com/l/520631/2022-07-22/k7r42l"
-            name="getintouch_custom_form"
+            // action=""
+            // name="getintouch_custom_form"
             method="post"
             className="text-base  flex flex-col gap-5 p-4"
           >
             <input
               type="hidden"
               name="Form Referer Path"
-              value="https://www.tatatechnologies.com/in?"
+              // value="https://www.tatatechnologies.com/in?"
             />
             <input type="hidden" name="Region" value="India" />
 
@@ -95,20 +95,23 @@ const ContactForm = () => {
                 className="w-full text-base block bg-transparent py-2 border-b border-current focus:outline-none focus:border-teal"
               >
                 {/* <option value="" className="text-black">
-                Select an option
-              </option>
-              <option value="Automotive" className="text-black">
-                Automotive
-              </option>
-              <option value="Aerospace" className="text-black">
-                Aerospace
-              </option>
-              <option value="Industrial Heavy Machinery" className="text-black">
-                Industrial Heavy Machinery
-              </option>
-              <option value="Other" className="text-black">
-                Other
-              </option> */}
+                  Select an option
+                </option>
+                <option value="Automotive" className="text-black">
+                  Automotive
+                </option>
+                <option value="Aerospace" className="text-black">
+                  Aerospace
+                </option>
+                <option
+                  value="Industrial Heavy Machinery"
+                  className="text-black"
+                >
+                  Industrial Heavy Machinery
+                </option>
+                <option value="Other" className="text-black">
+                  Other
+                </option> */}
               </input>
             </label>
 

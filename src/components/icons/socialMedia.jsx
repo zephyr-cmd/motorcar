@@ -26,7 +26,7 @@ export function InstagramIcon(props) {
       fill="currentColor"
       strokeWidth="0"
       viewBox="0 0 448 512"
-      className={`size-6 ${props.textColor} transition-all duration-300 hover:fill-[#e4405f]`}
+      className={`size-6 ${props.textcolor} transition-all duration-300 hover:fill-[#e4405f]`}
       height="1em"
       width="1em"
       xmlns="http://www.w3.org/2000/svg"
@@ -77,7 +77,7 @@ export function TwitterIcon(props) {
 export function XIcon(props) {
   return (
     <svg
-      className={`${props.textColor} transition-all duration-300 hover:fill-blue-700`}
+      className={`${props.textcolor} transition-all duration-300 hover:fill-blue-700`}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 50 50"
       width="24"
@@ -95,7 +95,7 @@ export function LinkedinIcon(props) {
       fill="currentColor"
       strokeWidth="0"
       viewBox="0 0 448 512"
-      className={`size-6 ${props.textColor} transition-all duration-300 hover:fill-[#0077b5]`}
+      className={`size-6 ${props.textcolor} transition-all duration-300 hover:fill-[#0077b5]`}
       height="1em"
       width="1em"
       xmlns="http://www.w3.org/2000/svg"

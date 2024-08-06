@@ -9,7 +9,7 @@ export default function Section2() {
         className={`w-full md:w-1/2 flex items-center justify-center
            order-1 sm:order-none`}
       >
-        <div className="p-8 animate-fadeIn">
+        <div className="p-8 duration-1000 animate-fadeInLeft">
           {/* Replace with your animation or image */}
           <Image src="/arrow.png" alt="Animation" width={500} height={500} />
         </div>
@@ -21,37 +21,25 @@ export default function Section2() {
           Crafting Future-Ready Enterprises
         </h1>
         <p className="mb-6">
-          Find out how we can address your most significant business challenges
-          with our innovative software products, automation solutions, and
-          comprehensive software services tailored to your needs. We offer IoT
-          solutions for device management and security, advanced surveillance
-          services with mobile access, real-time alerts, and access control
-          systems. Our AI-driven solutions empower businesses to harness the
-          power of artificial intelligence for predictive analytics,
-          decision-making, and process optimization. Our extensive
-          infrastructure and buildings management solutions include asset
-          management, maintenance and repairs, energy management, facility
-          management, building automation systems, and sustainability
-          initiatives. We help our customers solve their manufacturing
-          challenges with our intelligent manufacturing solutions. Additionally,
-          we provide staff augmentation and technology training to re-skill your
-          workforce in the latest skillsets.
+          Discover solutions for your business challenges with our software
+          products, automation tools, and tailored services. We offer IoT for
+          device management, AI-driven analytics, and infrastructure solutions
+          including asset management and facility automation. Our intelligent
+          manufacturing and workforce training services empower your business.
         </p>
         <p className="font-bold mb-2">
-          Discover how we can tackle your most significant business challenges
+          Find out how we can tackle your most significant business challenges :
         </p>
         <ul className="list-disc list-inside mb-6">
-          <li>Develope more innovative & competitive products and solutions</li>
-          <li>Enhance product competitiveness and innovation</li>
-          <li>Accelerate time-to-market for new products</li>
-          <li>Optimize development costs and processes</li>
-          <li>Integrate and modernize legacy systems</li>
-          <li>Improve product quality and reliability</li>
-          <li>Gain comprehensive visibility across the product lifecycle</li>
-          <li>Reskill and upskill your workforce in emerging technologies</li>
+          <li>Innovate and stay competitive</li>
+          <li>Speed up product launches</li>
+          <li>Optimize costs and processes</li>
+          <li>Modernize legacy systems</li>
+          <li>Improve quality and reliability</li>
+          <li>Gain product lifecycle visibility</li>
+          <li>Reskill your workforce in emerging technologies</li>
         </ul>
         <Link
-          //   href="/about-us"
           href="/coming-soon"
           className="bg-blue-700 flex w-fit text-white py-2 px-4 rounded transition-all duration-300 hover:bg-blue-800"
         >

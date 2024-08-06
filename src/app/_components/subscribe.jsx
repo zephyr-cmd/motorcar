@@ -32,7 +32,7 @@ function Subscribe() {
       {/* <form className="flex flex-col space-y-3" action={formAction}> */}
       <form className="flex flex-col space-y-3">
         <Input
-          className="px-4 py-2 border border-gray-600 rounded-lg text-black"
+          className="px-4 py-2 mt-2 border border-gray-600 rounded-lg text-black"
           placeholder="name@exmaple.com"
           type="email"
           name="email"
