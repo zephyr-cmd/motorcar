@@ -1,118 +1,226 @@
+"use client";
+
+import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
-import {
-  Sheet,
-  SheetClose,
-  SheetContent,
-  SheetDescription,
-  SheetFooter,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet";
-import { Button } from "@/components/ui/button";
+import { useState, useEffect } from "react";
 
-export default function Navbar() {
+const Navbar = (props) => {
+  // const slides = props.slides
+  console.log("L-10 slides----------------->", props.slides);
+  const [isOpen, setIsOpen] = useState(false);
+  const [isSticky, setIsSticky] = useState(false);
+  const [sideBar, setSideBar] = useState(false);
+
+  const handlesideBar = () => {
+    setIsOpen(!isOpen);
+    setSideBar(!sideBar);
+    console.log("handle side bar., isOpen", isOpen, "setSideBar", sideBar);
+  };
+
+  const slides = props.slides;
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsSticky(window.scrollY > 200);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <div className="absolute z-20 inset-0 min-h-screen">
-      <div className="flex flex-col h-[110px] sm:h-[85px] text-white bg-black/40">
-        <div className="grid grid-cols-2 justify-between items-center px-3 ">
-          <Link href={"/"} aria-label="home">
-            <Image
-              src={"/adalabs.svg"}
-              alt="Best Hospital in Rishikesh | sarvanjana Hospital"
-              height={"200"}
-              width={"250"}
-              style={{ objectFit: "contain" }}
-              priority={true} // {false} | {true}
-              //   placeholder="blur"
-            />
+    <div className="">
+      <header
+        className={`fixed top-0 left-0 w-full z-10 transition ease-in-out duration-700 text-white 
+              ${isSticky ? "bg-black/95 px-5 py-3" : "bg-transparent p-7"} 
+              ${sideBar && !isSticky ? `bg-zinc-950/95` : ""}
+            `}
+      >
+        <nav className="flex items-center justify-between">
+          <Link href="/" className="text-2xl font-bold hover:text-gray-300">
+            AdaLabs
           </Link>
-          <div className="space-x-5 hidden sm:flex flex-wrap justify-center items-center text-base">
-            <Link
-              className="hidden lg:flex"
-              href={"about-us"}
-              aria-label="about us"
-            >
+          <div className="hidden sm:flex space-x-6">
+            <Link href="#industries" className="hover:text-gray-300">
+              Industries
+            </Link>
+            <Link href="#expertise" className="hover:text-gray-300">
+              Expertise
+            </Link>
+            <Link href="#career" className="hover:text-gray-300">
+              Career
+            </Link>
+            <Link href="#about" className="hover:text-gray-300">
               About Us
             </Link>
-            <Link className="" href={"/coming-soon"} aria-label="departments">
-              Departments
-            </Link>
-            <Link href={"/our-doctors"} aria-label="our doctors">
-              Doctors
-            </Link>
-            <Link href={"/coming-soon"} aria-label="Facilities">
-              Facilities
-            </Link>
-            <Link
-              className="hidden xl:flex"
-              href={"coming-soon"}
-              aria-label="Blogs"
+          </div>
+          <div className="sm:hidden">
+            <button
+              onClick={() => handlesideBar()}
+              className="focus:outline-none p-2 hover:rounded-full hover:bg-gray-600"
             >
-              Blogs
+              {isOpen ? (
+                <svg
+                  className="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M6 18L18 6M6 6l12 12"
+                  ></path>
+                </svg>
+              ) : (
+                <svg
+                  className="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M4 6h16M4 12h16m-7 6h7"
+                  ></path>
+                </svg>
+              )}
+            </button>
+          </div>
+        </nav>
+        {isOpen && (
+          <div className="md:hidden relative w-full min-h-dvh p-5">
+            <Link href="#industries" className="block py-2 hover:text-gray-300">
+              Industries
             </Link>
-            <Link
-              className="hidden xl:flex"
-              href={"contact-us"}
-              aria-label="contact us"
-            >
-              Contact Us
+            <Link href="#expertise" className="block py-2 hover:text-gray-300">
+              Expertise
+            </Link>
+            <Link href="#career" className="block py-2 hover:text-gray-300">
+              Career
+            </Link>
+            <Link href="#about" className="block py-2 hover:text-gray-300">
+              About Us
             </Link>
           </div>
-          <div className="sm:hidden flex justify-end font-extrabol text-3xl">
-            <Sheet>
-              <SheetTrigger>&#8801;</SheetTrigger>
-              <SheetContent className="max-w-full">
-                <SheetHeader>
-                  <SheetTitle>
-                    <Image
-                      src={"/sarvanjana.png"}
-                      alt="sarvanjana logo"
-                      height={"200"}
-                      width={"250"}
-                      style={{ objectFit: "contain" }}
-                      priority={true} // {false} | {true}
-                    />
-                  </SheetTitle>
-                  {/* <SheetDescription>
-                  This action cannot be undone. This will permanently delete
-                  your account and remove your data from our servers.
-                </SheetDescription> */}
-                </SheetHeader>
-                <SheetFooter className={"flex flex-col gap-7 mt-7"}>
-                  <SheetClose asChild>
-                    {/* <Button type="submit">Save changes</Button> */}
-                    <Link href={"/"} aria-label="home">
-                      <Button variant="ghost">Home</Button>
+        )}
+      </header>
+
+      <div className="carousel relative min-h-screen overflow-hidden">
+        <div
+          className="flex w-full min-h-screen transition-transform ease-in duration-500"
+          // style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+        >
+          {[...slides].map((slide, index) => {
+            return (
+              <div
+                key={index}
+                className="relative flex justify-center items-center min-w-full"
+              >
+                {slide.type === "video" ? (
+                  <div className="video-player flex-none w-full min-h-screen overflow-hidden relative">
+                    <div className="flex-none w-full min-h-screen overflow-hidden relative">
+                      <Image
+                        src={slide?.thumbnail}
+                        alt={slide?.heading}
+                        fill
+                        style={{
+                          objectFit: "cover",
+                          overflow: "hidden",
+                          background: "rgb(2 44 34)",
+                        }}
+                        priority={true}
+                      />
+                    </div>
+                    <div className="absolute inset-0 w-screen min-h-screen">
+                      <video
+                        src={slide.src}
+                        className="w-full h-full object-cover"
+                        autoPlay
+                        playsInline
+                        loop
+                        muted
+                        // poster="introThumbnail.png"
+                        onLoadedData={handleVideoLoad}
+                      />
+                    </div>
+                  </div>
+                ) : (
+                  <Image
+                    src={slide.src}
+                    alt={`Slide ${index + 1}`}
+                    fill
+                    priority={true}
+                    style={{ objectFit: "cover", overflow: "hidden" }}
+                  />
+                )}
+                <div className="absolute w-full h-full bg-black/50">
+                  <div
+                    className={`absolute inset-y-1/2 md:left-20 p-5 space-y-7 transition-all duration-1000 transform text-white`}
+                  >
+                    <h2 className=" text-2xl sm:text-3xl md:text-5xl font-bold mb-4 font-poppins">
+                      {slide.heading}
+                    </h2>
+                    <p className=" text-xl sm:text-2xl mb-4 text-justify max-w-md font-exo">
+                      {slide.description}
+                    </p>
+                    <Link className="flex w-fit" href={slide.buttonLink}>
+                      <div className="text-xl sm:text-2xl flex flex-row items-center gap-5 group relative overflow-hidden">
+                        <div className="relative">
+                          <span className="relative transition-all duration-300">
+                            Lets Talk
+                          </span>
+                          <div className="absolute bottom-0 left-0 w-full h-[2px] bg-current origin-bottom-right scale-x-0 transition-transform duration-300 ease-out group-hover:origin-bottom-left group-hover:scale-x-100"></div>
+                        </div>
+                        <div className="bg-white rounded-full text-black p-1 overflow-hidden">
+                          <svg
+                            strokeWidth="2"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            className="h-6 w-6 transition-transform duration-300 ease-in-out group-hover:animate-slide-and-fade-once"
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="20px"
+                          >
+                            <path
+                              d="M14 5l7 7m0 0l-7 7m7-7H3"
+                              strokeLinejoin="round"
+                              strokeLinecap="round"
+                            ></path>
+                          </svg>
+                        </div>
+                      </div>
                     </Link>
-                  </SheetClose>
-                  <SheetClose asChild>
-                    <Link href={"/appointment"} aria-label="appointment">
-                      <Button variant="ghost">Appointment</Button>
-                    </Link>
-                  </SheetClose>
-                  <SheetClose asChild>
-                    <Link href={"/our-doctors"} aria-label="our-doctors">
-                      <Button variant="ghost">Our Doctors</Button>
-                    </Link>
-                  </SheetClose>
-                  <SheetClose asChild>
-                    <Link href={"/about-us"} aria-label="about us">
-                      <Button variant="ghost">About Us</Button>
-                    </Link>
-                  </SheetClose>
-                  <SheetClose asChild>
-                    <Link href={"/contact-us"} aria-label="contact us">
-                      <Button variant="ghost">Contact Us</Button>
-                    </Link>
-                  </SheetClose>
-                </SheetFooter>
-              </SheetContent>
-            </Sheet>
-          </div>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
+      {/* <div className="absolute bottom-0 left-0 right-0 flex justify-center space-x-4 p-4 bg-black/5 text-white">
+        {slides.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrentSlide(index)}
+            // onClick={() => {
+            //   setAnimateIn(false);
+            //   setTimeout(() => setCurrentSlide(index), 700);
+            // }}
+            className={`w-4 h-4 rounded-tr-xl  ${
+              currentSlide === index ? "bg-white" : "bg-gray-500"
+            }`}
+          ></button>
+        ))}
+      </div> */}
     </div>
   );
-}
+};
+
+export default Navbar;

@@ -33,6 +33,23 @@ module.exports = {
           "0%, 100%": { transform: "rotate(-3deg)" },
           "50%": { transform: "rotate(3deg)" },
         },
+        slide: {
+          "0%": { transform: "translateX(0)", opacity: 1 },
+          "50%": { transform: "translateX(100%)", opacity: 0 },
+          "100%": { transform: "translateX(0)", opacity: 1 },
+        },
+        slideLeft: {
+          "0%": { transform: "translateX(-100%)" },
+          "100%": { transform: "translateX(0%)" },
+        },
+      },
+      fontFamily: {
+        sans: ["var(--font-inter)"],
+        mono: ["var(--font-roboto-mono)"],
+        grey: ["var(--font-grey_qo)"],
+        exo: ["var(--font-exo)"],
+        nunito: ["var(--font-nunito)"],
+        poppins: ["var(--font-poppins)"],
       },
       animation: {
         fadeInRight: "fadeInRight 1500ms ease-out",
@@ -41,6 +58,8 @@ module.exports = {
         fadeInTop: "fadeInTop 1500ms ease-out",
         fadeOutLeft: "fadeOutLeft 1000ms ease-out",
         wiggle: "wiggle 1s ease-in-out infinite",
+        "slide-arrow": "slide 1.5s ease-in-out infinite",
+        "slide-and-fade-once": "slideLeft 0.7s ease-out",
       },
     },
   },

@@ -29,7 +29,7 @@ const specialties = [
   {
     title: "Automation and IoT Services",
     imgSrc:
-      "https://unsplash.com/photos/MagdWoazARo/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8Mnx8c29sYXIlMjBpbnN0YWxsYXRpb258ZW58MHx8fHwxNzIyOTc2ODg5fDA&force=true&w=1920",
+      "https://unsplash.com/photos/7Ne_rNvQldw/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8MTB8fGFydGlmaWNpYWwlMjBpbnRlbGxpZ2VuY2V8ZW58MHx8fHwxNzIzNTQzNzI5fDA&force=true&w=1920",
     imgAlt: "Automation, and IoT Services",
   },
   {
@@ -53,7 +53,7 @@ const specialties = [
 ];
 
 const generateHref = (title) => {
-  return `#services/${title.replace(/\s+/g, "-").toLowerCase()}`;
+  return `services/${title.replace(/\s+/g, "-").toLowerCase()}`;
 };
 
 function Specialities() {
