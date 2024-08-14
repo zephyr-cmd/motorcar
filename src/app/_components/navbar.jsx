@@ -7,7 +7,7 @@ import { useState, useEffect } from "react";
 
 const Navbar = (props) => {
   // const slides = props.slides
-  console.log("L-10 slides----------------->", props.slides);
+  // console.log("L-10 slides----------------->", props.slides);
   const [isOpen, setIsOpen] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
   const [sideBar, setSideBar] = useState(false);

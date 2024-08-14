@@ -1,11 +1,4 @@
-import {
-  Inter,
-  Roboto_Mono,
-  Foldit,
-  Exo,
-  Nunito,
-  Poppins,
-} from "next/font/google";
+import { Inter, Roboto_Mono, Exo, Nunito, Poppins } from "next/font/google";
 
 export const inter = Inter({
   subsets: ["latin"],
@@ -17,12 +10,6 @@ export const roboto_mono = Roboto_Mono({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-roboto-mono",
-});
-export const foldit = Foldit({
-  subsets: ["latin"],
-  display: "swap",
-  weight: "400",
-  variable: "--font-foldit",
 });
 
 export const exo = Exo({

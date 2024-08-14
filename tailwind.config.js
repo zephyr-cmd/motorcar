@@ -42,6 +42,14 @@ module.exports = {
           "0%": { transform: "translateX(-100%)" },
           "100%": { transform: "translateX(0%)" },
         },
+        "accordion-down": {
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
+        },
+        "accordion-up": {
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
+        },
       },
       fontFamily: {
         sans: ["var(--font-inter)"],
@@ -60,6 +68,8 @@ module.exports = {
         wiggle: "wiggle 1s ease-in-out infinite",
         "slide-arrow": "slide 1.5s ease-in-out infinite",
         "slide-and-fade-once": "slideLeft 0.7s ease-out",
+        "accordion-down": "accordion-down 0.2s ease-out",
+        "accordion-up": "accordion-up 0.2s ease-out",
       },
     },
   },
