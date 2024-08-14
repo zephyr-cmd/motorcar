@@ -1,4 +1,4 @@
-import CapabilitiesCarousel from "@/app/_components/CapabilityCarousel";
+// import CapabilitiesCarousel from "@/app/_components/CapabilityCarousel";
 import Navbar from "@/app/_components/navbar";
 import Head from "next/head";
 import Image from "next/image";
