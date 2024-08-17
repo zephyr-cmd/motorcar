@@ -14,8 +14,8 @@ export default function SoftwareProducts() {
       heading: "Software designed to improve your products",
       description:
         "We help you transform products with our services to manufacture, service, and realize better outcomes.",
-      buttonText: "/Artificia lntelligence",
-      buttonLink: "/coming-soon",
+      buttonText: "/Software Products",
+      buttonLink: "/services/contact-us/software-products",
     },
   ];
   const softwareDataPoints = [

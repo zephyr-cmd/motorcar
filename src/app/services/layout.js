@@ -1,4 +1,4 @@
-import { exo, nunito, poppins } from "@/app/fonts";
+import { exo, nunito, poppins } from "@/components/Fonts/fonts";
 import Footer from "@/app/_components/Footer";
 
 // export const metadata = {

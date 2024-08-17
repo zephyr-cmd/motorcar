@@ -12,7 +12,7 @@ export default function ArtificialIntelligence() {
       description:
         "We help you to leverage advanced AI technologies that drive growth, enhance efficiency, and foster innovation.",
       buttonText: "/Artificia lntelligence",
-      buttonLink: "/coming-soon",
+      buttonLink: "/services/contact-us/artificial-intelligence",
     },
   ];
   const services = [
