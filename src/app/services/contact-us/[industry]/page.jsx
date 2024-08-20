@@ -7,16 +7,18 @@ import Image from "next/image";
 import Link from "next/link";
 import { toast } from "sonner";
 import { SubmitButton } from "@/app/_components/submit-button";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 const initialState = {
   message: "",
 };
 
 const ContactForm = (params) => {
   const [state, formAction] = useFormState(createCTA, initialState);
+  const industry = params?.params?.industry;
+  console.log("L-18, Industry-------------->", industry);
   const router = useRouter();
   useEffect(() => {
-    console.log("L-18, state-------------->", state);
+    console.log("L-21, state-------------->", state, "& Industry", industry);
     let secondTimeout;
 
     if (state.status) {
@@ -24,7 +26,7 @@ const ContactForm = (params) => {
         description: "Going to redirect to the Home page",
       });
       secondTimeout = setTimeout(() => {
-        router.push("/");
+        router.push(`/services/${industry}`);
       }, 2000);
     } else {
       toast(`${state.message}`);
@@ -35,7 +37,7 @@ const ContactForm = (params) => {
     };
   }, [state]);
 
-  const industry = (params?.params?.industry).replace(/-/g, " ");
+  const industryName = industry.replace(/-/g, " ");
   return (
     <div className="text-white font-sans">
       <div className="div1|| absolute min-h-screen w-full flex flex-col md:flex-row">
@@ -53,7 +55,7 @@ const ContactForm = (params) => {
         {/* Form Part */}
         <div className="w-full lg:w-1/2 flex-grow gap-7 pt-7 pl-5 sm:pl-7 bg-black md:bg-gradient-to-r from-black to-black ">
           <Link
-            href={`/services/${params?.params?.industry}`}
+            href={`/services/${industry}`}
             className="flex flex-row gap-2 text-base justify-start items-center"
           >
             <ArrowLeftIcon /> Back
@@ -61,7 +63,7 @@ const ContactForm = (params) => {
           <div className="p-10 md:pl-20 pt-5">
             <div className="space-y-7 ">
               <p className="text-xl font-exo uppercase">
-                Connect with an expert - {industry}
+                Connect with an expert - {industryName}
               </p>
               <p className="text-xl font-sans">
                 We just need a few details from your side to connect you with
