@@ -46,7 +46,7 @@ export async function createCTA(prevState, formData) {
     };
   }
   const newObjData = validatedFields.data;
-  // console.log("L-48, data requested----------->", newObjData);
+  console.log("L-49, data requested----------->", newObjData);
   try {
     const apiResponse = await fetch(`${ServerURI}/api/v1/services/contact-us`, {
       method: "POST",
@@ -60,7 +60,7 @@ export async function createCTA(prevState, formData) {
     //   `${ServerURI}/api/v1/appointment`,
     //   newObjData
     // );
-    console.log("L-63, apiResponse-------->", apiResponse.status);
+    console.log("L-63, apiResponse-------->", apiResponse);
     if (apiResponse.status == 200) {
       // revalidatePath("/");
       // redirect("/");
