@@ -37,7 +37,7 @@ export async function createCTA(prevState, formData) {
     industry: formData.get("industry"),
     message: formData.get("message"),
   });
-  console.log("L-40 validateFields: ", validatedFields.success);
+  // console.log("L-40 validateFields: ", validatedFields.success);
   // Return early if the form data is invalid
   if (!validatedFields.success) {
     return {
@@ -46,12 +46,7 @@ export async function createCTA(prevState, formData) {
     };
   }
   const newObjData = validatedFields.data;
-  console.log(
-    "L-49, data requested----------->",
-    newObjData,
-    "requestedURL:",
-    `${ServerURI}/api/v1/services/contact-us`
-  );
+  // console.log("L-49, data requested----------->", newObjData);
   try {
     const apiResponse = await fetch(`${ServerURI}/api/v1/services/contact-us`, {
       method: "POST",
@@ -65,7 +60,7 @@ export async function createCTA(prevState, formData) {
     //   `${ServerURI}/api/v1/appointment`,
     //   newObjData
     // );
-    console.log("L-63, apiResponse-------->", apiResponse);
+    console.log("L-63, apiResponse-------->", apiResponse.status);
     if (apiResponse.status == 200) {
       // revalidatePath("/");
       // redirect("/");
@@ -74,7 +69,7 @@ export async function createCTA(prevState, formData) {
       return { message: `something went wrong !` };
     }
   } catch (e) {
-    console.log("L-54, ", e);
+    console.log("L-72, ", e);
     return { message: "Failed to create Booking" };
   }
 }
