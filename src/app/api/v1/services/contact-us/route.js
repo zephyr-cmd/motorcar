@@ -13,14 +13,24 @@ export async function GET(request) {
 
 export async function POST(request) {
   await DBConnect();
-  let { firstName, lastName, email, industry, message } = await request.json();
+  let { firstName, lastName, email, company, industry, message } =
+    await request.json();
   // console.log("L-17, email ::", email);
   if (!email) {
     return NextResponse.json({ data: {} }, { status: 400 });
   }
   const response = await contactDB.findOneAndUpdate(
     { email: email },
-    { $set: { isSubscribed: true, firstName, lastName, industry, message } },
+    {
+      $set: {
+        isSubscribed: true,
+        firstName,
+        lastName,
+        company,
+        industry,
+        message,
+      },
+    },
     { new: true, upsert: true }
   );
   if (!response) {

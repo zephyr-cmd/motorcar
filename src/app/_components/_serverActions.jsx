@@ -25,6 +25,7 @@ export async function createCTA(prevState, formData) {
           message: "Please use a valid email address",
         }
       ),
+    company: z.string().optional().nullable(),
     industry: z
       .string()
       .min(5, { message: "Must be 5 or more characters long" }),
@@ -34,10 +35,11 @@ export async function createCTA(prevState, formData) {
     firstName: formData.get("firstName"),
     lastName: formData.get("lastName"),
     email: formData.get("email"),
+    company: formData.get("company"),
     industry: formData.get("industry"),
     message: formData.get("message"),
   });
-  // console.log("L-40 validateFields: ", validatedFields.success);
+  console.log("L-42 validateFields: ", validatedFields.success);
   // Return early if the form data is invalid
   if (!validatedFields.success) {
     return {
@@ -46,7 +48,7 @@ export async function createCTA(prevState, formData) {
     };
   }
   const newObjData = validatedFields.data;
-  // console.log("L-49, data requested----------->", newObjData);
+  console.log("L-49, data requested----------->", newObjData);
   try {
     const apiResponse = await fetch(`${ServerURI}/api/v1/services/contact-us`, {
       method: "POST",
@@ -69,7 +71,7 @@ export async function createCTA(prevState, formData) {
       return { message: `something went wrong !` };
     }
   } catch (e) {
-    console.log("L-72, ", e);
+    console.log("L-74, ", e);
     return { message: "Failed to create Booking" };
   }
 }

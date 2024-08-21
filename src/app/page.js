@@ -6,6 +6,7 @@ import Section2 from "@/app/_components/Section2";
 import Section3 from "@/app/_components/Section3";
 import ContactForm from "@/app/_components/formSection";
 import Specialities from "@/app/_components/Specialities";
+import { Toaster } from "sonner";
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
         {/* <Section3 /> */}
         <ContactForm />
         <Footer />
+        <Toaster />
       </Suspense>
     </main>
   );

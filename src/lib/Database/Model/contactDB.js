@@ -19,6 +19,11 @@ const schema = new mongoose.Schema(
       required: true,
       lowercase: true,
     },
+    company: {
+      type: String,
+      trim: true,
+      default: "",
+    },
     industry: {
       type: String,
       trim: true,

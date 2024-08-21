@@ -18,7 +18,7 @@ const ContactForm = (params) => {
   console.log("L-18, Industry-------------->", industry);
   const router = useRouter();
   useEffect(() => {
-    console.log("L-21, state-------------->", state, "& Industry", industry);
+    console.log("L-21, state-------------->", state);
     let secondTimeout;
 
     if (state.status) {

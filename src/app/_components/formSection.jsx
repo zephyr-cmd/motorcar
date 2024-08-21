@@ -1,8 +1,45 @@
-// components/ContactForm.js
-import Image from "next/image";
+"use client";
+
 import Link from "next/link";
+import { useFormState } from "react-dom";
+import { createCTA } from "@/app/_components/_serverActions";
+import { SubmitButton } from "@/app/_components/submit-button";
+import { useEffect, useRef } from "react";
+import { toast } from "sonner";
+import { ArrowRightIcon } from "@/components/icons/icons2";
+const initialState = {
+  message: "",
+};
 
 const ContactForm = () => {
+  const [state, formAction] = useFormState(createCTA, initialState);
+  const formRef = useRef(null);
+  console.log("L-17, state-------------->", state);
+  useEffect(() => {
+    let firstTimeout;
+    let secondTimeout;
+
+    if (state.status) {
+      toast(`${state.message}`, {});
+
+      firstTimeout = setTimeout(() => {
+        secondTimeout = setTimeout(() => {
+          window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: "smooth",
+          });
+        }, 2000);
+      }, 2000);
+    } else {
+      toast(`${state.message}`, {});
+    }
+
+    return () => {
+      clearTimeout(firstTimeout);
+      clearTimeout(secondTimeout);
+    };
+  }, [state]); // Add `toast` to the dependencies if it comes from outside the component or ensure it's stable
   return (
     <div className="bg-gradient-to-r from-gray-50 to-gray-100 text-black py-10">
       {/* <Image
@@ -29,35 +66,29 @@ const ContactForm = () => {
         {/* Form Part */}
         <div className="w-full md:w-1/2 flex-grow mt-6 md:mt-0">
           <form
-            // action=""
-            // name="getintouch_custom_form"
-            method="post"
-            className="text-base  flex flex-col gap-5 p-4"
+            ref={formRef}
+            action={formAction}
+            className="text-base flex flex-col gap-5 p-4"
           >
-            <input
-              type="hidden"
-              name="Form Referer Path"
-              // value="https://www.tatatechnologies.com/in?"
-            />
-            <input type="hidden" name="Region" value="India" />
+            {/* <input type="hidden" name="Region" value="India" /> */}
 
-            <label htmlFor="first-name">
+            <label htmlFor="first name">
               First name
               <input
-                id="first-name"
+                id="firstName"
                 type="text"
-                name="First Name"
+                name="firstName"
                 required
                 className="w-full text-base block bg-transparent py-2 border-b border-current focus:outline-none focus:border-teal"
               />
             </label>
 
-            <label htmlFor="last-name">
+            <label htmlFor="last name">
               Last name
               <input
-                id="last-name"
+                id="lastName"
                 type="text"
-                name="Last Name"
+                name="lastName"
                 required
                 className="w-full text-base block bg-transparent py-2 border-b border-current focus:outline-none focus:border-teal"
               />
@@ -68,7 +99,7 @@ const ContactForm = () => {
               <input
                 id="email"
                 type="text"
-                name="Email"
+                name="email"
                 required
                 className="w-full text-base block bg-transparent py-2 border-b border-current focus:outline-none focus:border-teal"
               />
@@ -79,7 +110,7 @@ const ContactForm = () => {
               <input
                 id="company"
                 type="text"
-                name="Company"
+                name="company"
                 required
                 className="w-full text-base block bg-transparent py-2 border-b border-current focus:outline-none focus:border-teal"
               />
@@ -90,7 +121,7 @@ const ContactForm = () => {
               <input
                 id="industry"
                 type="text"
-                name="Industry"
+                name="industry"
                 required
                 className="w-full text-base block bg-transparent py-2 border-b border-current focus:outline-none focus:border-teal"
               >
@@ -164,7 +195,7 @@ const ContactForm = () => {
               </span>
               <textarea
                 id="message"
-                name="Message"
+                name="message"
                 rows="4"
                 cols="50"
                 required
@@ -196,24 +227,14 @@ const ContactForm = () => {
             </label>
 
             <div className="text-base flex justify-end mt-8">
-              <button
-                type="submit"
-                className="flex items-center justify-end gap-2 bg-transparent cursor-pointer"
-              >
-                Submit
-                <svg
-                  className="block"
-                  width="12"
-                  height="12"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M5.558.558L11 6m0 0L5.558 11.442M11 6H0"
-                    stroke="currentColor"
-                  ></path>
-                </svg>
-              </button>
+              <SubmitButton
+                variant="link"
+                buttonName={
+                  <div className="flex gap-2 text-lg items-center">
+                    Submit <ArrowRightIcon />
+                  </div>
+                }
+              />
             </div>
           </form>
         </div>
