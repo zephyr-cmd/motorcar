@@ -1,5 +1,6 @@
 import { exo, nunito, poppins } from "@/components/Fonts/fonts";
 import Footer from "@/app/_components/Footer";
+import { Toaster } from "@/components/ui/sonner";
 
 // export const metadata = {
 //   title: "AdaLabs  Inc.",
@@ -15,6 +16,7 @@ export default function ServicesLayout({ children }) {
     >
       {children}
       <Footer />
+      <Toaster />
     </div>
   );
 }

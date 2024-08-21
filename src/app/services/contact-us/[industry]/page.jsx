@@ -14,13 +14,12 @@ const initialState = {
 
 const ContactForm = (params) => {
   const [state, formAction] = useFormState(createCTA, initialState);
-  const industry = params?.params?.industry;
-  console.log("L-18, Industry-------------->", industry);
+  const industry = params?.params?.industry || "";
+  // console.log("L-18, Industry-------------->", industry);
   const router = useRouter();
   useEffect(() => {
-    console.log("L-21, state-------------->", state);
+    // console.log("L-21, state-------------->", state);
     let secondTimeout;
-
     if (state.status) {
       toast(`${state.message}`, {
         description: "Going to redirect to the Home page",
@@ -31,11 +30,10 @@ const ContactForm = (params) => {
     } else {
       toast(`${state.message}`);
     }
-
     return () => {
       clearTimeout(secondTimeout);
     };
-  }, [state]);
+  }, [state, router, industry]);
 
   const industryName = industry.replace(/-/g, " ");
   return (

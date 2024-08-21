@@ -37,7 +37,7 @@ export default function Footer() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
             <div className="flex flex-col gap-y-2">
-              <p className="font-semibold text-lg">Menu</p>
+              {/* <p className="font-semibold text-lg">Menu</p> */}
               <Link className="hover:text-gray-300" href="/" aria-label="Home">
                 Home
               </Link>
@@ -51,16 +51,16 @@ export default function Footer() {
               <Link
                 className="hover:text-gray-300"
                 href="/coming-soon"
-                aria-label="Career"
+                aria-label="About Us"
               >
-                Career
+                About Us
               </Link>
               <Link
                 className="hover:text-gray-300"
                 href="/coming-soon"
-                aria-label="About Us"
+                aria-label="contact-us"
               >
-                About Us
+                Contact Us
               </Link>
               {/* <Link
               className="hover:text-gray-300"
@@ -71,26 +71,21 @@ export default function Footer() {
             </Link> */}
             </div>
             <div className="flex flex-col gap-y-2">
-              <p className="font-semibold text-lg ">Utilities</p>
-              {/* <Link className="hover:text-gray-300" href="/dashboard">
-              Admin
-            </Link> */}
+              {/* <p className="font-semibold text-lg ">Utilities</p> */}
               <Link
                 className="hover:text-gray-300"
-                href="#"
-                aria-label="Privacy Policy"
+                href="/coming-soon"
+                aria-label="Careers"
               >
-                Privacy Policy
+                Careers
               </Link>
-              <div>
-                <Link
-                  className="hover:text-gray-300"
-                  href="/login"
-                  aria-label="login"
-                >
-                  Login
-                </Link>
-              </div>
+              <Link
+                className="hover:text-gray-300"
+                href="/#locations"
+                aria-label="locations"
+              >
+                Locations
+              </Link>
             </div>
           </div>
           <Subscribe />

@@ -14,7 +14,7 @@ const initialState = {
 const ContactForm = () => {
   const [state, formAction] = useFormState(createCTA, initialState);
   const formRef = useRef(null);
-  console.log("L-17, state-------------->", state);
+  // console.log("L-17, state-------------->", state);
   useEffect(() => {
     let firstTimeout;
     let secondTimeout;
