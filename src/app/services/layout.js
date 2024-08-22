@@ -1,4 +1,4 @@
-import { exo, nunito, poppins } from "@/components/Fonts/fonts";
+import { exo, exo2, nunito, poppins } from "@/components/Fonts/fonts";
 import Footer from "@/app/_components/Footer";
 import { Toaster } from "@/components/ui/sonner";
 
@@ -12,7 +12,7 @@ export default function ServicesLayout({ children }) {
   return (
     <div
       lang="en"
-      className={` ${exo.variable} ${nunito.variable} ${poppins.variable}`}
+      className={` ${exo.variable} ${exo2.variable} ${nunito.variable} ${poppins.variable}`}
     >
       {children}
       <Footer />

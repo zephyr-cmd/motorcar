@@ -48,7 +48,7 @@ export async function createCTA(prevState, formData) {
     };
   }
   const newObjData = validatedFields.data;
-  console.log("L-49, data requested----------->", newObjData);
+  // console.log("L-49, data requested----------->", newObjData);
   try {
     const apiResponse = await fetch(`${ServerURI}/api/v1/services/contact-us`, {
       method: "POST",
