@@ -50,7 +50,7 @@ export default function AutoScrollSlider({ dataPoints }) {
         {dataPoints.map((card) => (
           <div
             key={card.id}
-            className="p-4 min-h-[500px] flex-shrink-0 card w-1/2 sm:w-1/3 md:w-1/4"
+            className="p-4 min-h-[500px] flex-shrink-0 card w-full sm:w-1/2 md:w-1/3"
             id={`vbp-${card.id}`}
           >
             <div className="bg-white h-full shadow-md p-6 rounded-md">
