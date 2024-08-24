@@ -1,4 +1,5 @@
 // import CapabilitiesCarousel from "@/app/_components/CapabilityCarousel";
+import AutoScrollSlider from "@/app/_components/cardSlider";
 import Navbar from "@/app/_components/navbar";
 import {
   Accordion,
@@ -101,105 +102,70 @@ export default function ArtificialIntelligence() {
   const dataPoints = [
     {
       id: 1,
-      percentage: "73%",
-      text: "of U.S. companies are utilizing AI in some capacity.",
-      svg: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth="1.5"
-          stroke="currentColor"
-          className="size-6"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M3.75 3v11.25A2.25 2.25 0 0 0 6 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0 1 18 16.5h-2.25m-7.5 0h7.5m-7.5 0-1 3m8.5-3 1 3m0 0 .5 1.5m-.5-1.5h-9.5m0 0-.5 1.5M9 11.25v1.5M12 9v3.75m3-6v6"
-          />
-        </svg>
-      ),
+      title: "Innovate & Inspire",
+      description: "Innovation Hub",
+      items: [
+        "Product Design",
+        "Emerging Technologies",
+        "Innovation Workshops",
+      ],
     },
     {
       id: 2,
-      percentage: "$15.7T",
-      text: "is projected to be contributed by AI to the global economy by 2030.",
-      svg: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth="1.5"
-          stroke="currentColor"
-          className="size-6"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
-          />
-        </svg>
-      ),
+      title: "Brand Elevation",
+      description: "Branding & Strategy",
+      items: ["Brand Strategy", "Identity Design", "Market Research"],
     },
     {
       id: 3,
-      percentage: "40%",
-      text: " productivity improvement can be expected by 2035.",
-      svg: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth="1.5"
-          stroke="currentColor"
-          className="size-6"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941"
-          />
-        </svg>
-      ),
+      title: "Scale & Grow",
+      description: "Business Expansion",
+      items: [
+        "Growth Strategy",
+        "Business Analytics",
+        "Partnership Development",
+      ],
+      image: "/image2.jpg",
     },
     {
       id: 4,
-      percentage: "34.8%",
-      text: "of businesses are expected to adopt AI by 2040.",
-      svg: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="32"
-          height="32"
-          fill="currentColor"
-          className="text-gray-800"
-          viewBox="0 0 24 24"
-        >
-          <path d="M21 17h-3.586l1.293-1.293-1.414-1.414-4.293 4.293 4.293 4.293 1.414-1.414-1.293-1.293h3.586v-2zM2 2h7.586l-1.293 1.293 1.414 1.414 4.293-4.293-4.293-4.293-1.414 1.414 1.293 1.293h-7.586v2zm7 4v10h2v-10h-2zm-4 0v10h2v-10h-2zm8 0v10h2v-10h-2z" />
-        </svg>
-      ),
+      title: "Engage & Convert",
+      description: "Customer Engagement",
+      items: ["Digital Campaigns", "Loyalty Programs", "Customer Insights"],
+    },
+    {
+      id: 5,
+      title: "Design & Transform",
+      description: "Experience",
+      items: ["CX Strategy", "Experience Design", "Creative"],
+    },
+    {
+      id: 6,
+      title: "Demand Gen",
+      description: "Content & Creative",
+      items: ["Content Strategy", "Content Marketing", "Social Activation"],
+    },
+    {
+      id: 7,
+      title: "Card 3",
+      description: "This is the description for card 3.",
+      items: ["Item X", "Item Y", "Item Z"],
+      link: "https://example.com/page3",
     },
   ];
 
   return (
     <div className="">
-      <Head>
-        <title>AI Services - IT Consultancy</title>
-        <meta
-          name="description"
-          content="Explore our cutting-edge Artificial Intelligence (AI) services designed to enhance business operations and decision-making."
-        />
-      </Head>
       <Navbar slides={slides} />
       <main className="w-full">
-        {/* AI Services Overview */}
-        <section className="container w-full mx-auto py-12 text-black px-10 sm:px-20 p-5 ">
+        {/* iot & automation Services Overview */}
+        <section className="container w-full mx-auto py-12 text-black p-5 sm:px-10 md:px-20">
           {/* <h2 className="text-center">
             <span className="cs-section-title uppercase font">
               automation-and-iot-services
             </span>
           </h2> */}
-          <p className="text-center mt-10 font-nunito text-4xl">
+          <p className="text-center mt-10 font-exo text-2xl md:text-4xl">
             Empowering businesses with intelligent solutions
           </p>
           <p className="my-10 sm:m-5 md:m-20 text-justify text-lg md:text-xl space-y-7 text-black font-exo2">
@@ -241,7 +207,7 @@ export default function ArtificialIntelligence() {
         </section>
 
         {/* OUR APPROACH */}
-        <section className="bg-zinc-900 text-white py-8">
+        <section className="bg-zinc-900 text-white py-10 px-5 sm:px-10 md:px-52 ">
           <div className="container mx-auto px-0">
             <div className="w-full mb-4 pb-2 text-left">
               <h2 className="text-xl md:text-2xl font-bold font-exo ">
@@ -337,19 +303,19 @@ export default function ArtificialIntelligence() {
           </div>
         </section>
 
-        {/* Our Services Section */}
-        <div className="bg-white text-black">
-          <div className="container  mx-auto p-6">
-            <div className="flex flex-col sm:space-x-8 my-10 sm:m-5 md:m-20 text-justify text-lg md:text-xl space-y-7 text-black font-exo2">
+        {/* Our Expertise Section */}
+        <section className="bg-gray-100 py-10 px-5 sm:px-10 md:px-52">
+          <div className="container mx-auto">
+            <div className="lg:w-3/4">
               {/* Left Side */}
-              <div className="flex-1">
-                <h2 className="text-2xl font-bold mb-4">
-                  Automation & IoT Services Offering
+              <div className="py-8 ">
+                <h2 className="text-base sm:text-xl font-bold text-black uppercase">
+                  Our Expertise
                 </h2>
-                <p className="text-gray-800">
-                  Solve your business challenges with our value-added software
-                  services across offerings from product software providers.
-                </p>
+                <h3 className="text-4xl md:text-6xl text-black mt-4 border-l-4 border-blue-500 pl-4 font-exo">
+                  Start your journey toward becoming a self-aware organization
+                  with:
+                </h3>
               </div>
 
               {/* Right Side - Accordions */}
@@ -371,36 +337,7 @@ export default function ArtificialIntelligence() {
               </div>
             </div>
           </div>
-          {/* <div className="w-full bg-black">
-          <section className="container mx-auto py-12 text-white  px-6">
-            <h2 className="text-4xl font-bold text-gray-100 mb-12 text-center font-exo">
-              Our Services
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-              {services.map((service, index) => (
-                <div key={index} className="space-y-6">
-                  <Image
-                    src={service.imageSrc}
-                    alt={service.title}
-                    width={600}
-                    height={400}
-                    className="w-full h-64 object-cover rounded-lg shadow-lg"
-                  />
-                  <div className="text-white">
-                    <h3 className="text-3xl font-poppins">{service.title}</h3>
-                    <p className=" leading-relaxed mt-4 font-nunito">
-                      {service.description}
-                    </p>
-                    {/* <p className=" leading-relaxed mt-2 font-nunito">
-                      <strong>Example:</strong> {service.example}
-                    </p>
-                   </div>
-                </div>
-              ))}
-            </div>
-          </section> */}
-          {/* <CapabilitiesCarousel slides={services} /> */}
-        </div>
+        </section>
 
         {/* Our Services Section */}
         {/* <div className="w-full bg-black">
@@ -433,31 +370,76 @@ export default function ArtificialIntelligence() {
           </section>
         </div> */}
 
-        {/*OUR CAPABILITIES */}
-        <section className="bg-gray-100 py-8">
-          <div className="container mx-auto px-0">
-            <div className="flex flex-wrap justify-start">
-              <div className="w-full lg:w-3/4 px-0">
-                <div className="grid grid-cols-1">
-                  <div className="col-span-1">
-                    <div className="py-8">
-                      <h2 className="text-xl font-bold text-black">
-                        OUR CAPABILITIES
-                      </h2>
-                      <h3 className="text-4xl md:text-7xl text-black mt-4 border-l-4 border-blue-500 pl-4 font-exo">
-                        "Our solutions are driving transformation across
-                        industries."
-                      </h3>
-                    </div>
+        {/* A Purposeful Strategy / Engineering Advisory Services */}
+        <section className="relative min-h-screen overflow-hidden">
+          <div className="flex w-full min-h-screen transition-transform ease-in duration-500">
+            <div className=" relative flex justify-center items-center min-w-full">
+              <Image
+                src={
+                  "https://unsplash.com/photos/m14vUTPKEEA/download?force=true&w=1920"
+                }
+                alt={`Slide`}
+                fill
+                priority={true}
+                style={{ objectFit: "cover", overflow: "hidden" }}
+              />
+
+              <div className="absolute w-full h-full bg-black/50">
+                <div className="absolute inset-y-1/2 md:w-1/2 h-fit py-10 px-5 sm:px-10 md:px-52 space-y-7 text-white">
+                  <div>
+                    <h2 className="text-sm sm:text-base font-bold uppercase">
+                      OUR CAPABILITIES
+                    </h2>
+                    <h3 className="text-2xl md:text-4xl mt-4 border-l-4 border-blue-500 pl-4 font-exo">
+                      Automation and IoT Engineering Advisory Services
+                    </h3>
                   </div>
+                  <Link className="flex w-fit" href={"/"}>
+                    <div className="text-xl sm:text-xl flex flex-row items-center gap-5 group relative overflow-hidden">
+                      <div className="relative">
+                        <span className="relative transition-all duration-300">
+                          Read More
+                        </span>
+                        <div className="absolute bottom-0 left-0 w-full h-[2px] bg-current origin-bottom-right scale-x-0 transition-transform duration-300 ease-out group-hover:origin-bottom-left group-hover:scale-x-100"></div>
+                      </div>
+                      <div className="bg-white rounded-full text-black p-1 overflow-hidden">
+                        <svg
+                          strokeWidth="2"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          className="h-6 w-6 transition-transform duration-300 ease-in-out group-hover:animate-slide-and-fade-once"
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="20px"
+                        >
+                          <path
+                            d="M14 5l7 7m0 0l-7 7m7-7H3"
+                            strokeLinejoin="round"
+                            strokeLinecap="round"
+                          ></path>
+                        </svg>
+                      </div>
+                    </div>
+                  </Link>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        <section className="bg-gray-100">
-          <div className="container mx-auto px-0">
+        {/*OUR CAPABILITIES */}
+        <section className="bg-gray-100 py-10 px-5 sm:px-10 md:px-52">
+          <div className="container mx-auto">
+            <div className="lg:w-3/4">
+              <div className="py-8">
+                <h2 className="text-base sm:text-xl font-bold text-black uppercase">
+                  OUR CAPABILITIES
+                </h2>
+                <h3 className="text-4xl md:text-6xl text-black mt-4 border-l-4 border-blue-500 pl-4 font-exo">
+                  Our solutions are driving transformation across industries.
+                </h3>
+              </div>
+            </div>
             <div className="px-0">
               <div className="flex flex-wrap" role="list">
                 <div className="w-full lg:w-1/2" role="listitem">
@@ -567,6 +549,7 @@ export default function ArtificialIntelligence() {
                     </p>
                   </Link>
                 </div>
+
                 <div className="w-full lg:w-1/2" role="listitem">
                   <Link
                     href="#"
@@ -598,9 +581,67 @@ export default function ArtificialIntelligence() {
           </div>
         </section>
 
+        {/* our benefits */}
+        <section className="bg-gray-100 py-12 pb-24 px-5 sm:px-10 md:px-52">
+          <div className="container mx-auto ">
+            <div className="text-left mb-8  ">
+              <h2 className=" text-base sm:text-lg font-bold text-black uppercase">
+                benefits
+              </h2>
+              <p
+                className="text-xl font-medium mt-4 border-l-4 border-blue-500 pl-4 font-exo"
+                // className="text-4xl md:text-6xl text-black mt-4 border-l-4 border-blue-500 pl-4 font-exo"
+              >
+                Unlock the potential of IoT for your business.
+              </p>
+            </div>
+            <ul className="space-y-5 font-exo2 text-base ">
+              <li>
+                <span className="font-bold  text-black">
+                  Explore New Business Horizons:
+                </span>
+                &nbsp; Envision and implement innovative business models by
+                harnessing the power of digital transformation.
+              </li>
+              <li>
+                <span className="font-bold  text-black">
+                  Enhance Operational Flexibility:
+                </span>
+                &nbsp; Adapt quickly to changing market demands with agile and
+                responsive business practices.
+              </li>
+              <li>
+                <span className="font-bold  text-black">
+                  Elevate Customer Satisfaction:
+                </span>
+                &nbsp; Streamline processes to remove friction, ensuring product
+                and service consistency that delights customers.
+              </li>
+              <li>
+                <span className="font-bold  text-black">
+                  Promote Sustainability:
+                </span>
+                &nbsp; Lower emissions and energy use, contributing to a smaller
+                carbon footprint while improving safety and quality of life.
+              </li>
+            </ul>
+          </div>
+        </section>
+        {/* Explore More */}
+        <section className="bg-black text-white py-24 pb-10 px-5 sm:px-10 md:px-52 ">
+          <div className="container mx-auto px-0">
+            <div>
+              <h2 className="text-2xl md:text-3xl text-left mb-8 font-nunito">
+                Explore More
+              </h2>
+            </div>
+            <AutoScrollSlider dataPoints={dataPoints} />
+          </div>
+        </section>
+
         {/* success Stories Section */}
         <section className="py-24">
-          <div className="container mx-auto px-6">
+          <div className="container mx-auto px-5 sm:px-10 md:px-20 ">
             <h2 className="text-4xl font-bold text-gray-900 mb-12 text-center font-poppins">
               Success Stories
             </h2>
