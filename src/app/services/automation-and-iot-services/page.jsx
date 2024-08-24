@@ -388,13 +388,13 @@ export default function ArtificialIntelligence() {
                 <div className="absolute inset-y-1/2 md:w-1/2 h-fit py-10 px-5 sm:px-10 md:px-52 space-y-7 text-white">
                   <div>
                     <h2 className="text-sm sm:text-base font-bold uppercase">
-                      OUR CAPABILITIES
+                      A Purposeful Strategy
                     </h2>
                     <h3 className="text-2xl md:text-4xl mt-4 border-l-4 border-blue-500 pl-4 font-exo">
                       Automation and IoT Engineering Advisory Services
                     </h3>
                   </div>
-                  <Link className="flex w-fit" href={"/"}>
+                  <Link className="flex w-fit pl-5" href={"/"}>
                     <div className="text-xl sm:text-xl flex flex-row items-center gap-5 group relative overflow-hidden">
                       <div className="relative">
                         <span className="relative transition-all duration-300">
