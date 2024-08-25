@@ -56,7 +56,7 @@ module.exports = {
         mono: ["var(--font-roboto-mono)"],
         grey: ["var(--font-grey_qo)"],
         exo: ["var(--font-exo)"],
-        exo2: ["var(--font-exo-2)"],
+        exo2: ["var(--font-exo2)"],
         nunito: ["var(--font-nunito)"],
         poppins: ["var(--font-poppins)"],
       },

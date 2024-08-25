@@ -166,19 +166,19 @@ export default function ArtificialIntelligence() {
             </span>
           </h2> */}
           <p className="text-center mt-10 font-exo text-2xl md:text-4xl">
-            Empowering businesses with intelligent solutions
+            Transforming industries through intelligent automation and IoT
           </p>
           <p className="my-10 sm:m-5 md:m-20 text-justify text-lg md:text-xl space-y-7 text-black font-exo2">
-            AI is transforming the landscape of every industry, driving
-            innovation and efficiency at an unprecedented scale. Today&apos;s
-            enterprises are moving beyond traditional software solutions to
-            build intelligent ecosystems that enhance decision-making, automate
-            processes, and unlock new opportunities. The future lies in
-            integrating cutting-edge AI technologies like machine learning,
-            natural language processing, computer vision, and predictive
-            analytics. These advancements will enable businesses to deliver
-            personalized experiences, optimize operations, and stay ahead in an
-            increasingly competitive and fast-paced world.
+            Automation and IoT are revolutionizing the way businesses operate,
+            driving efficiency and innovation across all sectors. The shift from
+            manual processes to intelligent, interconnected systems allows for
+            real-time monitoring, predictive maintenance, and seamless
+            operations. The future of automation and IoT services will be
+            defined by the integration of advanced technologies like AI-driven
+            automation, smart sensors, edge computing, and secure cloud
+            connectivity. These innovations will enable businesses to optimize
+            their operations, reduce costs, and create smarter, more responsive
+            environments that adapt to evolving needs.
           </p>
           {/* AI Data Points */}
           {/* <div className="pb-12 text-black px-4 sm:px-0">
@@ -384,8 +384,8 @@ export default function ArtificialIntelligence() {
                 style={{ objectFit: "cover", overflow: "hidden" }}
               />
 
-              <div className="absolute w-full h-full bg-black/50">
-                <div className="absolute inset-y-1/2 md:w-1/2 h-fit py-10 px-5 sm:px-10 md:px-52 space-y-7 text-white">
+              <div className="absolute h-full w-full bg-black/50">
+                <div className="absolute inset-y-1/2  h-fit py-10 px-5 sm:px-10 md:px-52 space-y-7 text-white">
                   <div>
                     <h2 className="text-sm sm:text-base font-bold uppercase">
                       A Purposeful Strategy
@@ -572,7 +572,7 @@ export default function ArtificialIntelligence() {
                           />
                         </svg>
                       </span>
-                      Turing Smart Store
+                      Ada Smart Store
                     </p>
                   </Link>
                 </div>
@@ -595,7 +595,7 @@ export default function ArtificialIntelligence() {
                 Unlock the potential of IoT for your business.
               </p>
             </div>
-            <ul className="space-y-5 font-exo2 text-base ">
+            <ul className="space-y-5 text-base ">
               <li>
                 <span className="font-bold  text-black">
                   Explore New Business Horizons:
