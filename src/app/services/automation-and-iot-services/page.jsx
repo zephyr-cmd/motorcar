@@ -1,5 +1,5 @@
 // import CapabilitiesCarousel from "@/app/_components/CapabilityCarousel";
-import AutoScrollSlider from "@/app/_components/cardSlider";
+import CardSlider from "@/app/_components/cardSlider";
 import Navbar from "@/app/_components/navbar";
 import {
   Accordion,
@@ -15,7 +15,8 @@ export default function ArtificialIntelligence() {
   const slides = [
     {
       type: "image",
-      src: "https://unsplash.com/photos/Ilpf2eUPpUE/download?force=true&w=1920",
+      // src: "https://unsplash.com/photos/Ilpf2eUPpUE/download?force=true&w=1920",
+      src: "https://unsplash.com/photos/-tzkyLKPvL4/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8MjN8fHNvbGFyfGVufDB8fHx8MTcyNDY1NjM5NXww&force=true&w=1920",
       heading: "Giving things a spark of life",
       description:
         "We help you harness cutting-edge automation and IoT solutions that boost growth, streamline operations, and encourage innovation.",
@@ -109,12 +110,16 @@ export default function ArtificialIntelligence() {
         "Emerging Technologies",
         "Innovation Workshops",
       ],
+      image:
+        "https://unsplash.com/photos/LP-iUrOi5T0/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8NzF8fGlubm92YXRlfGVufDB8fHx8MTcyNTk5Mjg0NHww&force=true&w=640",
     },
     {
       id: 2,
       title: "Brand Elevation",
       description: "Branding & Strategy",
       items: ["Brand Strategy", "Identity Design", "Market Research"],
+      image:
+        "https://unsplash.com/photos/b4DtZhxJjPM/download?force=true&w=640",
     },
     {
       id: 3,
@@ -125,33 +130,31 @@ export default function ArtificialIntelligence() {
         "Business Analytics",
         "Partnership Development",
       ],
-      image: "/image2.jpg",
+      image:
+        "https://unsplash.com/photos/FV_PxCqgtwc/download?force=true&w=640",
     },
     {
       id: 4,
       title: "Engage & Convert",
       description: "Customer Engagement",
       items: ["Digital Campaigns", "Loyalty Programs", "Customer Insights"],
+      image:
+        "https://unsplash.com/photos/cXdVyE4eJeg/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8MTczfHx0cmVuZGluZyUyMGFycm93fGVufDB8fHx8MTcyNTk5MjUxMnww&force=true&w=640",
     },
     {
       id: 5,
       title: "Design & Transform",
       description: "Experience",
       items: ["CX Strategy", "Experience Design", "Creative"],
+      image:
+        "https://unsplash.com/photos/ZSPBhokqDMc/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8MTJ8fGRlc2lnbnxlbnwwfHx8fDE3MjU5OTMzMTd8MA&force=true&w=640",
     },
-    {
-      id: 6,
-      title: "Demand Gen",
-      description: "Content & Creative",
-      items: ["Content Strategy", "Content Marketing", "Social Activation"],
-    },
-    {
-      id: 7,
-      title: "Card 3",
-      description: "This is the description for card 3.",
-      items: ["Item X", "Item Y", "Item Z"],
-      link: "https://example.com/page3",
-    },
+    // {
+    //   id: 6,
+    //   title: "Demand Gen",
+    //   description: "Content & Creative",
+    //   items: ["Content Strategy", "Content Marketing", "Social Activation"],
+    // },
   ];
 
   return (
@@ -635,7 +638,7 @@ export default function ArtificialIntelligence() {
                 Explore More
               </h2>
             </div>
-            <AutoScrollSlider dataPoints={dataPoints} />
+            <CardSlider dataPoints={dataPoints} />
           </div>
         </section>
 
