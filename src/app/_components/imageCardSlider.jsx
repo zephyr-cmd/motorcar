@@ -159,14 +159,17 @@ export default function ImageCardSlider({ dataPoints }) {
                 <Image
                   src={card.image}
                   alt={`Service ${card.title}`}
-                  layout="fill"
-                  objectFit="cover"
+                  fill
+                  style={{
+                    objectFit: "cover",
+                    overflow: "hidden",
+                  }}
                   className="absolute inset-0"
                 />
               ) : (
                 <div className="absolute inset-0 bg-white"></div>
               )}
-              <div className="relative z-10 p-4 bg-black/70 flex flex-col justify-start h-full">
+              <div className="relative z-10 p-4 bg-black/50 flex flex-col justify-start h-full">
                 <h3 className="text-lg font-bold mb-4 text-gray-300">
                   {card.title}
                 </h3>

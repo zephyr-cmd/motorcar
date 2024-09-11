@@ -1,5 +1,5 @@
 // import CapabilitiesCarousel from "@/app/_components/CapabilityCarousel";
-import CardSlider from "@/app/_components/cardSlider";
+import ImageCardSlider from "@/app/_components/imageCardSlider";
 import Navbar from "@/app/_components/navbar";
 import {
   Accordion,
@@ -11,7 +11,7 @@ import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function ArtificialIntelligence() {
+export default function AutomationAndIoT() {
   const slides = [
     {
       type: "image",
@@ -112,6 +112,9 @@ export default function ArtificialIntelligence() {
       ],
       image:
         "https://unsplash.com/photos/LP-iUrOi5T0/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8NzF8fGlubm92YXRlfGVufDB8fHx8MTcyNTk5Mjg0NHww&force=true&w=640",
+      // image:
+      //   "https://images.unsplash.com/photo-1704730827544-ad473ecae95d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NzF8fGlubm92YXRlfGVufDB8fDB8fHww",
+      // image: "/image2.jpg",
     },
     {
       id: 2,
@@ -638,7 +641,7 @@ export default function ArtificialIntelligence() {
                 Explore More
               </h2>
             </div>
-            <CardSlider dataPoints={dataPoints} />
+            <ImageCardSlider dataPoints={dataPoints} />
           </div>
         </section>
 
