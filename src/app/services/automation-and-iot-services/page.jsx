@@ -175,16 +175,28 @@ export default function AutomationAndIoT() {
             Transforming industries through intelligent automation and IoT
           </p>
           <p className="my-10 sm:m-5 md:m-20 text-justify text-lg md:text-xl space-y-7 text-black font-exo2">
-            Automation and IoT are revolutionizing the way businesses operate,
-            driving efficiency and innovation across all sectors. The shift from
-            manual processes to intelligent, interconnected systems allows for
-            real-time monitoring, predictive maintenance, and seamless
-            operations. The future of automation and IoT services will be
-            defined by the integration of advanced technologies like AI-driven
-            automation, smart sensors, edge computing, and secure cloud
-            connectivity. These innovations will enable businesses to optimize
-            their operations, reduce costs, and create smarter, more responsive
-            environments that adapt to evolving needs.
+            The future is not coming, it is already here and it is no other than
+            Automation and IOT services powered by artificial intelligence and
+            machine learning. Whether you are trying to make your business smart
+            or you want smart solutions to your problems that require advanced
+            algorithms and IOT services, we are ready to help you out. Your
+            needs evolve, and so should your automation system. That's why our
+            solutions are fully customisable and scalable. We tailor solutions
+            as per your requirements and our team ensures that your business
+            outperforms with our outstanding dedicated team who works round the
+            clock to get the best that your company deserves. We all have heard
+            that time is money so how about making money by saving time? This is
+            a world where routine tasks are taken care of themselves, you
+            don&apos;t need to bother. Rather you can focus more on new ideas
+            and expanding your business. We help you set up cutting-edge systems
+            that run like clockwork, whether you&apos;re managing your business,
+            your home, or your devices. From automating customer service bots to
+            handling complex manufacturing processes, automation can make it all
+            faster, easier, and more reliable.
+            <br />
+            <p className=" text-xl md:text-2xl">
+              “Save your time with us, let&apos;s automate the growth”
+            </p>
           </p>
           {/* AI Data Points */}
           {/* <div className="pb-12 text-black px-4 sm:px-0">
