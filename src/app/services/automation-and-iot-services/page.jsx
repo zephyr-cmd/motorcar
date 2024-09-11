@@ -633,12 +633,12 @@ export default function AutomationAndIoT() {
             </ul>
           </div>
         </section>
-        {/* Explore More */}
+        {/* Our Offerings */}
         <section className="bg-black text-white py-24 pb-10 px-5 sm:px-10 md:px-52 ">
           <div className="container mx-auto px-0">
             <div>
               <h2 className="text-2xl md:text-3xl text-left mb-8 font-nunito">
-                Explore More
+                Our Offerings
               </h2>
             </div>
             <ImageCardSlider dataPoints={dataPoints} />

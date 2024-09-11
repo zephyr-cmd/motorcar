@@ -154,22 +154,24 @@ export default function ImageCardSlider({ dataPoints }) {
             className="relative p-2 pb-6 sm:p-6 min-h-[500px] flex-shrink-0 card w-full sm:w-1/2 md:w-1/3 lg:w-1/4"
             id={`vbp-${card.id}`}
           >
-            <div className="relative h-full shadow-md rounded-lg overflow-hidden">
-              {card.image ? (
-                <Image
-                  src={card.image}
-                  alt={`Service ${card.title}`}
-                  fill
-                  style={{
-                    objectFit: "cover",
-                    overflow: "hidden",
-                  }}
-                  className="absolute inset-0"
-                />
-              ) : (
-                <div className="absolute inset-0 bg-white"></div>
-              )}
-              <div className="relative z-10 p-4 bg-black/50 flex flex-col justify-start h-full">
+            <div className="relative h-full shadow-md rounded-lg overflow-hidden group">
+              <div className="relative h-full w-full transform transition-transform duration-300 ease-in-out group-hover:scale-105">
+                {card.image ? (
+                  <Image
+                    src={card.image}
+                    alt={`Service ${card.title}`}
+                    fill
+                    style={{
+                      objectFit: "cover",
+                      overflow: "hidden",
+                    }}
+                    className="absolute inset-0"
+                  />
+                ) : (
+                  <div className="absolute inset-0 bg-white"></div>
+                )}
+              </div>
+              <div className="absolute inset-0 p-4 bg-black/50 flex flex-col justify-start">
                 <h3 className="text-lg font-bold mb-4 text-gray-300">
                   {card.title}
                 </h3>
