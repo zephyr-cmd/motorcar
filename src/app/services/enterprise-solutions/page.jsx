@@ -10,12 +10,12 @@ export default function SoftwareProducts() {
   const slides = [
     {
       type: "image",
-      src: "https://unsplash.com/photos/QBpZGqEMsKg/download?force=true&w=1920",
-      heading: "Software designed to improve your products",
+      src: "https://unsplash.com/photos/jMslJKj3IQY/download?ixid=M3wxMjA3fDB8MXxjb2xsZWN0aW9ufDR8YnpwSXlURnNWQVV8fHx8fDJ8fDE3MjYzMzIwMTh8&force=true&w=1920",
+      heading: "Transform Your Business with Enterprise Solutions",
       description:
-        "We help you transform products with our services to manufacture, service, and realize better outcomes.",
-      buttonText: "/Software Products",
-      buttonLink: "/services/contact-us/software-products",
+        "Enterprise applications are crucial for modern businesses. Digital transformation demands a holistic approach with intelligent solutions.",
+      buttonText: "/Enterprise Solutions",
+      buttonLink: "/services/contact-us/enterprise-solutions",
     },
   ];
   const softwareDataPoints = [
@@ -186,39 +186,27 @@ export default function SoftwareProducts() {
         {/* Software Services Overview */}
         <section className="container w-full mx-auto py-12 text-black px-10 sm:px-20 p-5 ">
           <p className="text-center mt-10 font-nunito text-4xl">
-            Elevate business success through powerful software solutions
+            Building robust solutions with integrated enterprise and ecosystem
+            support.
           </p>
-
-          <div className="my-10 sm:my-10 md:my-20 text-justify text-lg md:text-xl space-y-7 text-black font-exo2">
+          <div className="my-10 sm:my-5 md:my-20 text-justify text-lg md:text-xl space-y-7 text-black font-exo2">
             <p>
-              Cutting-edge software is reshaping industries, offering
-              unparalleled innovation and efficiency. Modern businesses are
-              adopting comprehensive software platforms that simplify workflows,
-              enhance decision-making, and foster growth. By embracing the
-              latest in software technology, companies can deliver superior
-              results, boost operational effectiveness, and stay ahead in a
-              rapidly evolving market.
+              Adalabs offers solutions that include everything from enterprise
+              resource planning (ERP) systems, which integrate all core business
+              functions, to customer relationship management (CRM) software,
+              data analytics, cloud solutions, and cybersecurity measures. We
+              understand that every endeavour for an enterprise is unique so is
+              your enterprise. We craft solutions as per your enterprise need.
+              We integrate diverse systems and applications and make sure that
+              our IT solutions stand well to your expectations.
             </p>
 
-            {/* <h3 className="font-bold">How we make it happen:</h3>
-            <p>
-              Everything starts with you. We craft software as per your needs
-              and ambitions. Once we understand your requirements, it's time to
-              get all the things on the table. We design the architecture, user
-              interface (UI), and user experience (UX), and create wireframes
-              and prototypes. Front-end and back-end development bring
-              applications to life. Each feature is fueled by the latest
-              technology and meets your specifications. Behind the scenes, we
-              handle data processing, API integrations, user authentication, and
-              more. Regular updates and feedback ensure alignment with your
-              vision.
-            </p> */}
-
-            {/* <p className="text-xl md:text-2xl mt-4 font-semibold">
-              “Let's code, future together”
-            </p> */}
+            <h3 className="text-xl md:text-2xl mt-4 font-semibold">
+              “Be ready to give wings to your dream with our exclusive IT
+              solutions”
+            </h3>
           </div>
-          <div className="py-12 text-black px-4 sm:px-0">
+          <div className="pb-12 text-black px-4 sm:px-0">
             <h2 className="text-2xl text-center mb-8 font-nunito">
               Current Statistics & Trends in Software Products
             </h2>

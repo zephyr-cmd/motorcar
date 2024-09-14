@@ -174,30 +174,36 @@ export default function AutomationAndIoT() {
           <p className="text-center mt-10 font-exo text-2xl md:text-4xl">
             Transforming industries through intelligent automation and IoT
           </p>
-          <p className="my-10 sm:m-5 md:m-20 text-justify text-lg md:text-xl space-y-7 text-black font-exo2">
-            The future is not coming, it is already here and it is no other than
-            Automation and IOT services powered by artificial intelligence and
-            machine learning. Whether you are trying to make your business smart
-            or you want smart solutions to your problems that require advanced
-            algorithms and IOT services, we are ready to help you out. Your
-            needs evolve, and so should your automation system. That's why our
-            solutions are fully customisable and scalable. We tailor solutions
-            as per your requirements and our team ensures that your business
-            outperforms with our outstanding dedicated team who works round the
-            clock to get the best that your company deserves. We all have heard
-            that time is money so how about making money by saving time? This is
-            a world where routine tasks are taken care of themselves, you
-            don&apos;t need to bother. Rather you can focus more on new ideas
-            and expanding your business. We help you set up cutting-edge systems
-            that run like clockwork, whether you&apos;re managing your business,
-            your home, or your devices. From automating customer service bots to
-            handling complex manufacturing processes, automation can make it all
-            faster, easier, and more reliable.
-            <br />
-            <p className=" text-xl md:text-2xl">
-              “Save your time with us, let&apos;s automate the growth”
+          <div className="my-10 sm:my-5 md:my-20 text-justify text-lg md:text-xl space-y-7 text-black font-exo2">
+            <p>
+              The future is not coming, it is already here, and it is no other
+              than Automation and IoT services powered by artificial
+              intelligence and machine learning. Whether you are trying to make
+              your business smart or you need smart solutions to problems
+              requiring advanced algorithms and IoT services, we are ready to
+              help you. Your needs evolve, and so should your automation system.
+              That's why our solutions are fully customizable and scalable. We
+              tailor them to your requirements, ensuring that your business
+              thrives with the help of our outstanding, dedicated team, working
+              round the clock to deliver the best results your company deserves.
             </p>
-          </p>
+
+            <p>
+              We've all heard that time is money, so how about making money by
+              saving time? In a world where routine tasks are automated, you
+              don&apos;t need to worry about them. Instead, you can focus on new
+              ideas and growing your business. We help you set up cutting-edge
+              systems that run like clockwork, whether you are managing your
+              business, your home, or your devices. From automating customer
+              service bots to handling complex manufacturing processes,
+              automation can make everything faster, easier, and more reliable.
+            </p>
+
+            <h3 className="text-xl md:text-2xl mt-4 font-semibold">
+              “Save your time with us, let's automate the growth”
+            </h3>
+          </div>
+
           {/* AI Data Points */}
           {/* <div className="pb-12 text-black px-4 sm:px-0">
             <h2 className="text-2xl text-center mb-8 font-nunito">

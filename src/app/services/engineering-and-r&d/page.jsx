@@ -7,12 +7,17 @@ export default function ArtificialIntelligence() {
   const slides = [
     {
       type: "image",
-      src: "https://unsplash.com/photos/LaKwLAmcnBc/download?ixid=M3wxMjA3fDB8MXxhbGx8MTQ5fHx8fHx8Mnx8MTcyMzU0MzkyMXw&force=true&w=1920",
-      heading: "Empowering Your Business with AI",
+      src: "https://unsplash.com/photos/gACEhIgXmEo/download?ixid=M3wxMjA3fDB8MXxjb2xsZWN0aW9ufDV8WGhRZ1JsM04xMFl8fHx8fDJ8fDE3MjQzNTA1ODh8&force=true&w=1920",
+      // heading: "Empowering Your Business with AI",
+      // description:
+      // "We deliver global engineering services that help manufacturers design, develop, and realize competitive, customer-centric products. From full program management to specialized engineering support, we tailor solutions to meet your needs throughout the product lifecycle.",
+      // buttonText: "/Artificia lntelligence",
+      // buttonLink: "/services/contact-us/artificial-intelligence",
+      heading: "Innovative Engineering Solutions",
       description:
-        "We help you to leverage advanced AI technologies that drive growth, enhance efficiency, and foster innovation.",
-      buttonText: "/Artificia lntelligence",
-      buttonLink: "/services/contact-us/artificial-intelligence",
+        "We provide tailored engineering services to help manufacturers design and deliver competitive, customer-focused products throughout the entire lifecycle.",
+      buttonText: "/Engineering & R&D",
+      buttonLink: "/services/contact-us/engineering-and-rd",
     },
   ];
   const services = [
@@ -174,23 +179,33 @@ export default function ArtificialIntelligence() {
           <p className="text-center mt-10 font-nunito text-4xl">
             Empowering businesses with intelligent solutions
           </p>
-
           <div className="my-10 sm:my-5 md:my-20 text-justify text-lg md:text-xl space-y-7 text-black font-exo2">
             <p>
-              AI is transforming the landscape of every industry, driving
-              innovation and efficiency at an unprecedented scale. Today&apos;s
-              enterprises are moving beyond traditional software solutions to
-              build intelligent ecosystems that enhance decision-making,
-              automate processes, and unlock new opportunities. The future lies
-              in integrating cutting-edge AI technologies like machine learning,
-              natural language processing, computer vision, and predictive
-              analytics. These advancements will enable businesses to deliver
-              personalized experiences, optimize operations, and stay ahead in
-              an increasingly competitive and fast-paced world.
+              Innovation is not just about ideas, it&apos;s about bringing
+              simple solutions to complex problems. The true masterpieces of
+              engineering are those where complex systems work together in
+              harmony to provide simple and efficient solutions. In today&apos;s
+              world, tech businesses evolve along with the rapid pace of
+              technology. Engineering is no longer just the arrangement of
+              physical machines, it now involves a sophisticated combination of
+              software that powers machine efficiency.
             </p>
+
+            <p>
+              Our comprehensive technical assistance covers a wide range of
+              engineering software, including CAD systems, simulation tools, and
+              other specialized applications designed to enhance engineering
+              precision and performance.
+            </p>
+
+            <h3 className="text-xl md:text-2xl mt-4 font-semibold">
+              “Let&apos;s engineer a better future backed with Artificial
+              Intelligence and Machine Learning”
+            </h3>
           </div>
+
           {/* AI Data Points */}
-          <div className="pb-12 text-black px-4 sm:px-0">
+          <div className="py-10 px-4 sm:px-0">
             <h2 className="text-2xl text-center mb-8 font-nunito">
               Current Statistics & Trends
             </h2>
@@ -245,6 +260,7 @@ export default function ArtificialIntelligence() {
           </section>
           {/* <CapabilitiesCarousel slides={services} /> */}
         </div>
+
         {/* success Stories Section */}
         <section className=" py-24">
           <div className="container mx-auto px-6">

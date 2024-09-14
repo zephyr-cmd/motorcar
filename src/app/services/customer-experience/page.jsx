@@ -70,23 +70,29 @@ export default function CustomerExperience() {
           <p className="text-center mt-10 font-exo text-2xl md:text-4xl">
             Elevating customer journeys through innovation and empathy
           </p>
-          <p className="my-10 sm:m-5 md:m-20 text-justify text-lg md:text-xl space-y-7 text-black font-exo2">
-            As customer expectations continue to evolve, businesses must
-            prioritize creating meaningful, memorable, and emotionally resonant
-            experiences that go beyond simply delivering products or services.
-            The focus has shifted towards crafting seamless, personalized
-            journeys that connect with users at every touchpoint. In
-            today&apos;s dynamic market, exceptional customer experiences are
-            key to fostering brand loyalty and driving growth. The future of
-            customer experience and design will be shaped by the integration of
-            advanced technologies, human-centered responsive design, immersive
-            user interfaces, and data-driven insights. These innovations will
-            empower businesses to anticipate customer needs, deliver tailored
-            solutions, and build lasting relationships. By leveraging real-time
-            feedback loops, companies can connect with customers on a deeper
-            level, setting themselves apart in an increasingly competitive
-            marketplace.
-          </p>
+          <div className="my-10 sm:my-10 md:my-20 text-justify text-lg md:text-xl space-y-7 text-black font-exo2">
+            <p>
+              As customer expectations continue to evolve, businesses must
+              prioritize creating meaningful, memorable, and emotionally
+              resonant experiences that go beyond simply delivering products or
+              services. The focus has shifted towards crafting seamless,
+              personalized journeys that connect with users at every touchpoint.
+              In today&apos;s dynamic market, exceptional customer experiences
+              are key to fostering brand loyalty and driving growth. The future
+              of customer experience and design will be shaped by the
+              integration of advanced technologies, human-centered responsive
+              design, immersive user interfaces, and data-driven insights. These
+              innovations will empower businesses to anticipate customer needs,
+              deliver tailored solutions, and build lasting relationships. By
+              leveraging real-time feedback loops, companies can connect with
+              customers on a deeper level, setting themselves apart in an
+              increasingly competitive marketplace.
+            </p>
+
+            <p className="text-xl md:text-2xl mt-4 font-semibold">
+              “Crafting Connections, Enhancing Every Experience”
+            </p>
+          </div>
           {/* Our Offerings */}
           <div className="pb-12 text-black px-4 sm:px-0">
             <div>
