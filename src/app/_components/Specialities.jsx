@@ -76,6 +76,10 @@ function Specialities() {
                     overflow: "hidden",
                   }}
                   priority={true}
+                  sizes="(max-width: 640px) 100vw,
+                  (max-width: 1280px) 50vw,
+                  (max-width: 1536px) 33vw,
+                  25vw"
                   className="absolute transform grayscale group-hover:grayscale-0 transition-all duration-700"
                 />
               </div>
