@@ -58,6 +58,7 @@ const Navbar = (props) => {
           <div className="sm:hidden">
             <button
               onClick={() => handlesideBar()}
+              aria-label="Open menu"
               className="focus:outline-none p-2 hover:rounded-full hover:bg-gray-600"
             >
               {isOpen ? (

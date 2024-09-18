@@ -43,7 +43,7 @@ const HeaderCarousel = () => {
       description:
         "We provide innovative IT services and consultation, leveraging technology to drive sustainable digital transformation. Our commitment extends to caring for our customers and the environment, aligning our practices with the Sustainable Development Goals (SDGs) to create a positive impact.",
       buttonText: "Learn More",
-      buttonLink: "/intro",
+      buttonLink: "/about-us",
     },
     {
       type: "image",
@@ -105,6 +105,7 @@ const HeaderCarousel = () => {
           <div className="sm:hidden">
             <button
               onClick={() => handlesideBar()}
+              aria-label="Open menu"
               className="focus:outline-none p-2 hover:rounded-full hover:bg-gray-600"
             >
               {isOpen ? (
