@@ -1,4 +1,4 @@
-// import Carousel from "@/app/_components/CapabilityCarousel";
+import Carousel from "@/app/_components/CapabilityCarousel";
 import Navbar from "@/app/_components/navbar";
 import {
   Accordion,
@@ -316,7 +316,7 @@ export default function AutomationAndIoT() {
                 Leading the Way
               </h2>
             </div>
-            {/* <Carousel slides={services} /> */}
+            <Carousel slides={services} />
           </div>
         </section>
 
