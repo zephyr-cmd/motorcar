@@ -50,7 +50,7 @@ export default function Footer() {
               </Link>
               <Link
                 className="hover:text-gray-300"
-                href="/coming-soon"
+                href="/about-us"
                 aria-label="About Us"
               >
                 About Us

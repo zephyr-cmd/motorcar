@@ -22,6 +22,7 @@ import {
 // import React from "react";
 import Navbar2 from "@/app/_components/navbar2";
 import Link from "next/link";
+import ContactForm from "@/app/_components/formSection";
 
 const AboutUs = () => {
   const slides = [
@@ -38,7 +39,7 @@ const AboutUs = () => {
     <div>
       <Navbar2 slides={slides} />
 
-      <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
+      <div className="min-h-fit bg-gradient-to-b from-gray-50 to-white">
         <main className="container mx-auto p-12">
           {/* About Us */}
           <section className="mb-16">
@@ -349,7 +350,7 @@ const AboutUs = () => {
           </section> */}
 
           {/* Let's Talk (Call to Action) */}
-          <section className="text-center bg-blue-600 text-white rounded-lg p-8">
+          {/* <section className="text-center bg-blue-600 text-white rounded-lg p-8">
             <h2 className="text-3xl font-bold mb-4">Let's Talk</h2>
             <p className="text-xl mb-6">
               Ready to transform your business with innovative IT solutions?
@@ -364,8 +365,9 @@ const AboutUs = () => {
               </Link>
               <ChevronRight className="ml-2 h-5 w-5" />
             </Button>
-          </section>
+          </section> */}
         </main>
+        <ContactForm />
       </div>
     </div>
   );

@@ -53,7 +53,7 @@ const ContactForm = () => {
       {/* <h2 className="font-extrabold flex py-10 justify-center items-center text-2xl sm:text-4xl">
         #EngineeringTomorrow
       </h2> */}
-      <div className="flex flex-col md:flex-row md:flex-wrap">
+      <div className="container mx-auto flex flex-col md:flex-row md:flex-wrap">
         {/* Image Part */}
         <div className="w-full md:w-1/2 flex flex-col p-5 space-y-7 flex-shrink-0">
           <h2 className="font-extrabold text-3xl">Let&apos;s talk</h2>
