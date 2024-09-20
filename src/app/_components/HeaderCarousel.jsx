@@ -210,14 +210,14 @@ const HeaderCarousel = () => {
                 )}
                 <div className="absolute w-full h-full bg-black/30">
                   <div
-                    className={`absolute inset-y-1/2 md:left-20 p-5 transition-all duration-1000 transform ${
+                    className={`absolute inset-y-1/2 md:left-20 p-5 transition-all duration-1000 text-white transform ${
                       isVideoLoaded ? "" : "animate-fadeInRight"
                     }`}
                   >
-                    <h2 className=" text-2xl sm:text-3xl md:text-5xl font-bold text-justify text-white mb-4">
+                    <h2 className=" text-2xl sm:text-3xl md:text-5xl font-bold mb-4 font-poppins sm:font-exo2">
                       {slide.heading}
                     </h2>
-                    <p className=" text-white text-sm sm:text-base mb-4 text-justify max-w-md">
+                    <p className=" text-lg sm:text-2xl mb-4 sm:text-justify max-w-2xl font-exo">
                       {slide.description}
                     </p>
                     <Link href={slide.buttonLink}>

@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Section2() {
   return (
-    <div className="bg-white text-black min-h-fit pb-10 flex flex-col md:flex-row">
+    <div className="container mx-auto text-black min-h-fit pb-10 flex flex-col md:flex-row">
       {/* Left Part: Animation or Image */}
       <div
         className={`w-full md:w-1/2 flex items-center justify-center

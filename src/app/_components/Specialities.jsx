@@ -62,7 +62,7 @@ function Specialities() {
       <p className="bg-gradient-to-r from-gray-50 via-gray-100 to-indigo-400 text-transparent bg-clip-text text-center font-bold text-3xl p-2 sm:text-5xl lg:text-7xl leading-tight tracking-tighter">
         Capabilities
       </p>
-      <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-6 md:gap-8 md:p-20">
+      <div className="container mx-auto flex flex-col sm:flex-row flex-wrap items-center justify-center gap-6 md:gap-8 md:p-20">
         {specialties.map((specialty, index) => (
           <Link href={generateHref(specialty.title)} key={index}>
             <div className="relative group flex flex-col h-80 w-64 overflow-hidden">
