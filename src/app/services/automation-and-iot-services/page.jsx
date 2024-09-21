@@ -336,10 +336,10 @@ export default function AutomationAndIoT() {
                 <h2 className="text-base sm:text-xl font-bold text-black uppercase">
                   Our Expertise
                 </h2>
-                <h3 className="text-4xl md:text-6xl text-black mt-4 border-l-4 border-blue-500 pl-4 font-exo">
+                <p className="text-4xl md:text-6xl text-black mt-4 border-l-4 border-blue-500 pl-4 font-exo">
                   Start your journey toward becoming a self-aware organization
                   with:
-                </h3>
+                </p>
               </div>
 
               {/* Right Side - Accordions */}
@@ -348,7 +348,7 @@ export default function AutomationAndIoT() {
                   <div key={index} className="border-b border-gray-200">
                     <Accordion type="single" collapsible>
                       <AccordionItem value={1 + index}>
-                        <AccordionTrigger className="font-poppins text-lg font-medium text-gray-900">
+                        <AccordionTrigger className="font-poppins text-lg font-medium text-gray-900 text-left">
                           {service.title}
                         </AccordionTrigger>
                         <AccordionContent className="font-poppins text-lg font-medium text-gray-800">

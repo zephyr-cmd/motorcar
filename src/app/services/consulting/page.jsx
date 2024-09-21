@@ -9,7 +9,7 @@ import {
 import { AlignHorizontalDistributeCenter } from "lucide-react";
 import Link from "next/link";
 
-export default function AutomationAndIoT() {
+export default function Consulting() {
   const slides = [
     {
       type: "image",
@@ -136,7 +136,7 @@ export default function AutomationAndIoT() {
     <div className="">
       <Navbar slides={slides} />
       <main className="w-full">
-        {/* iot & automation Services Overview */}
+        {/* consulting overview*/}
         <section className="container w-full mx-auto py-12 text-black p-5 sm:px-10 md:px-20">
           {/* <h2 className="text-center">
             <span className="cs-section-title uppercase font">
@@ -293,7 +293,7 @@ export default function AutomationAndIoT() {
                   <div key={index} className="border-b border-gray-200">
                     <Accordion type="single" collapsible>
                       <AccordionItem value={1 + index}>
-                        <AccordionTrigger className="font-poppins text-lg font-medium text-gray-900">
+                        <AccordionTrigger className="font-poppins text-lg font-medium text-gray-900 text-left">
                           {service.title}
                         </AccordionTrigger>
                         <AccordionContent className="font-poppins text-lg font-medium text-gray-800">

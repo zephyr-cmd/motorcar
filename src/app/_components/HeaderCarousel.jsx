@@ -98,7 +98,7 @@ const HeaderCarousel = () => {
             <Link href="#career" className="hover:text-gray-300">
               Career
             </Link>
-            <Link href="#about" className="hover:text-gray-300">
+            <Link href="/about-us" className="hover:text-gray-300">
               About Us
             </Link>
           </div>
@@ -153,7 +153,7 @@ const HeaderCarousel = () => {
             <Link href="#career" className="block py-2 hover:text-gray-300">
               Career
             </Link>
-            <Link href="#about" className="block py-2 hover:text-gray-300">
+            <Link href="/about-us" className="block py-2 hover:text-gray-300">
               About Us
             </Link>
           </div>
@@ -217,7 +217,7 @@ const HeaderCarousel = () => {
                     <h2 className=" text-2xl sm:text-3xl md:text-5xl font-bold mb-4 font-poppins sm:font-exo2">
                       {slide.heading}
                     </h2>
-                    <p className=" text-lg sm:text-2xl mb-4 sm:text-justify max-w-2xl font-exo">
+                    <p className=" text-sm sm:text-2xl mb-4 sm:text-justify max-w-2xl sm:font-exo">
                       {slide.description}
                     </p>
                     <Link href={slide.buttonLink}>

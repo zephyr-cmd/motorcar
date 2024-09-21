@@ -46,7 +46,7 @@ const AboutUs = () => {
             <h1 className="text-4xl font-bold text-gray-900 mb-6 text-center">
               About Us
             </h1>
-            <p className="text-xl text-gray-700 max-w-3xl mx-auto text-center leading-relaxed">
+            <p className="text-xl text-gray-700 mx-auto text-center leading-relaxed">
               we understand that no two businesses are alike. That's why we
               prioritize developing customized solutions that align with your
               unique business goals. Whether you require software design,
@@ -59,7 +59,7 @@ const AboutUs = () => {
               software development — ensuring your business stays at the
               forefront of technological advancements.
             </p>
-            <p className="text-xl text-gray-700 max-w-3xl mx-auto text-center leading-relaxed mt-4">
+            <p className="text-xl text-gray-700 mx-auto text-center leading-relaxed mt-4">
               <strong>
                 By doing this, we are reshaping the global perception of
                 engineering, expanding its influence as the most effective means
