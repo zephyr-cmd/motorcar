@@ -309,15 +309,13 @@ export default function Consulting() {
         </section>
 
         {/* Our Offerings */}
-        <section className="bg-black text-white py-24 pb-10 px-5 sm:px-10 md:px-52 ">
-          <div className="container mx-auto px-0">
-            <div>
-              <h2 className="text-2xl md:text-3xl text-left mb-8 font-nunito">
-                Leading the Way
-              </h2>
-            </div>
-            <Carousel slides={services} />
+        <section className="bg-black text-white">
+          <div className="container mx-auto py-12">
+            <h2 className="text-2xl md:text-3xl mx-8 font-nunito">
+              Leading the Way
+            </h2>
           </div>
+          <Carousel slides={services} />
         </section>
 
         {/* our benefits */}
@@ -367,7 +365,7 @@ export default function Consulting() {
 
         {/* success Stories Section */}
         <section className="py-24">
-          <div className="container mx-auto px-5 sm:px-10 md:px-20 ">
+          <div className="container mx-auto px-5 sm:px-10 ">
             <p className="text-4xl font-bold text-gray-900 mb-12 text-center font-poppins">
               Success Stories
             </p>

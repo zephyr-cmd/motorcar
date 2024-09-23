@@ -22,7 +22,8 @@ const Carousel = ({ slides }) => {
   };
 
   return (
-    <div>
+    <div className="flex flex-col container mx-auto items-center justify-center gap-1 p-10">
+      {/* Navigation Button Carousel */}
       <div className="top-4 left-4 flex justify-between items-center w-full px-4">
         {/* Slide Number */}
         <div className="text-white text-lg">
@@ -35,20 +36,17 @@ const Carousel = ({ slides }) => {
             onClick={handlePrev}
             className="text-white p-4 rounded-full border-2 hover:border-white border-gray-700 transition-all duration-300"
           >
-            <p className="text-4xl">&larr;</p>
+            <p className="font-bold text-2xl sm:text-4xl">&larr;</p>
           </button>
           <button
             onClick={handleNext}
             className="text-white p-4 rounded-full border-2 hover:border-white border-gray-700 transition-all duration-300"
           >
-            <p className="text-4xl">&rarr;</p>
+            <p className="font-bold text-2xl sm:text-4xl">&rarr;</p>
           </button>
         </div>
       </div>
-
-      <div className="relative flex flex-col md:flex-row items-center w-full min-h-fit space-y-7 md:space-y-0 overflow-hidden text-white">
-        {/* Slide Buttons */}
-
+      <div className="relative flex flex-col sm:flex-row items-center w-full min-h-fit overflow-hidden text-white">
         {/* Carousel Wrapper */}
         <div
           className="flex w-full min-h-fit transition-transform ease-in-out duration-500"
@@ -60,9 +58,8 @@ const Carousel = ({ slides }) => {
               className="relative flex justify-center items-center min-w-full"
             >
               {/* Slide Content */}
-              <div className="relative w-full h-[600px] flex flex-col-reverse md:flex-row items-center justify-around">
-                <div className="w-1/2 p-8">
-                  {/* <p className="text-gray-200 uppercase mb-2">Case Study</p> */}
+              <div className="relative w-full h-fit sm:h-fit flex flex-col-reverse md:flex-row items-center justify-around">
+                <div className="w-full h-fit sm:w-1/2 p-8">
                   <h2 className="text-4xl font-bold text-gray-300 mb-4">
                     {slide.title}
                   </h2>
@@ -78,7 +75,7 @@ const Carousel = ({ slides }) => {
                 </div>
 
                 {/* Slide Image */}
-                <div className="w-1/2 aspect-video md:h-1/2 relative">
+                <div className="w-full sm:max-w-[450px] sm:w-1/2 aspect-square relative m-10">
                   <Image
                     src={slide.imageSrc}
                     alt={`Service ${slide.title}`}
@@ -91,29 +88,27 @@ const Carousel = ({ slides }) => {
                   (max-width: 1280px) 50vw,
                   (max-width: 1536px) 33vw,
                   25vw"
-                    // className="absolute inset-0"
                   />
                 </div>
               </div>
             </div>
           ))}
         </div>
-
-        {/* Pagination Line */}
-        <div className="w-full h-1 flex justify-center">
-          {/* <div className="relative w-full h-1 flex"> */}
-          {slides.map((_, index) => (
-            <div
-              key={index}
-              className={`h-2 ${
-                index === currentSlide ? "bg-blue-600" : "bg-gray-400"
-              } transition-all duration-300`}
-              style={{ width: `${100 / slides.length}%` }}
-              onClick={() => setCurrentSlide(index)} // Click handler to navigate to the slide
-            ></div>
-          ))}
-          {/* </div> */}
-        </div>
+      </div>
+      {/* Pagination Line */}
+      <div className="w-full flex justify-center items-center">
+        {/* <div className="relative w-full h-1 flex"> */}
+        {slides.map((_, index) => (
+          <div
+            key={index}
+            className={`h-2 ${
+              index === currentSlide ? "bg-blue-600" : "bg-gray-400"
+            } transition-all duration-300`}
+            style={{ width: `${100 / slides.length}%` }}
+            onClick={() => setCurrentSlide(index)} // Click handler to navigate to the slide
+          ></div>
+        ))}
+        {/* </div> */}
       </div>
     </div>
   );
