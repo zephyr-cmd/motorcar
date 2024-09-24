@@ -4,28 +4,58 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-// import React, { useState } from "react";
-
 const Carousel = ({ slides }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [startX, setStartX] = useState(0);
+  const [translateX, setTranslateX] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
+  const [isTransitioning, setIsTransitioning] = useState(false);
 
-  const handleNext = () => {
-    setCurrentSlide((prevSlide) =>
-      prevSlide === slides.length - 1 ? 0 : prevSlide + 1
-    );
+  const minSwipeDistance = 50;
+
+  // Combine touch and mouse handlers into one
+  const handleStart = (clientX) => {
+    setStartX(clientX);
+    setIsDragging(true);
   };
 
-  const handlePrev = () => {
+  const handleMove = (clientX) => {
+    if (!isDragging) return;
+    const distanceMoved = clientX - startX;
+    setTranslateX(distanceMoved);
+  };
+
+  const handleEnd = () => {
+    setIsDragging(false);
+    if (Math.abs(translateX) > minSwipeDistance) {
+      if (translateX > 0) {
+        navigateSlide("prev");
+      } else {
+        navigateSlide("next");
+      }
+    }
+    setTranslateX(0);
+  };
+
+  // Generalized navigation logic
+  const navigateSlide = (direction) => {
+    if (isTransitioning) return;
+
+    setIsTransitioning(true);
     setCurrentSlide((prevSlide) =>
-      prevSlide === 0 ? slides.length - 1 : prevSlide - 1
+      direction === "next"
+        ? (prevSlide + 1) % slides.length
+        : prevSlide === 0
+        ? slides.length - 1
+        : prevSlide - 1
     );
+    setTimeout(() => setIsTransitioning(false), 500); // Match CSS transition time
   };
 
   return (
     <div className="flex flex-col container mx-auto items-center justify-center gap-1 p-10">
       {/* Navigation Button Carousel */}
-      <div className="top-4 left-4 flex justify-between items-center w-full px-4">
-        {/* Slide Number */}
+      <div className="hidden sm:flex top-4 left-4 justify-between items-center w-full px-4">
         <div className="text-white text-lg">
           {currentSlide + 1} of {slides.length}
         </div>
@@ -33,24 +63,38 @@ const Carousel = ({ slides }) => {
         {/* Navigation Buttons */}
         <div className="flex gap-6">
           <button
-            onClick={handlePrev}
+            onClick={() => navigateSlide("prev")}
             className="text-white p-4 rounded-full border-2 hover:border-white border-gray-700 transition-all duration-300"
           >
             <p className="font-bold text-2xl sm:text-4xl">&larr;</p>
           </button>
           <button
-            onClick={handleNext}
+            onClick={() => navigateSlide("next")}
             className="text-white p-4 rounded-full border-2 hover:border-white border-gray-700 transition-all duration-300"
           >
             <p className="font-bold text-2xl sm:text-4xl">&rarr;</p>
           </button>
         </div>
       </div>
-      <div className="relative flex flex-col sm:flex-row items-center w-full min-h-fit overflow-hidden text-white">
-        {/* Carousel Wrapper */}
+
+      {/* Carousel Wrapper */}
+      <div
+        className="relative flex flex-col sm:flex-row items-center w-full min-h-fit overflow-hidden text-white"
+        onTouchStart={(e) => handleStart(e.touches[0].clientX)}
+        onTouchMove={(e) => handleMove(e.touches[0].clientX)}
+        onTouchEnd={handleEnd}
+        onMouseDown={(e) => handleStart(e.clientX)}
+        onMouseMove={(e) => handleMove(e.clientX)}
+        onMouseUp={handleEnd}
+        onMouseLeave={handleEnd}
+      >
         <div
           className="flex w-full min-h-fit transition-transform ease-in-out duration-500"
-          style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+          style={{
+            transform: `translateX(calc(-${
+              currentSlide * 100
+            }% + ${translateX}px))`,
+          }}
         >
           {slides.map((slide, index) => (
             <div
@@ -75,19 +119,13 @@ const Carousel = ({ slides }) => {
                 </div>
 
                 {/* Slide Image */}
-                <div className="w-full sm:max-w-[450px] sm:w-1/2 aspect-square relative m-10">
+                <div className="w-full max-w-[300px] sm:max-w-[450px] sm:w-1/2 aspect-square relative sm:m-10">
                   <Image
                     src={slide.imageSrc}
                     alt={`Service ${slide.title}`}
                     fill
-                    style={{
-                      objectFit: "cover",
-                      overflow: "hidden",
-                    }}
-                    sizes="(max-width: 640px) 100vw,
-                  (max-width: 1280px) 50vw,
-                  (max-width: 1536px) 33vw,
-                  25vw"
+                    style={{ objectFit: "cover", overflow: "hidden" }}
+                    sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, (max-width: 1536px) 33vw, 25vw"
                   />
                 </div>
               </div>
@@ -95,9 +133,9 @@ const Carousel = ({ slides }) => {
           ))}
         </div>
       </div>
+
       {/* Pagination Line */}
       <div className="w-full flex justify-center items-center">
-        {/* <div className="relative w-full h-1 flex"> */}
         {slides.map((_, index) => (
           <div
             key={index}
@@ -105,146 +143,12 @@ const Carousel = ({ slides }) => {
               index === currentSlide ? "bg-blue-600" : "bg-gray-400"
             } transition-all duration-300`}
             style={{ width: `${100 / slides.length}%` }}
-            onClick={() => setCurrentSlide(index)} // Click handler to navigate to the slide
+            onClick={() => setCurrentSlide(index)}
           ></div>
         ))}
-        {/* </div> */}
       </div>
     </div>
   );
 };
 
 export default Carousel;
-
-// const CapabilitiesCarousel = ({ services }) => {
-//   const [currentSlide, setCurrentSlide] = useState(0);
-//   const totalSlides = services.length;
-//   const [isHovered, setIsHovered] = useState(false);
-
-//   useEffect(() => {
-//     if (!isHovered) {
-//       const interval = setInterval(() => {
-//         setCurrentSlide((prev) => (prev + 1) % totalSlides);
-//       }, 3000); // Adjust timing as needed
-//       return () => clearInterval(interval);
-//     }
-//   }, [isHovered, totalSlides]);
-//   useEffect(() => {
-//     const interval = setInterval(() => {
-//       setCurrentSlide((prev) => {
-//         // Check if we're at the end of the duplicated slides
-//         if (prev === totalSlides * 2 - 1) {
-//           return totalSlides; // Jump to the start of the original slides
-//         }
-//         return prev + 1;
-//       });
-//     }, 3000);
-
-//     return () => clearInterval(interval);
-//   }, [totalSlides]);
-
-//   const handleTransitionEnd = () => {
-//     if (currentSlide === totalSlides * 2 - 1) {
-//       // Instantly reset to the first set of slides (without animation)
-//       setCurrentSlide(totalSlides);
-//     }
-//   };
-
-//   const handleNextSlide = () => {
-//     setCurrentSlide((prev) => (prev + 1) % totalSlides);
-//   };
-
-//   const handlePrevSlide = () => {
-//     setCurrentSlide((prev) => (prev - 1 + totalSlides) % totalSlides);
-//   };
-
-//   return (
-//     <div>
-//       {/* Navigation Buttons */}
-//       <div className="bg-green-500">
-//         <button
-//           className="left-8 transform border border-gray-700 text-black text-5xl hover:text-2xl p-10 hover:p-2 transition-all duration-500  rounded-full"
-//           onClick={handlePrevSlide}
-//         >
-//           &#10094;
-//         </button>
-//         <button
-//           className="right-4 bg-black text-white p-2 rounded-full"
-//           onClick={handleNextSlide}
-//         >
-//           &#10095;
-//         </button>
-//       </div>
-//       <div
-//         className="relative container mx-auto p-10 overflow-hidden"
-//         onMouseEnter={() => setIsHovered(true)}
-//         onMouseLeave={() => setIsHovered(false)}
-//       >
-//         <div
-//           className="flex transition-transform duration-500 ease-in"
-//           style={{
-//             transform: `translateX(-${(currentSlide * 100) / totalSlides}%)`,
-//             gap: "20px",
-//           }}
-//           onTransitionEnd={handleTransitionEnd}
-//         >
-//           {[...services, ...services, ...services].map((service, index) => (
-//             <div
-//               key={index}
-//               className="container relative flex-shrink-0 w-full sm:w-1/2 lg:w-1/4 bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:scale-105"
-//             >
-//               <Image
-//                 src={service.imageSrc}
-//                 alt={`Service ${index + 1}`}
-//                 height={400}
-//                 width={400}
-//                 style={{ objectFit: "cover", overflow: "hidden" }}
-//                 className="w-full h-48 sm:h-64 lg:h-72"
-//               />
-//               <div className="p-6 md:p-8">
-//                 <h2 className="text-lg md:text-xl lg:text-2xl font-bold mb-2 text-gray-800">
-//                   {service.title}
-//                 </h2>
-//                 <p className="text-sm md:text-base text-gray-600 mb-4">
-//                   {service.description}
-//                 </p>
-//                 {service.example && (
-//                   <p className="text-xs md:text-sm italic text-gray-500">
-//                     {`Example: ${service.example}`}
-//                   </p>
-//                 )}
-//               </div>
-//             </div>
-//           ))}
-//         </div>
-//         {/* Pagination Dots */}
-//         <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 flex gap-2 mb-4 hidden md:flex">
-//           {services.map((_, index) => (
-//             <div
-//               key={index}
-//               className={`w-3 h-3 rounded-full ${
-//                 index === currentSlide % totalSlides
-//                   ? "bg-white"
-//                   : "bg-gray-500"
-//               }`}
-//             />
-//           ))}
-//         </div>
-//         <div className="absolute top-0 left-1/2 transform -translate-x-1/2 flex gap-2 mt-4 md:hidden">
-//           {services.map((_, index) => (
-//             <div
-//               key={index}
-//               className={`w-3 h-3 rounded-full ${
-//                 index === currentSlide % totalSlides
-//                   ? "bg-white"
-//                   : "bg-gray-500"
-//               }`}
-//             />
-//           ))}
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default CapabilitiesCarousel;

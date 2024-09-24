@@ -310,7 +310,7 @@ export default function Consulting() {
 
         {/* Our Offerings */}
         <section className="bg-black text-white">
-          <div className="container mx-auto py-12">
+          <div className="container mx-auto pt-12 sm:pb-12">
             <h2 className="text-2xl md:text-3xl mx-8 font-nunito">
               Leading the Way
             </h2>
