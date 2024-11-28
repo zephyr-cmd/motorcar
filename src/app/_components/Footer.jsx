@@ -107,11 +107,15 @@ export default function Footer() {
             >
               <FacebookIcon className="h-5 w-5" textcolor="fill-white" />
             </Link>
-            <Link href="#" aria-label="Instagram" target="_blank">
+            <Link
+              href="https://www.instagram.com/adalabs.in/"
+              aria-label="Instagram"
+              target="_blank"
+            >
               <InstagramIcon className="h-5 w-5" textcolor="fill-white" />
             </Link>
             <Link
-              href="https://x.com/adalabs.in"
+              href="https://x.com/AdaLabsInfo"
               aria-label="Twitter"
               target="_blank"
             >
