@@ -25,8 +25,8 @@ export default function HackathonLandingPage() {
       <main>
         <BackgroundBeamsWithCollision>
           <div className="flex flex-col overflow-y-auto">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-7xl font-bold text-center text-white font-sans tracking-tight relative z-20">
-              Web Innovators Hackathon&nbsp;{" "}
+            <h2 className="text-4xl sm:text-3xl md:text-4xl lg:text-7xl text-center text-white font-thin tracking-tight relative z-20">
+              Ada Hacks&nbsp;{" "}
               <div className="relative mx-auto inline-block w-max [filter:drop-shadow(0px_1px_3px_rgba(27,_37,_80,_0.14))]">
                 <div className="absolute left-0 top-[1px] bg-clip-text bg-no-repeat text-transparent bg-gradient-to-r py-4 from-purple-500 via-violet-500 to-pink-500 [text-shadow:0_0_rgba(0,0,0,0.1)]">
                   <span>2025</span>
@@ -83,13 +83,13 @@ export default function HackathonLandingPage() {
           </div>
         </BackgroundBeamsWithCollision>
 
-        <section id="about" className="bg-white text-gray-800 py-20 px-5">
+        <section id="about" className="bg-white text-gray-800 py-20 sm:px-5">
           <div className="container mx-auto px-4">
             <h2 className="text-4xl font-bold mb-8 text-center">
               About the Hackathon
             </h2>
             <div className="flex flex-col sm:flex-row gap-14 px-5">
-              <div className="size-1/2">
+              <div className="sm:size-1/2">
                 <h3 className="text-2xl font-semibold mb-4">Event Overview</h3>
                 <p className="mb-4">
                   Join us for an exciting week-long hackathon where you'll
@@ -103,7 +103,7 @@ export default function HackathonLandingPage() {
                   to 4 members and bring your ideas to life!
                 </p>
               </div>
-              <div className="size-1/2">
+              <div className="sm:size-1/2">
                 <h3 className="text-2xl font-semibold mb-4">Key Details</h3>
                 <ul className="space-y-2">
                   <li className="flex items-center">
