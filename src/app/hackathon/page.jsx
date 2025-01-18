@@ -21,7 +21,7 @@ export default function HackathonLandingPage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-purple-900 to-indigo-900 text-white">
+    <div className="min-h-screen bg-gradient-to-b from-blue-950 to-indigo-900 text-white">
       <main>
         <BackgroundBeamsWithCollision>
           <div className="flex flex-col overflow-y-auto">
@@ -31,9 +31,9 @@ export default function HackathonLandingPage() {
                 <div className="absolute left-0 top-[1px] bg-clip-text bg-no-repeat text-transparent bg-gradient-to-r py-4 from-purple-500 via-violet-500 to-pink-500 [text-shadow:0_0_rgba(0,0,0,0.1)]">
                   <span>2025</span>
                 </div>
-                {/* <div className="relative bg-clip-text text-transparent bg-no-repeat bg-gradient-to-r from-purple-500 via-violet-500 to-pink-500 py-4">
+                <div className="relative bg-clip-text text-transparent bg-no-repeat bg-gradient-to-r from-purple-500 via-violet-500 to-pink-500 py-4">
                   <span>2025</span>
-                </div> */}
+                </div>
               </div>
             </h2>
             <section className="container mx-auto px-4 py-10 text-center">
@@ -88,8 +88,8 @@ export default function HackathonLandingPage() {
             <h2 className="text-4xl font-bold mb-8 text-center">
               About the Hackathon
             </h2>
-            <div className="grid md:grid-cols-2 gap-8">
-              <div>
+            <div className="flex flex-col sm:flex-row gap-14 px-5">
+              <div className="size-1/2">
                 <h3 className="text-2xl font-semibold mb-4">Event Overview</h3>
                 <p className="mb-4">
                   Join us for an exciting week-long hackathon where you'll
@@ -103,7 +103,7 @@ export default function HackathonLandingPage() {
                   to 4 members and bring your ideas to life!
                 </p>
               </div>
-              <div>
+              <div className="size-1/2">
                 <h3 className="text-2xl font-semibold mb-4">Key Details</h3>
                 <ul className="space-y-2">
                   <li className="flex items-center">
@@ -134,7 +134,7 @@ export default function HackathonLandingPage() {
               Hackathon Schedule
             </h2>
             <div className="grid md:grid-cols-2 gap-8">
-              <div className="bg-purple-800 rounded-lg p-6 shadow-lg">
+              <div className="bg-indigo-950 rounded-lg p-6 shadow-lg">
                 <h3 className="text-2xl font-semibold mb-4">
                   Pre-Hackathon Kickoff
                 </h3>
@@ -146,7 +146,7 @@ export default function HackathonLandingPage() {
                   <li>Vote on a project idea/theme</li>
                 </ul>
               </div>
-              <div className="bg-purple-800 rounded-lg p-6 shadow-lg">
+              <div className="bg-indigo-950 rounded-lg p-6 shadow-lg">
                 <h3 className="text-2xl font-semibold mb-4">Hackathon Week</h3>
                 <p className="mb-2">Duration: 7 Days</p>
                 <ul className="list-disc list-inside">
@@ -158,7 +158,7 @@ export default function HackathonLandingPage() {
                   <li>Design, develop, and create content for your project</li>
                 </ul>
               </div>
-              <div className="bg-purple-800 rounded-lg p-6 shadow-lg">
+              <div className="bg-indigo-950 rounded-lg p-6 shadow-lg">
                 <h3 className="text-2xl font-semibold mb-4">
                   Weekend In-Person Meetup
                 </h3>
@@ -170,7 +170,7 @@ export default function HackathonLandingPage() {
                   <li>Showcase progress and pitch ideas to the group</li>
                 </ul>
               </div>
-              <div className="bg-purple-800 rounded-lg p-6 shadow-lg">
+              <div className="bg-indigo-950 rounded-lg p-6 shadow-lg">
                 <h3 className="text-2xl font-semibold mb-4">Closing Event</h3>
                 <ul className="list-disc list-inside">
                   <li>Teams present their final projects</li>
@@ -271,13 +271,13 @@ export default function HackathonLandingPage() {
               Perks for Participants
             </h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-              <div className="bg-purple-800 rounded-lg p-6 shadow-lg">
+              <div className="bg-indigo-950 rounded-lg p-6 shadow-lg">
                 <h3 className="text-xl font-semibold mb-4">
                   Portfolio Project
                 </h3>
                 <p>Showcase your work on your resume or GitHub</p>
               </div>
-              <div className="bg-purple-800 rounded-lg p-6 shadow-lg">
+              <div className="bg-indigo-950 rounded-lg p-6 shadow-lg">
                 <h3 className="text-xl font-semibold mb-4">
                   Networking Opportunities
                 </h3>
@@ -285,14 +285,14 @@ export default function HackathonLandingPage() {
                   Connect with like-minded creators and potential collaborators
                 </p>
               </div>
-              <div className="bg-purple-800 rounded-lg p-6 shadow-lg">
+              <div className="bg-indigo-950 rounded-lg p-6 shadow-lg">
                 <h3 className="text-xl font-semibold mb-4">Brand Exposure</h3>
                 <p>
                   Get featured in vlogs and reels for personal branding and
                   portfolio enhancement
                 </p>
               </div>
-              <div className="bg-purple-800 rounded-lg p-6 shadow-lg">
+              <div className="bg-indigo-950 rounded-lg p-6 shadow-lg">
                 <h3 className="text-xl font-semibold mb-4">
                   Product Development
                 </h3>
@@ -313,7 +313,7 @@ export default function HackathonLandingPage() {
             <div className="max-w-3xl mx-auto">
               <ol className="space-y-6">
                 <li className="flex items-start">
-                  <span className="bg-purple-600 text-white rounded-full w-8 h-8 flex items-center justify-center mr-4 mt-1 flex-shrink-0">
+                  <span className="bg-blue-950 text-white rounded-full w-8 h-8 flex items-center justify-center mr-4 mt-1 flex-shrink-0">
                     1
                   </span>
                   <div>
@@ -327,7 +327,7 @@ export default function HackathonLandingPage() {
                   </div>
                 </li>
                 <li className="flex items-start">
-                  <span className="bg-purple-600 text-white rounded-full w-8 h-8 flex items-center justify-center mr-4 mt-1 flex-shrink-0">
+                  <span className="bg-blue-950 text-white rounded-full w-8 h-8 flex items-center justify-center mr-4 mt-1 flex-shrink-0">
                     2
                   </span>
                   <div>
@@ -341,7 +341,7 @@ export default function HackathonLandingPage() {
                   </div>
                 </li>
                 <li className="flex items-start">
-                  <span className="bg-purple-600 text-white rounded-full w-8 h-8 flex items-center justify-center mr-4 mt-1 flex-shrink-0">
+                  <span className="bg-blue-950 text-white rounded-full w-8 h-8 flex items-center justify-center mr-4 mt-1 flex-shrink-0">
                     3
                   </span>
                   <div>
@@ -356,7 +356,7 @@ export default function HackathonLandingPage() {
               <div className="mt-12 text-center">
                 <a
                   href="#"
-                  className="bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-8 rounded-full transition-colors inline-flex items-center"
+                  className="bg-blue-950 hover:bg-blue-900 text-white font-bold py-3 px-8 rounded-full transition-colors inline-flex items-center"
                 >
                   Register Your Team Now
                   <ArrowRight className="ml-2 w-5 h-5" />
@@ -367,20 +367,22 @@ export default function HackathonLandingPage() {
         </section>
       </main>
 
-      <footer className="bg-purple-900 text-white py-12">
+      <footer className="bg-indigo-950 text-white py-12">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="mb-4 md:mb-0">
-              <h2 className="text-2xl font-bold text-center sm:text-left">
-                AdaHack
+              <h2 className="text-2xl font-thin text-center sm:text-left">
+                AdaLabs & Co.
               </h2>
-              <p className="mt-2">Building the future of web applications</p>
+              <p className="mt-2 text-sm">
+                Developing applications designed for the future.
+              </p>
             </div>
             <div className="flex space-x-4">
               <Link
                 href="https://facebook.com/adalabs.in"
                 target="_blank"
-                className="hover:text-purple-300 transition-colors"
+                className="hover:text-blue-900 transition-colors"
               >
                 <svg
                   className="w-6 h-6"
@@ -394,7 +396,7 @@ export default function HackathonLandingPage() {
               <Link
                 href="https://x.com/AdaLabsInfo"
                 target="_blank"
-                className="hover:text-purple-300 transition-colors"
+                className="hover:text-blue-900 transition-colors"
               >
                 <svg
                   className="w-6 h-6"
@@ -408,7 +410,7 @@ export default function HackathonLandingPage() {
               <Link
                 href="https://www.linkedin.com/company/adalabs"
                 target="_blank"
-                className="hover:text-purple-300 transition-colors"
+                className="hover:text-blue-900 transition-colors"
               >
                 <LinkedInLogoIcon className="h-6 w-6" />
                 {/* <svg
@@ -423,7 +425,7 @@ export default function HackathonLandingPage() {
             </div>
           </div>
           <div className="mt-8 text-center text-sm">
-            <p>&copy; 2024 AdaHack. All rights reserved.</p>
+            <p>&copy; 2025 All rights reserved.</p>
           </div>
         </div>
       </footer>
