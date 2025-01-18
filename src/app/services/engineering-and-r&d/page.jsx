@@ -1,6 +1,5 @@
 // import CapabilitiesCarousel from "@/app/_components/CapabilityCarousel";
 import Navbar from "@/app/_components/navbar";
-import Head from "next/head";
 import Image from "next/image";
 
 export default function ArtificialIntelligence() {
@@ -160,13 +159,6 @@ export default function ArtificialIntelligence() {
 
   return (
     <div className="">
-      <Head>
-        <title>AI Services - IT Consultancy</title>
-        <meta
-          name="description"
-          content="Explore our cutting-edge Artificial Intelligence (AI) services designed to enhance business operations and decision-making."
-        />
-      </Head>
       <Navbar slides={slides} />
       <main className="w-full">
         {/* AI Services Overview */}
