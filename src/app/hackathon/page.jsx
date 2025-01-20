@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { BackgroundBeamsWithCollision } from "@/components/ui/background-beams-with-collision";
 import {
@@ -12,18 +12,42 @@ import {
   Zap,
   CheckCircle,
   ArrowRight,
+  PlayIcon,
 } from "lucide-react";
 import Link from "next/link";
 import { LinkedInLogoIcon } from "@radix-ui/react-icons";
 import { XIcon } from "@/components/icons/socialMedia";
+import Image from "next/image";
+const videoId = "lPIILsqq_vU";
 
 export default function HackathonLandingPage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape") closeModal();
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
+  const handlePlay = () => {
+    setIsPlaying(true);
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-950 to-indigo-900 text-white">
       <main>
-        <BackgroundBeamsWithCollision>
+        <BackgroundBeamsWithCollision className={"min-h-screen"}>
           <div className="flex flex-col overflow-y-auto">
             <h2 className="text-4xl sm:text-3xl md:text-4xl lg:text-7xl text-center text-white font-thin tracking-tight relative z-20">
               Ada Hacks&nbsp;{" "}
@@ -127,6 +151,26 @@ export default function HackathonLandingPage() {
             </div>
           </div>
         </section>
+
+        <div className="flex items-center justify-center relative p-8 sm:py-20 bg-black">
+          <div className="relative">
+            <Image
+              src="/adaHacksThumbnail.png"
+              alt="Video Thumbnail"
+              width={940}
+              height={450}
+              className="w-full max-w-[940px] h-auto object-cover rounded-lg"
+            />
+            <button
+              onClick={openModal}
+              className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-black bg-opacity-70 text-primary-50 size-16 sm:size-[80px] rounded-full flex items-center justify-center"
+            >
+              {/* <span className="text-2xl sm:text-4xl"> */}
+              <PlayIcon />
+              {/* </span> */}
+            </button>
+          </div>
+        </div>
 
         <section id="schedule" className="py-20">
           <div className="container mx-auto px-4">
@@ -429,6 +473,34 @@ export default function HackathonLandingPage() {
           </div>
         </div>
       </footer>
+      {isModalOpen && (
+        <div className="fixed inset-0 z-50 bg-black bg-opacity-90 flex items-center justify-center p-4 sm:p-6 md:p-8">
+          {/* Close Button */}
+          <button
+            onClick={closeModal}
+            className="absolute top-4 right-4 text-white bg-black w-8 h-8 sm:w-10 sm:h-10 
+                 flex items-center justify-center rounded-full 
+                 hover:bg-gray-800 hover:scale-110 transition-all duration-300
+                 focus:outline-none focus:ring-2 focus:ring-white"
+          >
+            &#x2715;
+          </button>
+
+          {/* Video Container with max-width and aspect ratio */}
+          <div className="w-full max-w-[1200px] mx-auto relative">
+            <div className="aspect-video w-full">
+              <iframe
+                src={`https://www.youtube.com/embed/${videoId}?autoplay=1`}
+                title="YouTube video player"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="absolute top-0 left-0 w-full h-full rounded-lg"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
