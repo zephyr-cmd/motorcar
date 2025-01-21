@@ -1,6 +1,6 @@
 import { DBConnect } from "@/lib/Database/db";
+import hackathonTeamDB from "@/lib/Database/Model/hackathon/hackathonTeamDB";
 import { NextResponse } from "next/server";
-import HackathonTeamDB from "@/lib/Database/Model/hackathon/team";
 
 export async function GET(request, context) {
   try {
@@ -20,7 +20,7 @@ export async function GET(request, context) {
     teamName = teamName.toLowerCase();
 
     // Check if the team exists
-    const teamExists = await HackathonTeamDB.exists({ teamName });
+    const teamExists = await hackathonTeamDB.exists({ teamName });
     // console.log("L-24, checking the user already exist or not:", teamExists);
 
     return NextResponse.json({

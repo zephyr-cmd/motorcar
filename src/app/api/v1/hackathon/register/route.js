@@ -1,5 +1,5 @@
 import { DBConnect } from "@/lib/Database/db";
-import HackathonTeamDB from "@/lib/Database/Model/hackathon/team";
+import hackathonTeamDB from "@/lib/Database/Model/hackathon/hackathonTeamDB";
 import { NextResponse } from "next/server";
 
 export async function POST(request) {
@@ -23,7 +23,7 @@ export async function POST(request) {
     teamName = teamName.toLowerCase();
 
     // Check if the team name already exists
-    const teamExists = await HackathonTeamDB.exists({ teamName });
+    const teamExists = await hackathonTeamDB.exists({ teamName });
     if (teamExists) {
       return NextResponse.json({
         status: 400,
@@ -62,7 +62,7 @@ export async function POST(request) {
     }));
 
     // Create a new team
-    const newTeam = await HackathonTeamDB.create({
+    const newTeam = await hackathonTeamDB.create({
       teamName,
       members: updatedMembers,
     });
