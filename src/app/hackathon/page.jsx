@@ -96,7 +96,7 @@ export default function HackathonLandingPage() {
                 transition={{ duration: 0.8, delay: 0.6 }}
               >
                 <Link
-                  href="#participate"
+                  href="/hackathon/register"
                   className="bg-purple-500 hover:bg-purple-600 text-white font-bold py-2 px-6 rounded-full transition-colors inline-flex items-center text-sm md:text-base "
                 >
                   Register Now
@@ -398,13 +398,13 @@ export default function HackathonLandingPage() {
                 </li>
               </ol>
               <div className="mt-12 text-center">
-                <a
-                  href="#"
+                <Link
+                  href="/hackathon/register"
                   className="bg-blue-950 hover:bg-blue-900 text-white font-bold py-3 px-8 rounded-full transition-colors inline-flex items-center"
                 >
                   Register Your Team Now
                   <ArrowRight className="ml-2 w-5 h-5" />
-                </a>
+                </Link>
               </div>
             </div>
           </div>

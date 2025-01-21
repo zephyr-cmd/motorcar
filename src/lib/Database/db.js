@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 let { db_User, db_pass, NODE_ENV } = process.env;
 let DBName = NODE_ENV === "production" ? "production" : "development";
-export const DB_URL = `mongodb+srv://${db_User}:${db_pass}@cluster0.0qhta.mongodb.net/${DBName}?retryWrites=true&w=majority`;
+const DB_URL = `mongodb+srv://${db_User}:${db_pass}@cluster0.b7qnt.mongodb.net/${DBName}?retryWrites=true&w=majority&appName=Cluster0`;
 // export const DB_URL = `mongodb://localhost:27017/adalabs`;
 
 let connection = {};
