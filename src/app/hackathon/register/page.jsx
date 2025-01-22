@@ -1,74 +1,29 @@
 "use client";
-import { useState, useEffect } from "react";
+
+import { useEffect, useState, useCallback, useRef } from "react";
+import { useFormState, useFormStatus } from "react-dom";
 import { X, Plus, Sparkles, MoveLeftIcon, Check } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import { toast } from "sonner";
+import { hackTeamAction } from "./formAction";
+import { useRouter } from "next/navigation";
 
-const TeamRegistrationForm = () => {
-  const [errors, setErrors] = useState({});
+const initialState = {
+  errors: {},
+  message: "",
+};
+
+export default function TeamRegistrationForm() {
+  const [state, formAction] = useFormState(hackTeamAction, initialState);
   const [isTeamNameVerifying, setIsTeamNameVerifying] = useState(false);
   const [isTeamNameAvailable, setIsTeamNameAvailable] = useState(null);
-  const [teamNameDebounceTimer, setTeamNameDebounceTimer] = useState(null);
-  const [formData, setFormData] = useState({
-    teamName: "",
-    members: [
-      {
-        name: "",
-        email: "",
-        college: "",
-        contactNumber: "",
-        city: "",
-        state: "",
-      },
-    ],
-    spoc: "",
-  });
+  const [memberCount, setMemberCount] = useState(1);
+  const teamNameDebounceTimerRef = useRef(null); // Reference for debounce timer
+  const router = useRouter();
+  const { pending } = useFormStatus();
 
-  // ... keeping all the existing handlers and validation functions ...
-  const validateEmail = (email) => /^\S+@\S+\.\S+$/.test(email);
-  const validatePhone = (phone) => /^\d{10}$/.test(phone);
-
-  const handleSpocChange = (email) => setFormData({ ...formData, spoc: email });
-
-  const handleMemberChange = (index, field, value) => {
-    const newMembers = [...formData.members];
-    newMembers[index] = { ...newMembers[index], [field]: value };
-    setFormData({ ...formData, members: newMembers });
-  };
-
-  const addMember = () => {
-    if (formData.members.length < 4) {
-      setFormData({
-        ...formData,
-        members: [
-          ...formData.members,
-          {
-            name: "",
-            email: "",
-            college: "",
-            contactNumber: "",
-            city: "",
-            state: "",
-          },
-        ],
-      });
-    }
-  };
-
-  const removeMember = (index) => {
-    if (formData.members.length > 1) {
-      const newMembers = formData.members.filter((_, i) => i !== index);
-      setFormData({
-        ...formData,
-        members: newMembers,
-        spoc:
-          formData.spoc === formData.members[index].email ? "" : formData.spoc,
-      });
-    }
-  };
-
-  // Function to verify team name
-  const verifyTeamName = async (name) => {
+  const verifyTeamName = async (name, signal) => {
     if (!name.trim()) {
       setIsTeamNameAvailable(null);
       return;
@@ -78,14 +33,19 @@ const TeamRegistrationForm = () => {
     try {
       const response = await fetch(`/api/v1/hackathon/fetch-team/${name}`, {
         cache: "no-store",
+        signal, // Attach the abort signal
       });
       if (!response.ok) throw new Error("Verification failed");
 
       const { data } = await response.json();
       setIsTeamNameAvailable(!data?.exists);
     } catch (error) {
-      console.error("Team name verification failed:", error);
-      setIsTeamNameAvailable(false);
+      if (error.name === "AbortError") {
+        console.log("Fetch aborted");
+      } else {
+        console.error("Team name verification failed:", error);
+        setIsTeamNameAvailable(false);
+      }
     } finally {
       setIsTeamNameVerifying(false);
     }
@@ -93,80 +53,69 @@ const TeamRegistrationForm = () => {
 
   const handleTeamNameChange = (e) => {
     const newTeamName = e.target.value;
-    setFormData({ ...formData, teamName: newTeamName });
 
-    // Clear previous timer
-    if (teamNameDebounceTimer) {
-      clearTimeout(teamNameDebounceTimer);
+    // Clear any existing debounce timer
+    if (teamNameDebounceTimerRef.current) {
+      clearTimeout(teamNameDebounceTimerRef.current);
     }
 
-    // Set new timer
-    const newTimer = setTimeout(() => {
-      verifyTeamName(newTeamName);
-    }, 500); // 500ms debounce
+    // Set up a new timer
+    const timer = setTimeout(() => {
+      const controller = new AbortController(); // Create an abort controller
+      verifyTeamName(newTeamName, controller.signal);
+    }, 500);
 
-    setTeamNameDebounceTimer(newTimer);
+    teamNameDebounceTimerRef.current = timer;
   };
 
-  // Cleanup timer on unmount
   useEffect(() => {
     return () => {
-      if (teamNameDebounceTimer) {
-        clearTimeout(teamNameDebounceTimer);
+      // Cleanup the timer on component unmount
+      if (teamNameDebounceTimerRef.current) {
+        clearTimeout(teamNameDebounceTimerRef.current);
       }
     };
-  }, [teamNameDebounceTimer]);
+  }, []);
 
-  const validateForm = () => {
-    const newErrors = {};
-
-    // Team name validation including availability check
-    if (!formData.teamName.trim()) {
-      newErrors.teamName = "Required";
-    } else if (!isTeamNameAvailable) {
-      newErrors.teamName = "Team name is not available";
+  const addMember = () => {
+    if (memberCount < 4) {
+      setMemberCount((prev) => prev + 1);
     }
-
-    // ... rest of the validation logic ...
-    formData.members.forEach((member, index) => {
-      if (!member.name.trim()) newErrors[`name${index}`] = "Required";
-      if (!member.email.trim()) {
-        newErrors[`email${index}`] = "Required";
-      } else if (!validateEmail(member.email)) {
-        newErrors[`email${index}`] = "Invalid email";
-      }
-      if (!member.college.trim()) newErrors[`college${index}`] = "Required";
-      if (!member.contactNumber.trim()) {
-        newErrors[`contactNumber${index}`] = "Required";
-      } else if (!validatePhone(member.contactNumber)) {
-        newErrors[`contactNumber${index}`] = "Invalid number";
-      }
-      if (!member.city.trim()) newErrors[`city${index}`] = "Required";
-      if (!member.state.trim()) newErrors[`state${index}`] = "Required";
-    });
-
-    if (!formData.spoc) newErrors.spoc = "Select SPOC";
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (!isTeamNameAvailable) {
-      setErrors({
-        ...errors,
-        teamName: "Please choose an available team name",
+  const removeMember = (index) => {
+    if (memberCount > 1) {
+      setMemberCount((prev) => prev - 1);
+    }
+  };
+
+  useEffect(() => {
+    let redirectTimeout;
+    // console.log("L-96, state--------------->", state);
+    if (state.status === 201) {
+      redirectTimeout = setTimeout(() => {
+        router.push("/");
+      }, 2000);
+    }
+    return () => {
+      clearTimeout(redirectTimeout);
+    };
+  }, [state]);
+  useEffect(() => {
+    if (state.message) {
+      toast(`${state.message}`, {
+        // description: "Sunday, December 03, 2023 at 9:00 AM",
       });
-      return;
     }
-    if (validateForm()) {
-      console.log("Form submitted:", formData);
+  }, [state.message]);
+  useEffect(() => {
+    if (state?.errors) {
+      toast(`${state?.errors?.members}`, {});
     }
-  };
+  }, [state?.errors?.members]);
 
   return (
     <div className="min-h-screen bg-black text-white">
-      {/* Floating Header */}
       <motion.div
         initial={{ y: -100 }}
         animate={{ y: 0 }}
@@ -174,32 +123,27 @@ const TeamRegistrationForm = () => {
       >
         <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <Link href="/hackathon" className="text-lg font-medium">
+            <Link href="/hackathon">
               <MoveLeftIcon className="size-8 text-blue-800" />
             </Link>
-            <h1 className="text-lg font-medium">Team Registration</h1>
+            <h1 className="text-base sm:text-lg font-medium">
+              Team Registration
+            </h1>
           </div>
-          <motion.button
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-            type="submit"
-            form="registration-form"
-            className="px-4 py-2 bg-blue-800 hover:bg-blue-700 rounded-lg text-sm font-medium transition-colors"
-          >
-            Register Team
-          </motion.button>
+          <h1 className=" text-lg sm:text-2xl font-medium bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">
+            Ada Hacks
+          </h1>
         </div>
       </motion.div>
 
-      {/* Main Content */}
       <div className="max-w-7xl mx-auto px-4 pt-20">
         <motion.form
-          id="registration-form"
-          onSubmit={handleSubmit}
+          action={formAction}
           className="py-6 space-y-6"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
         >
+          {/* Team Name Input */}
           <motion.div
             className="max-w-md relative"
             initial={{ opacity: 0, y: 20 }}
@@ -208,10 +152,12 @@ const TeamRegistrationForm = () => {
             <div className="relative">
               <input
                 type="text"
-                value={formData.teamName}
+                name="teamName"
                 onChange={handleTeamNameChange}
                 className={`w-full px-4 py-2 bg-white/5 border ${
-                  isTeamNameAvailable === true
+                  isTeamNameVerifying === true
+                    ? "border-blue-500"
+                    : isTeamNameAvailable === true
                     ? "border-green-500"
                     : isTeamNameAvailable === false
                     ? "border-red-500"
@@ -235,16 +181,7 @@ const TeamRegistrationForm = () => {
                 ) : null}
               </div>
             </div>
-            {errors.teamName && (
-              <motion.p
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="mt-1 text-xs text-red-400"
-              >
-                {errors.teamName}
-              </motion.p>
-            )}
-            {isTeamNameAvailable === false && !errors.teamName && (
+            {isTeamNameAvailable === false && (
               <motion.p
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -258,7 +195,7 @@ const TeamRegistrationForm = () => {
           {/* Team Members Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             <AnimatePresence>
-              {formData.members.map((member, index) => (
+              {Array.from({ length: memberCount }).map((_, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, scale: 0.95 }}
@@ -273,11 +210,12 @@ const TeamRegistrationForm = () => {
                         Member {index + 1}
                       </span>
                     </div>
-                    {formData.members.length > 1 && (
+                    {memberCount > 1 && (
                       <button
                         type="button"
                         onClick={() => removeMember(index)}
                         className="text-gray-500 hover:text-red-400 transition-colors"
+                        disabled={pending}
                       >
                         <X size={16} />
                       </button>
@@ -285,116 +223,130 @@ const TeamRegistrationForm = () => {
                   </div>
 
                   <div className="space-y-3">
-                    {/* Name + Contact Number */}
                     <div className="grid grid-cols-2 gap-3">
-                      <SleekInput
-                        value={member.name}
-                        onChange={(e) =>
-                          handleMemberChange(index, "name", e.target.value)
-                        }
-                        placeholder="Name"
-                        error={errors[`name${index}`]}
-                      />
-                      <SleekInput
-                        value={member.contactNumber}
-                        onChange={(e) =>
-                          handleMemberChange(
-                            index,
-                            "contactNumber",
-                            e.target.value
-                          )
-                        }
-                        placeholder="Contact"
-                        error={errors[`contactNumber${index}`]}
+                      <div>
+                        <input
+                          type="text"
+                          name={`member${index}.name`}
+                          placeholder="Name *"
+                          className="w-full px-3 py-2 bg-white/5 border border-white/10 rounded-lg text-sm"
+                          disabled={pending}
+                        />
+                      </div>
+                      <input
+                        type="tel"
+                        name={`member${index}.contactNumber`}
+                        placeholder="Mobile Number"
+                        className="w-full px-3 py-2 bg-white/5 border border-white/10 rounded-lg text-sm"
+                        disabled={pending}
                       />
                     </div>
 
-                    {/* Email */}
-                    <SleekInput
-                      value={member.email}
-                      onChange={(e) =>
-                        handleMemberChange(index, "email", e.target.value)
-                      }
-                      placeholder="Email"
-                      error={errors[`email${index}`]}
+                    <input
+                      type="email"
+                      name={`member${index}.email`}
+                      placeholder="Email *"
+                      className="w-full px-3 py-2 bg-white/5 border border-white/10 rounded-lg text-sm"
+                      disabled={pending}
                     />
 
-                    {/* College */}
-                    <SleekInput
-                      value={member.college}
-                      onChange={(e) =>
-                        handleMemberChange(index, "college", e.target.value)
-                      }
+                    <input
+                      type="text"
+                      name={`member${index}.college`}
                       placeholder="College"
-                      error={errors[`college${index}`]}
+                      className="w-full px-3 py-2 bg-white/5 border border-white/10 rounded-lg text-sm"
+                      disabled={pending}
                     />
 
-                    {/* City + State */}
                     <div className="grid grid-cols-2 gap-3">
-                      <SleekInput
-                        value={member.city}
-                        onChange={(e) =>
-                          handleMemberChange(index, "city", e.target.value)
-                        }
+                      <input
+                        type="text"
+                        name={`member${index}.city`}
                         placeholder="City"
-                        error={errors[`city${index}`]}
+                        className="w-full px-3 py-2 bg-white/5 border border-white/10 rounded-lg text-sm"
+                        disabled={pending}
                       />
-                      <SleekInput
-                        value={member.state}
-                        onChange={(e) =>
-                          handleMemberChange(index, "state", e.target.value)
-                        }
+                      <input
+                        type="text"
+                        name={`member${index}.state`}
                         placeholder="State"
-                        error={errors[`state${index}`]}
+                        className="w-full px-3 py-2 bg-white/5 border border-white/10 rounded-lg text-sm"
+                        disabled={pending}
                       />
                     </div>
 
-                    <label className="flex items-center gap-2 cursor-pointer hover:bg-white/5 p-2 rounded-lg transition-colors">
+                    <div className="flex items-center gap-2 hover:bg-white/5 p-2 rounded-lg transition-colors">
                       <input
                         type="radio"
                         name="spoc"
-                        checked={formData.spoc === member.email}
-                        onChange={() => handleSpocChange(member.email)}
-                        className="w-4 h-4 text-blue-800 bg-transparent border-white/20 focus:ring-blue-8000"
+                        value={index}
+                        className="w-4 h-4 text-blue-800 bg-transparent border-white/20 focus:ring-blue-800"
+                        disabled={pending}
                       />
                       <span className="text-sm text-gray-400">Team SPOC</span>
-                    </label>
+                    </div>
                   </div>
                 </motion.div>
               ))}
             </AnimatePresence>
           </div>
 
-          {/* Add Member Button */}
-          {formData.members.length < 4 && (
+          {memberCount < 4 && (
             <motion.button
-              whileHover={{ scale: 1.01 }}
-              whileTap={{ scale: 0.99 }}
               type="button"
               onClick={addMember}
+              disabled={pending}
+              whileHover={{ scale: 1.01 }}
+              whileTap={{ scale: 0.99 }}
               className="w-full md:w-auto px-6 py-3 border border-white/10 rounded-lg text-sm text-gray-400 flex items-center justify-center gap-2 hover:bg-white/5 transition-all"
             >
               <Plus size={16} />
               Add Member
             </motion.button>
           )}
+          <SubmitButton />
+          {/* errors & messages */}
+          <p className="text-sm text-red-700" aria-live="polite">
+            {state?.message}
+          </p>
+          <p className="text-sm text-purple-700">{state?.errors?.members}</p>
         </motion.form>
       </div>
+
+      {pending && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+          <div className="bg-white/10 p-6 rounded-lg flex flex-col items-center gap-3">
+            <motion.div
+              className="w-8 h-8 border-2 border-blue-500 border-t-transparent rounded-full"
+              animate={{ rotate: 360 }}
+              transition={{
+                duration: 1,
+                repeat: Infinity,
+                ease: "linear",
+              }}
+            />
+            <p className="text-sm text-gray-300">Registering your team...</p>
+          </div>
+        </div>
+      )}
     </div>
   );
-};
+}
 
-// Sleek Input Component
-const SleekInput = ({ error, ...props }) => (
-  <div className="relative">
-    <input
-      {...props}
-      className="w-full px-3 py-2 bg-white/5 border border-white/10 rounded-lg text-sm focus:ring-1 focus:ring-blue-500 focus:border-blue-500 placeholder-gray-500"
-    />
-    {error && (
-      <span className="absolute -top-1 -right-1 w-2 h-2 bg-red-500 rounded-full" />
-    )}
-  </div>
-);
+function SubmitButton() {
+  const { pending } = useFormStatus();
 
-export default TeamRegistrationForm;
+  return (
+    <motion.button
+      type="submit"
+      disabled={pending}
+      whileHover={{ scale: 1.02 }}
+      whileTap={{ scale: 0.98 }}
+      className={`px-4 py-2 bg-blue-800 hover:bg-blue-700 rounded-lg text-sm font-medium transition-colors ${
+        pending ? "opacity-50 cursor-not-allowed" : ""
+      }`}
+    >
+      {pending ? "Registering..." : "Register Team"}
+    </motion.button>
+  );
+}

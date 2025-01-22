@@ -67,13 +67,34 @@ export async function POST(request) {
       members: updatedMembers,
     });
 
+    // console.log("L-70, newTeam : ", newTeam);
+
     return NextResponse.json({
       status: 201,
       message: "Team created successfully",
       data: newTeam,
     });
   } catch (error) {
-    console.error("L-73, Error creating team:", error.message);
+    console.error("L-78B, Error creating team:", error.message);
+
+    if (error.code === 11000) {
+      // Duplicate key error
+      const errorMessage = error.message;
+      const match = errorMessage.match(
+        /index: (.+?) dup key: { (.+?): "(.+?)" }/
+      );
+
+      if (match) {
+        const indexName = match[1]; // e.g., "members.email_1"
+        const field = match[2]; // e.g., "members.email"
+        const value = match[3]; // e.g., "steve@example.com"
+
+        return NextResponse.json({
+          status: 500,
+          message: `The ${indexName} "${value}" is already in use. Please use a different one.`,
+        });
+      }
+    }
 
     return NextResponse.json({
       status: 500,
