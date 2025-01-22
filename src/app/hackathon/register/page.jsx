@@ -91,28 +91,34 @@ export default function TeamRegistrationForm() {
 
   useEffect(() => {
     let redirectTimeout;
-    // console.log("L-96, state--------------->", state);
-    if (state.status === 201) {
-      redirectTimeout = setTimeout(() => {
-        router.push("/");
-      }, 2000);
+
+    if (state) {
+      // Handle success message and redirection
+      if (state.message?.length > 1) {
+        console.log("L-106: --->", "message");
+        toast(state.message);
+      }
+
+      if (state.status === 201) {
+        redirectTimeout = setTimeout(() => {
+          router.push("/");
+        }, 2000);
+      }
+
+      // Handle error messages
+      if (state.errors?.members) {
+        console.log("L-110: errors--->", "afslals");
+        toast(state.errors.members);
+      }
     }
+
+    // Cleanup timeout
     return () => {
-      clearTimeout(redirectTimeout);
+      if (redirectTimeout) {
+        clearTimeout(redirectTimeout);
+      }
     };
   }, [state]);
-  useEffect(() => {
-    if (state.message) {
-      toast(`${state.message}`, {
-        // description: "Sunday, December 03, 2023 at 9:00 AM",
-      });
-    }
-  }, [state.message]);
-  useEffect(() => {
-    if (state?.errors) {
-      toast(`${state?.errors?.members}`, {});
-    }
-  }, [state?.errors?.members]);
 
   return (
     <div className="min-h-screen bg-black text-white">
