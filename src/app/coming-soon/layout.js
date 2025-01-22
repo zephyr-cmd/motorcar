@@ -2,8 +2,8 @@ import { inter } from "@/components/Fonts/fonts";
 // import "../globals.css";
 
 export const metadata = {
-  title: "AdaLabs  Inc.",
-  description: "something new",
+  title: "AdaLabs & Co.",
+  description: "Something New",
 };
 
 export default function RootLayout({ children }) {
