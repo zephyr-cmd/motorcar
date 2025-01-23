@@ -116,15 +116,19 @@ export default function HackathonLandingPage() {
               <div className="sm:size-1/2">
                 <h3 className="text-2xl font-semibold mb-4">Event Overview</h3>
                 <p className="mb-4">
-                  Join us for an exciting week-long hackathon where you'll
-                  collaborate with fellow innovators to build impactful web
-                  applications. This is your chance to showcase your skills,
-                  learn from others, and potentially win a ₹10,000 prize!
+                  Join us for a week-long hackathon where you'll collaborate
+                  with talented individuals to build AI Agents and innovative
+                  web apps. Showcase your skills, learn from others, and compete
+                  for a ₹10,000 prize!
                 </p>
-                <p>
-                  Whether you're a developer, designer, or content creator,
-                  there's a place for you in this hackathon. Form a team of up
-                  to 4 members and bring your ideas to life!
+                <p className="mb-4">
+                  Whether you're a developer, designer, or content creator, form
+                  a team of up to 4 members and turn your ideas into reality.
+                </p>
+                <p className="mb-4">
+                  The first 25 teams can register for free. After that, the next
+                  25 teams can join with a nominal fee. Spots are
+                  limited—register now!
                 </p>
               </div>
               <div className="sm:size-1/2">
@@ -196,7 +200,7 @@ export default function HackathonLandingPage() {
                 <ul className="list-disc list-inside">
                   <li>Teams work remotely on their projects</li>
                   <li>
-                    Collaborate online through tools like Slack, Figma, and
+                    Collaborate online through tools like Discord, Figma, and
                     GitHub
                   </li>
                   <li>Design, develop, and create content for your project</li>
@@ -204,12 +208,12 @@ export default function HackathonLandingPage() {
               </div>
               <div className="bg-indigo-950 rounded-lg p-6 shadow-lg">
                 <h3 className="text-2xl font-semibold mb-4">
-                  Weekend In-Person Meetup
+                  Weekend Virtual Meetup
                 </h3>
                 <p className="mb-2">When: Day 6 or Day 7</p>
                 <p className="mb-2">Duration: 3 hours</p>
                 <ul className="list-disc list-inside">
-                  <li>Continue collaboration in person</li>
+                  <li>Continue collaboration</li>
                   <li>Refine your project</li>
                   <li>Showcase progress and pitch ideas to the group</li>
                 </ul>
@@ -302,9 +306,18 @@ export default function HackathonLandingPage() {
                   </p>
                 </div>
               </div>
-              <p className="text-center mt-8 text-gray-600">
-                Teams can organize roles based on individual strengths.
-              </p>
+              <div className="flex flex-col justify-center items-center">
+                <p className="text-center mt-8 text-gray-700">
+                  Teams can organize roles based on individual strengths.
+                </p>
+                <br />
+                <p className="text-center mt-8 text-gray-500">
+                  Register your team of 4 players to compete in the hackathon.
+                  Don&apos;t have a full team? No problem! Register as an
+                  individual, and we&apos;ll match you with other solo
+                  individual to form a competitive team.
+                </p>
+              </div>
             </div>
           </div>
         </section>
@@ -317,12 +330,6 @@ export default function HackathonLandingPage() {
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
               <div className="bg-indigo-950 rounded-lg p-6 shadow-lg">
                 <h3 className="text-xl font-semibold mb-4">
-                  Portfolio Project
-                </h3>
-                <p>Showcase your work on your resume or GitHub</p>
-              </div>
-              <div className="bg-indigo-950 rounded-lg p-6 shadow-lg">
-                <h3 className="text-xl font-semibold mb-4">
                   Networking Opportunities
                 </h3>
                 <p>
@@ -330,10 +337,10 @@ export default function HackathonLandingPage() {
                 </p>
               </div>
               <div className="bg-indigo-950 rounded-lg p-6 shadow-lg">
-                <h3 className="text-xl font-semibold mb-4">Brand Exposure</h3>
+                <h3 className="text-xl font-semibold mb-4">Mentorship</h3>
                 <p>
-                  Get featured in vlogs and reels for personal branding and
-                  portfolio enhancement
+                  Receive personalized guidance from industry experts to
+                  accelerate your growth and refine your skills.
                 </p>
               </div>
               <div className="bg-indigo-950 rounded-lg p-6 shadow-lg">
@@ -343,6 +350,15 @@ export default function HackathonLandingPage() {
                 <p>
                   Leave with a potential product that could make its first
                   sales!
+                </p>
+              </div>
+              <div className="bg-indigo-950 rounded-lg p-6 shadow-lg">
+                <h3 className="text-xl font-semibold mb-4">
+                  Career Opportunities
+                </h3>
+                <p>
+                  Explore exciting internship opportunities and unlock the path
+                  to a full-time role!
                 </p>
               </div>
             </div>

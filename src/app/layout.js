@@ -2,8 +2,9 @@ import { inter, exo, exo2, nunito, poppins } from "@/components/Fonts/fonts";
 import "./globals.css";
 
 export const metadata = {
-  title: "AdaLabs & Co.",
-  description: "Something New",
+  title: "AdaLabs & Co. || Engineering Tomorrow through AI, IT, & Innovation",
+  description:
+    "Pioneer in IT services, consulting, and business solutions, driving innovation and enabling business transformation.  Empowering organizations to embrace change and unlock their full potential through cutting-edge technology. Discover how we make it happen.",
 };
 
 export default function RootLayout({ children }) {
