@@ -14,12 +14,12 @@ export const metadata = {
     siteName: "Adalabs & Co.",
     images: [
       {
-        url: "https://res.cloudinary.com/dvyqrnnen/image/upload/v1737738237/Adalabs_tpp0ld.png", // Must be an absolute URL
+        url: "https://res.cloudinary.com/dvyqrnnen/image/upload/v1737738237/Adalabs_tpp0ld.png", // Must be an absolute URL facebook
         width: 800,
         height: 600,
       },
       {
-        url: "https://res.cloudinary.com/dvyqrnnen/image/upload/v1737738010/adalabs_font_tws7mx.png", // Must be an absolute URL
+        url: "https://res.cloudinary.com/dvyqrnnen/image/upload/v1737738237/Adalabs_tpp0ld.png", // Must be an absolute URL signal /telegram
         width: 1800,
         height: 1600,
         alt: "Adalabs Thumbnail",
@@ -28,6 +28,18 @@ export const metadata = {
 
     locale: "en_US",
     type: "website",
+  },
+  twitter: {
+    card: "WebApp",
+    title: "AdaLabs - Engineering Tomorrow through Innovation",
+    description:
+      "Discover how Adalabs's innovative IT services empower leaders. From AI to enterprise solutions, we provide the tools and insights needed to streamline operations and fuel growth.",
+    siteId: "AdaLabsInfo",
+    // creator: "@AdaLabsInfo",
+    // creatorId: "1467726470533754880",
+    images: [
+      "https://res.cloudinary.com/dvyqrnnen/image/upload/v1737738237/Adalabs_tpp0ld.png",
+    ], // Must be an absolute URL
   },
 };
 
