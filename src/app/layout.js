@@ -1,4 +1,5 @@
 import { inter, exo, exo2, nunito, poppins } from "@/components/Fonts/fonts";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 
 export const metadata = {
@@ -14,6 +15,7 @@ export default function RootLayout({ children }) {
       className={`${inter.variable} ${exo.variable} ${exo2.variable} ${nunito.variable} ${poppins.variable}`}
     >
       <body>{children}</body>
+      <GoogleAnalytics gaId="G-66GMXLVZCM" />
     </html>
   );
 }
