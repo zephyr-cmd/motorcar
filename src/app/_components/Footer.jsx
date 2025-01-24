@@ -77,7 +77,7 @@ export default function Footer() {
                 href="/hackathon"
                 aria-label="Careers"
               >
-                hackathon
+                Hackathon
               </Link>
               {/* <Link
                 className="hover:text-gray-300"

@@ -151,7 +151,7 @@ const HeaderCarousel = () => {
               Expertise
             </Link>
             <Link href="/hackathon" className="block py-2 hover:text-gray-300">
-              Ada Hacks: Hackathon
+              AdaHacks : Hackathon
             </Link>
             {/* <Link href="#career" className="block py-2 hover:text-gray-300">
               Career
