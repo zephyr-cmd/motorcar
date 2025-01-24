@@ -150,9 +150,12 @@ const HeaderCarousel = () => {
             <Link href="#expertise" className="block py-2 hover:text-gray-300">
               Expertise
             </Link>
-            <Link href="#career" className="block py-2 hover:text-gray-300">
-              Career
+            <Link href="/hackathon" className="block py-2 hover:text-gray-300">
+              Ada Hacks: Hackathon
             </Link>
+            {/* <Link href="#career" className="block py-2 hover:text-gray-300">
+              Career
+            </Link> */}
             <Link href="/about-us" className="block py-2 hover:text-gray-300">
               About Us
             </Link>

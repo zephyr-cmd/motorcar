@@ -74,11 +74,18 @@ export default function Footer() {
               {/* <p className="font-semibold text-lg ">Utilities</p> */}
               <Link
                 className="hover:text-gray-300"
+                href="/hackathon"
+                aria-label="Careers"
+              >
+                hackathon
+              </Link>
+              {/* <Link
+                className="hover:text-gray-300"
                 href="/coming-soon"
                 aria-label="Careers"
               >
                 Careers
-              </Link>
+              </Link> */}
               <Link
                 className="hover:text-gray-300"
                 href="/#locations"
