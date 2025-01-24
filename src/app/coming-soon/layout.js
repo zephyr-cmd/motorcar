@@ -2,7 +2,7 @@ import { inter } from "@/components/Fonts/fonts";
 // import "../globals.css";
 
 export const metadata = {
-  title: "AdaLabs & Co.",
+  title: "Coming Soon..",
   description: "Something New",
 };
 

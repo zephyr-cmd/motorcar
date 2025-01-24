@@ -3,9 +3,32 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 
 export const metadata = {
-  title: "AdaLabs & Co. || Engineering Tomorrow through AI, IT, & Innovation",
+  title: "AdaLabs - Engineering Tomorrow through Innovation ",
   description:
-    "Pioneer in IT services, consulting, and business solutions, driving innovation and enabling business transformation.  Empowering organizations to embrace change and unlock their full potential through cutting-edge technology. Discover how we make it happen.",
+    "Discover how Adalabs's innovative IT services empower leaders. From AI to enterprise solutions, we provide the tools and insights needed to streamline operations and fuel growth.",
+  openGraph: {
+    title: "AdaLabs - Engineering Tomorrow through Innovation ",
+    description:
+      "Discover how Adalabs's innovative IT services empower leaders. From AI to enterprise solutions, we provide the tools and insights needed to streamline operations and fuel growth.",
+    url: "https://adalabs.in",
+    siteName: "Adalabs & Co.",
+    images: [
+      {
+        url: "https://res.cloudinary.com/dvyqrnnen/image/upload/v1737738237/Adalabs_tpp0ld.png", // Must be an absolute URL
+        width: 800,
+        height: 600,
+      },
+      {
+        url: "https://res.cloudinary.com/dvyqrnnen/image/upload/v1737738010/adalabs_font_tws7mx.png", // Must be an absolute URL
+        width: 1800,
+        height: 1600,
+        alt: "Adalabs Thumbnail",
+      },
+    ],
+
+    locale: "en_US",
+    type: "website",
+  },
 };
 
 export default function RootLayout({ children }) {
