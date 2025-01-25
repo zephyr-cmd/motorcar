@@ -89,16 +89,32 @@ const HeaderCarousel = () => {
         <nav className="flex items-center justify-between">
           <div className="text-2xl font-bold">AdaLabs</div>
           <div className="hidden sm:flex space-x-6">
-            <Link href="#industries" className="hover:text-gray-300">
+            <Link
+              aria-label="Go to industries"
+              href="#industries"
+              className="hover:text-gray-300"
+            >
               Industries
             </Link>
-            <Link href="#expertise" className="hover:text-gray-300">
+            <Link
+              aria-label="Go to expertise"
+              href="#expertise"
+              className="hover:text-gray-300"
+            >
               Expertise
             </Link>
-            <Link href="#career" className="hover:text-gray-300">
+            <Link
+              aria-label="Go to Career"
+              href="#career"
+              className="hover:text-gray-300"
+            >
               Career
             </Link>
-            <Link href="/about-us" className="hover:text-gray-300">
+            <Link
+              aria-label="Go to about us"
+              href="/about-us"
+              className="hover:text-gray-300"
+            >
               About Us
             </Link>
           </div>
@@ -144,19 +160,35 @@ const HeaderCarousel = () => {
         </nav>
         {isOpen && (
           <div className="md:hidden relative w-full min-h-dvh p-5">
-            <Link href="#industries" className="block py-2 hover:text-gray-300">
+            <Link
+              aria-label="Go to industries"
+              href="#industries"
+              className="block py-2 hover:text-gray-300"
+            >
               Industries
             </Link>
-            <Link href="#expertise" className="block py-2 hover:text-gray-300">
+            <Link
+              aria-label="Go to Expertise"
+              href="#expertise"
+              className="block py-2 hover:text-gray-300"
+            >
               Expertise
             </Link>
-            <Link href="/hackathon" className="block py-2 hover:text-gray-300">
+            <Link
+              aria-label="Go to Ada-Hacks"
+              href="/hackathon"
+              className="block py-2 hover:text-gray-300"
+            >
               AdaHacks : Hackathon
             </Link>
-            {/* <Link href="#career" className="block py-2 hover:text-gray-300">
+            {/* <Link aria-label="Go to Career" href="#career" className="block py-2 hover:text-gray-300">
               Career
             </Link> */}
-            <Link href="/about-us" className="block py-2 hover:text-gray-300">
+            <Link
+              aria-label="Go to about us"
+              href="/about-us"
+              className="block py-2 hover:text-gray-300"
+            >
               About Us
             </Link>
           </div>
@@ -224,7 +256,10 @@ const HeaderCarousel = () => {
                       {slide.description}
                     </p>
                     <Link href={slide.buttonLink}>
-                      <Button variant="transparentBtn">
+                      <Button
+                        aria-label={`Go to ${slide.buttonText}`}
+                        variant="transparentBtn"
+                      >
                         {slide.buttonText}
                       </Button>
                     </Link>

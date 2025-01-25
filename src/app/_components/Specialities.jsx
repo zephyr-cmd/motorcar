@@ -84,9 +84,9 @@ function Specialities() {
                 />
               </div>
               <div className="absolute top-0 right-0 p-4 bg-black/30 hover:bg-black/60 hover:grayscale-0 w-full h-full transition-all duration-700">
-                <h3 className="absolute inset-0 text-lg font-bold h-full inset-y-3/4 justify-center text-white text-center ">
+                <div className="absolute inset-0 text-lg font-bold h-full inset-y-3/4 justify-center text-white text-center ">
                   {specialty.title}
-                </h3>
+                </div>
               </div>
             </div>
           </div>
