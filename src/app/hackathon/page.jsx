@@ -97,10 +97,11 @@ export default function HackathonLandingPage() {
               >
                 <Link
                   href="/hackathon/register"
-                  className="bg-purple-500 hover:bg-purple-600 text-white font-bold py-2 px-6 rounded-full transition-colors inline-flex items-center text-sm md:text-base "
+                  aria-label="Register"
+                  className="bg-blue-950 hover:bg-blue-900 text-white font-bold py-2 px-6 rounded-full transition-colors inline-flex items-center text-sm md:text-base "
                 >
                   Register Now
-                  <ArrowRight className="ml-2 w-4 h-4" />
+                  <ArrowRight className="ml-2 w-5 h-5" />
                 </Link>
               </motion.div>
             </section>
@@ -118,8 +119,7 @@ export default function HackathonLandingPage() {
                 <p className="mb-4">
                   Join us for a week-long hackathon where you'll collaborate
                   with talented individuals to build AI Agents and innovative
-                  web apps. Showcase your skills, learn from others, and compete
-                  for a ₹10,000 prize!
+                  web apps. Showcase your skills & learn from others.
                 </p>
                 <p className="mb-4">
                   Whether you're a developer, designer, or content creator, form
@@ -148,7 +148,7 @@ export default function HackathonLandingPage() {
                   </li>
                   <li className="flex items-center">
                     <Zap className="w-5 h-5 mr-2 text-purple-600" />
-                    <span>Theme: Building impactful web applications</span>
+                    <span>Theme: Building impactful AI-Agents & WebApps</span>
                   </li>
                 </ul>
               </div>
@@ -166,6 +166,7 @@ export default function HackathonLandingPage() {
               className="w-full max-w-[940px] h-auto object-cover rounded-lg"
             />
             <button
+              aria-label="Play"
               onClick={openModal}
               className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-black bg-opacity-70 text-primary-50 size-16 sm:size-[80px] rounded-full flex items-center justify-center"
             >
@@ -307,7 +308,7 @@ export default function HackathonLandingPage() {
                 </div>
               </div>
               <div className="flex flex-col justify-center items-center">
-                <p className="text-center mt-8 text-gray-700">
+                <p className="text-center mt-12 sm:mt-8 text-gray-700">
                   Teams can organize roles based on individual strengths.
                 </p>
                 <br />
@@ -416,6 +417,7 @@ export default function HackathonLandingPage() {
               <div className="mt-12 text-center">
                 <Link
                   href="/hackathon/register"
+                  aria-label="Register"
                   className="bg-blue-950 hover:bg-blue-900 text-white font-bold py-3 px-8 rounded-full transition-colors inline-flex items-center"
                 >
                   Register Your Team Now
@@ -441,6 +443,7 @@ export default function HackathonLandingPage() {
             <div className="flex space-x-4">
               <Link
                 href="https://facebook.com/adalabs.in"
+                aria-label="Go to facebook"
                 target="_blank"
                 className="hover:text-blue-900 transition-colors"
               >
@@ -455,6 +458,7 @@ export default function HackathonLandingPage() {
               </Link>
               <Link
                 href="https://x.com/AdaLabsInfo"
+                aria-label="Go to X.com"
                 target="_blank"
                 className="hover:text-blue-900 transition-colors"
               >
@@ -469,6 +473,7 @@ export default function HackathonLandingPage() {
               </Link>
               <Link
                 href="https://www.linkedin.com/company/adalabs"
+                aria-label="Go to LinkedIn"
                 target="_blank"
                 className="hover:text-blue-900 transition-colors"
               >

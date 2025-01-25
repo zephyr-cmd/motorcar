@@ -99,7 +99,7 @@ export default function Footer() {
         </div>
         <div className="border-t border-gray-700 mt-8 pt-5 flex flex-col-reverse gap-7 md:flex-row lg:px-8 justify-between text-sm lg:text-lg mx-5">
           <div>
-            <p>© 2024 Adalabs & Co. </p>
+            <p>© 2025 Adalabs & Co. </p>
           </div>
           {/* <div className="flex space-x-6 mt-4 md:mt-0">
           <p>

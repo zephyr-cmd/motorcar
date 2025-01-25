@@ -19,7 +19,7 @@ export const metadata = {
         height: 600,
       },
       {
-        url: "https://res.cloudinary.com/dvyqrnnen/image/upload/v1737738237/Adalabs_tpp0ld.png", // Must be an absolute URL signal /telegram
+        url: "https://res.cloudinary.com/dvyqrnnen/image/upload/v1737738237/Adalabs_tpp0ld.png", // Must be an absolute URL signal /telegram /twiiter
         width: 1800,
         height: 1600,
         alt: "Adalabs Thumbnail",
