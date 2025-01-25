@@ -67,8 +67,8 @@ export default function HackathonLandingPage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
-                Building impactful web applications in a collaborative, creative
-                environment.
+                Building impactful AI Agents & WebApps in a collaborative,
+                creative environment.
               </motion.p>
               <motion.div
                 className="flex flex-col md:flex-row justify-center items-center space-y-5 md:space-y-0 md:space-x-4"
@@ -117,20 +117,28 @@ export default function HackathonLandingPage() {
               <div className="sm:size-1/2">
                 <h3 className="text-2xl font-semibold mb-4">Event Overview</h3>
                 <p className="mb-4">
-                  Join us for a week-long hackathon where you'll collaborate
-                  with talented individuals to build AI Agents and innovative
-                  web apps. Showcase your skills & learn from others.
+                  Join us for a week-long hackathon and an exclusive one-day
+                  workshop. Learn the latest in AI, web development, and product
+                  design from industry experts and gear up to innovate and win.
                 </p>
                 <p className="mb-4">
-                  Whether you're a developer, designer, or content creator, form
-                  a team of up to 4 members and turn your ideas into reality.
+                  Collaborate with talented individuals to create cutting-edge
+                  AI agents and web apps. Form a team of up to 4
+                  members—developers, designers, or content creators—and bring
+                  your boldest ideas to life.
                 </p>
                 <p className="mb-4">
-                  The first 25 teams can register for free. After that, the next
-                  25 teams can join with a nominal fee. Spots are
-                  limited—register now!
+                  Top-performing participants will also get exclusive internship
+                  offers, giving you a chance to kickstart your career while
+                  showcasing your skills.
+                </p>
+                <p className="mb-4">
+                  The first 25 teams register for free. After that, spots are
+                  available for a nominal fee. Seats are limited—secure your
+                  spot today!
                 </p>
               </div>
+
               <div className="sm:size-1/2">
                 <h3 className="text-2xl font-semibold mb-4">Key Details</h3>
                 <ul className="space-y-2">
@@ -148,7 +156,7 @@ export default function HackathonLandingPage() {
                   </li>
                   <li className="flex items-center">
                     <Zap className="w-5 h-5 mr-2 text-purple-600" />
-                    <span>Theme: Building impactful AI-Agents & WebApps</span>
+                    <span>Theme: Building impactful AI Agents & WebApps</span>
                   </li>
                 </ul>
               </div>
@@ -197,9 +205,19 @@ export default function HackathonLandingPage() {
               </div>
               <div className="bg-indigo-950 rounded-lg p-6 shadow-lg">
                 <h3 className="text-2xl font-semibold mb-4">Hackathon Week</h3>
-                <p className="mb-2">Duration: 7 Days</p>
+                <p className="mb-2">Duration: 7 Days + One-Day Workshop</p>
                 <ul className="list-disc list-inside">
-                  <li>Teams work remotely on their projects</li>
+                  <li>
+                    Start with an intensive one-day workshop led by industry
+                    experts
+                  </li>
+                  <li>
+                    Learn the latest in AI, web development, and product design
+                  </li>
+                  <li>
+                    Teams work remotely on their projects for the rest of the
+                    week
+                  </li>
                   <li>
                     Collaborate online through tools like Discord, Figma, and
                     GitHub
@@ -207,6 +225,7 @@ export default function HackathonLandingPage() {
                   <li>Design, develop, and create content for your project</li>
                 </ul>
               </div>
+
               <div className="bg-indigo-950 rounded-lg p-6 shadow-lg">
                 <h3 className="text-2xl font-semibold mb-4">
                   Weekend Virtual Meetup
@@ -308,7 +327,7 @@ export default function HackathonLandingPage() {
                 </div>
               </div>
               <div className="flex flex-col justify-center items-center">
-                <p className="text-center mt-12 sm:mt-8 text-gray-700">
+                <p className="text-center mt-12 sm:mt-10 text-blue-950">
                   Teams can organize roles based on individual strengths.
                 </p>
                 <br />
