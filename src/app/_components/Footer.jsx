@@ -38,7 +38,11 @@ export default function Footer() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
             <div className="flex flex-col gap-y-2">
               {/* <p className="font-semibold text-lg">Menu</p> */}
-              <Link className="hover:text-gray-300" href="/" aria-label="Home">
+              <Link
+                className="hover:text-gray-300"
+                href="/"
+                aria-label="Go to Home"
+              >
                 Home
               </Link>
               <Link
@@ -75,7 +79,7 @@ export default function Footer() {
               <Link
                 className="hover:text-gray-300"
                 href="/hackathon"
-                aria-label="Careers"
+                aria-label="hackathon"
               >
                 Hackathon
               </Link>
