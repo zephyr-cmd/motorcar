@@ -97,7 +97,7 @@ export default function TeamSignUpForm() {
 
   return (
     <div className="min-h-fit bg-black rounded-2xl text-white">
-      <div className="max-w-7xl mx-auto px-4">
+      <div className="max-w-7xl mx-auto sm:px-4">
         <motion.form
           onSubmit={handleSubmit}
           className="py-6 space-y-6"
@@ -178,7 +178,9 @@ export default function TeamSignUpForm() {
 
           <SubmitButton />
           <div>
-            <p>Hurry !!! only few seats are left, Don't miss the opportunity</p>
+            <p className="text-blue-700">
+              Hurry! Only few slots are left. Do not miss this opportunity.
+            </p>
           </div>
 
           {/* Error messages */}
