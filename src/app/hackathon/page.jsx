@@ -572,7 +572,6 @@ export default function HackathonLandingPage() {
           {/* Video Container with max-width and aspect ratio */}
           <div className="w-full max-w-[1200px] mx-auto relative">
             <div className="aspect-video w-full">
-              <h3 className="text-2xl font-bold mb-4">Register Your Team</h3>
               <TeamSignUpForm />
             </div>
           </div>
