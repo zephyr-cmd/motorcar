@@ -18,11 +18,13 @@ import Link from "next/link";
 import { LinkedInLogoIcon } from "@radix-ui/react-icons";
 import { XIcon } from "@/components/icons/socialMedia";
 import Image from "next/image";
+import TeamSignUpForm from "./signUp/page";
 const videoId = "lPIILsqq_vU";
 
 export default function HackathonLandingPage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [isYTModalOpen, setIsYTModalOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -35,9 +37,13 @@ export default function HackathonLandingPage() {
   const openModal = () => {
     setIsModalOpen(true);
   };
+  const openYTModal = () => {
+    setIsYTModalOpen(true);
+  };
 
   const closeModal = () => {
     setIsModalOpen(false);
+    setIsYTModalOpen(false);
   };
 
   const handlePlay = () => {
@@ -95,14 +101,15 @@ export default function HackathonLandingPage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.6 }}
               >
-                <Link
-                  href="/hackathon/register"
+                <button
+                  onClick={openModal}
+                  // href="/hackathon/register"
                   aria-label="Register"
                   className="bg-blue-950 hover:bg-blue-900 text-white font-bold py-2 px-6 rounded-full transition-colors inline-flex items-center text-sm md:text-base "
                 >
                   Register Now
                   <ArrowRight className="ml-2 w-5 h-5" />
-                </Link>
+                </button>
               </motion.div>
             </section>
           </div>
@@ -168,7 +175,10 @@ export default function HackathonLandingPage() {
           </div>
         </section>
 
-        <div className="flex items-center justify-center relative p-8 sm:py-20 bg-black">
+        <div
+          id="YTModal"
+          className="flex items-center justify-center relative p-8 sm:py-20 bg-black"
+        >
           <div className="relative">
             <Image
               src="/adaHacksThumbnail.png"
@@ -179,7 +189,7 @@ export default function HackathonLandingPage() {
             />
             <button
               aria-label="Play"
-              onClick={openModal}
+              onClick={openYTModal}
               className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-black bg-opacity-70 text-primary-50 size-16 sm:size-[80px] rounded-full flex items-center justify-center"
             >
               {/* <span className="text-2xl sm:text-4xl"> */}
@@ -438,14 +448,15 @@ export default function HackathonLandingPage() {
                 </li>
               </ol>
               <div className="mt-12 text-center">
-                <Link
-                  href="/hackathon/register"
+                <button
+                  // href="/hackathon/register"
+                  onClick={openModal}
                   aria-label="Register"
                   className="bg-blue-950 hover:bg-blue-900 text-white font-bold py-3 px-8 rounded-full transition-colors inline-flex items-center"
                 >
                   Register Your Team Now
                   <ArrowRight className="ml-2 w-5 h-5" />
-                </Link>
+                </button>
               </div>
             </div>
           </div>
@@ -517,7 +528,7 @@ export default function HackathonLandingPage() {
           </div>
         </div>
       </footer>
-      {isModalOpen && (
+      {isYTModalOpen && (
         <div className="fixed inset-0 z-50 bg-black bg-opacity-90 flex items-center justify-center p-4 sm:p-6 md:p-8">
           {/* Close Button */}
           <button
@@ -541,6 +552,28 @@ export default function HackathonLandingPage() {
                 allowFullScreen
                 className="absolute top-0 left-0 w-full h-full rounded-lg"
               ></iframe>
+            </div>
+          </div>
+        </div>
+      )}
+      {isModalOpen && (
+        <div className="fixed inset-0 z-50 bg-black bg-opacity-90 flex items-center justify-center p-4 sm:p-6 md:p-8">
+          {/* Close Button */}
+          <button
+            onClick={closeModal}
+            className="absolute top-4 right-4 text-white bg-black w-8 h-8 sm:w-10 sm:h-10 
+                 flex items-center justify-center rounded-full 
+                 hover:bg-gray-800 hover:scale-110 transition-all duration-300
+                 focus:outline-none focus:ring-2 focus:ring-white"
+          >
+            &#x2715;
+          </button>
+
+          {/* Video Container with max-width and aspect ratio */}
+          <div className="w-full max-w-[1200px] mx-auto relative">
+            <div className="aspect-video w-full">
+              <h3 className="text-2xl font-bold mb-4">Register Your Team</h3>
+              <TeamSignUpForm />
             </div>
           </div>
         </div>
