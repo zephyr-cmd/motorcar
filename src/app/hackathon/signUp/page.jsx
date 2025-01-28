@@ -97,7 +97,7 @@ export default function TeamSignUpForm() {
   }, [state, router]);
 
   return (
-    <div className="min-h-fit bg-gradient-to-br from-black to-blue-900 rounded-2xl text-white p-6">
+    <div className="min-h-fit rounded-2xl text-white p-6">
       {/* Header Section */}
       <div className="text-center space-y-4 mb-8">
         <h1 className=" text-2xl sm:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400">

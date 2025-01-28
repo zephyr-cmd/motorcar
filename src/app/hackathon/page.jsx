@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { BackgroundBeamsWithCollision } from "@/components/ui/background-beams-with-collision";
 import {
   ChevronDown,
@@ -13,6 +13,7 @@ import {
   CheckCircle,
   ArrowRight,
   PlayIcon,
+  X,
 } from "lucide-react";
 import Link from "next/link";
 import { LinkedInLogoIcon } from "@radix-ui/react-icons";
@@ -27,11 +28,22 @@ export default function HackathonLandingPage() {
   const [isYTModalOpen, setIsYTModalOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   useEffect(() => {
+    // Add timeout to open modal after 5 seconds
+    const timeoutId = setTimeout(() => {
+      openModal();
+    }, 5000);
+
     const handleKeyDown = (e) => {
       if (e.key === "Escape") closeModal();
     };
     window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
+    // return () => window.removeEventListener("keydown", handleKeyDown);
+
+    // Cleanup function
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+      clearTimeout(timeoutId); // Clean up the timeout
+    };
   }, []);
 
   const openModal = () => {
@@ -556,27 +568,45 @@ export default function HackathonLandingPage() {
           </div>
         </div>
       )}
-      {isModalOpen && (
-        <div className="fixed inset-0 z-50 bg-black bg-opacity-90 flex items-center justify-center p-4 sm:p-6 md:p-8">
-          {/* Close Button */}
-          <button
-            onClick={closeModal}
-            className="absolute top-4 right-4 text-white bg-black w-8 h-8 sm:w-10 sm:h-10 
-                 flex items-center justify-center rounded-full 
-                 hover:bg-gray-800 hover:scale-110 transition-all duration-300
-                 focus:outline-none focus:ring-2 focus:ring-white"
+      <AnimatePresence>
+        {isModalOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 bg-black/90 overflow-y-auto"
           >
-            &#x2715;
-          </button>
+            <div className="min-h-screen px-4 py-8 flex flex-col">
+              {/* Close button container */}
+              <div className="fixed top-4 right-4 z-[60]">
+                <motion.button
+                  onClick={closeModal}
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="group bg-white/10 backdrop-blur-sm p-2 rounded-full
+                          hover:bg-white/20 transition-all duration-300
+                          focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  aria-label="Close modal"
+                >
+                  <X className="w-6 h-6 text-white" />
+                </motion.button>
+              </div>
 
-          {/* Video Container with max-width and aspect ratio */}
-          <div className="w-full max-w-[1200px] mx-auto relative">
-            <div className="aspect-video w-full">
-              <TeamSignUpForm />
+              {/* Content container with padding for close button */}
+              <div className="max-w-4xl mx-auto w-full pt-12">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  className="bg-gradient-to-br from-gray-900 to-black rounded-2xl overflow-hidden"
+                >
+                  <TeamSignUpForm />
+                </motion.div>
+              </div>
             </div>
-          </div>
-        </div>
-      )}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
