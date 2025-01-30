@@ -179,7 +179,7 @@ export default function HackathonLandingPage() {
                   </li>
                   <li className="flex items-center">
                     <Calendar className="w-5 h-5 mr-2 text-purple-600" />
-                    <span>Last Date for Registration: January 30, 2025</span>
+                    <span>Last Date for Registration: January 31, 2025</span>
                   </li>
                 </ul>
               </div>

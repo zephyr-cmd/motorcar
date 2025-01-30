@@ -25,12 +25,12 @@ export default function TeamSignUpForm() {
   const { pending } = useFormStatus();
   const [registrationCount, setRegistrationCount] = useState(50);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setRegistrationCount((prev) => prev + Math.floor(Math.random() * 2));
-    }, 8000);
-    return () => clearInterval(interval);
-  }, []);
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     setRegistrationCount((prev) => prev + Math.floor(Math.random() * 2));
+  //   }, 10000);
+  //   return () => clearInterval(interval);
+  // }, []);
 
   // Handle form input changes
   const handleInputChange = (e) => {
@@ -113,7 +113,7 @@ export default function TeamSignUpForm() {
         <div className="bg-white/10 p-4 rounded-lg text-center">
           <Users className="w-6 h-6 mx-auto mb-2 text-blue-400" />
           <div className="text-base sm:text-xl font-bold">
-            {registrationCount}+
+            {registrationCount}
           </div>
           <div className="text-sm text-gray-300">Participants</div>
         </div>
