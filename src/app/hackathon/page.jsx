@@ -29,9 +29,9 @@ export default function HackathonLandingPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   useEffect(() => {
     // Add timeout to open modal after 5 seconds
-    const timeoutId = setTimeout(() => {
-      openModal();
-    }, 5000);
+    // const timeoutId = setTimeout(() => {
+    //   openModal();
+    // }, 5000);
 
     const handleKeyDown = (e) => {
       if (e.key === "Escape") closeModal();
@@ -42,7 +42,7 @@ export default function HackathonLandingPage() {
     // Cleanup function
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
-      clearTimeout(timeoutId); // Clean up the timeout
+      // clearTimeout(timeoutId); // Clean up the timeout
     };
   }, []);
 
@@ -600,7 +600,10 @@ export default function HackathonLandingPage() {
                   exit={{ opacity: 0, y: -20 }}
                   className="bg-gradient-to-br from-gray-900 to-black rounded-2xl overflow-hidden"
                 >
-                  <TeamSignUpForm />
+                  {/* <TeamSignUpForm /> */}
+                  <p className="text-center text-2xl py-5 uppercase">
+                    Registration is now Closed !!
+                  </p>
                 </motion.div>
               </div>
             </div>
