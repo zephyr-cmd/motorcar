@@ -64,7 +64,7 @@ function Specialities() {
       </p>
       <div className="container mx-auto flex flex-col sm:flex-row flex-wrap items-center justify-center gap-6 md:gap-8 md:p-20">
         {specialties.map((specialty, index) => (
-          <div href={generateHref(specialty.title)} key={index}>
+          <Link href={generateHref(specialty.title)} key={index}>
             <div className="relative group flex flex-col h-80 w-64 overflow-hidden">
               <div className="relative w-full h-full transition-all duration-700 group-hover:scale-110">
                 <Image
@@ -89,7 +89,7 @@ function Specialities() {
                 </div>
               </div>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </section>
