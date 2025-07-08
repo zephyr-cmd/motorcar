@@ -9,7 +9,7 @@ import Link from "next/link";
 export default function ContactUs() {
   return (
     <div id="webcrumbs">
-      <div className="bg-gradient-to-r from-gray-950 via-gray-950 to-gray-900 text-white w-full min-h-screen relative p-8 ">
+      <div className="bg-gradient-to-r from-gray-950 via-gray-950 to-gray-900 text-white w-full min-h-screen relative p-8">
         {/* <button className="absolute top-8 right-8 rounded-full p-2 border border-gray-700 hover:bg-gray-900 transition-colors">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -29,7 +29,7 @@ export default function ContactUs() {
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mt-8">
           <div className="md:col-span-6 lg:col-span-6">
-            <h1 className="text-6xl md:text-7xl mb-6 font-noto-sans font-thin">
+            <h1 className="text-6xl md:text-7xl font-light mb-6">
               {/* What's on your mind? */}
               {/* Looking for something specific? */}
               Anything you'd like to talk about?
@@ -38,7 +38,7 @@ export default function ContactUs() {
           </div>
 
           <div className="flex justify-center items-center md:col-span-5 lg:col-span-5">
-            <p className="text-gray-300 text-2xl font-thin ">
+            <p className="text-gray-300 text-2xl font-sans ">
               We're here to help! Let us know what you&apos;re looking for, and
               we&apos;ll ensure you&apos;re connected with the right team.
             </p>

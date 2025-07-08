@@ -16,9 +16,7 @@ export default function mediaQueries() {
         {/* Background Image */}
         <div className="fixed hidden lg:block inset-0 w-full h-full">
           <Image
-            src={
-              "https://unsplash.com/photos/s9rFijhBD0s/download?force=true&w=1920"
-            }
+            src={"/images/contact-us/media-queries.jpg"}
             alt="Background"
             fill
             priority={true}
