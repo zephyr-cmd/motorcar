@@ -1,6 +1,13 @@
 import Footer from "@/app/_components/Footer";
 import HeaderCarousel from "@/app/_components/HeaderCarousel";
-import { exo, exo2, nunito, poppins } from "@/components/Fonts/fonts";
+import {
+  inter,
+  exo,
+  exo2,
+  nunito,
+  poppins,
+  notoSans,
+} from "@/components/Fonts/fonts";
 import { Toaster } from "@/components/ui/sonner";
 // import "../globals.css";
 
@@ -14,7 +21,7 @@ export default function ServicesLayout({ children }) {
   return (
     <div
       lang="en"
-      className={` ${exo.variable} ${exo2.variable} ${nunito.variable} ${poppins.variable}`}
+      className={`${inter.variable} ${exo.variable} ${exo2.variable} ${nunito.variable} ${poppins.variable} ${notoSans.variable}`}
     >
       {children}
       <Footer />

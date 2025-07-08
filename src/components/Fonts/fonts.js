@@ -5,6 +5,7 @@ import {
   Exo_2,
   Nunito,
   Poppins,
+  Noto_Sans,
 } from "next/font/google";
 
 export const inter = Inter({
@@ -42,4 +43,10 @@ export const poppins = Poppins({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-poppins",
+});
+export const notoSans = Noto_Sans({
+  weight: ["400", "500", "700"],
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-noto-sans",
 });
