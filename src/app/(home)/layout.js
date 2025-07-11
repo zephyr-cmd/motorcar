@@ -1,5 +1,3 @@
-import Footer from "@/app/_components/Footer";
-import HeaderCarousel from "@/app/_components/HeaderCarousel";
 import {
   inter,
   exo,
@@ -9,7 +7,6 @@ import {
   notoSans,
 } from "@/components/Fonts/fonts";
 import { Toaster } from "@/components/ui/sonner";
-// import "../globals.css";
 
 export const metadata = {
   title: "AdaLabs: ",
@@ -24,7 +21,6 @@ export default function ServicesLayout({ children }) {
       className={`${inter.variable} ${exo.variable} ${exo2.variable} ${nunito.variable} ${poppins.variable} ${notoSans.variable}`}
     >
       {children}
-      <Footer />
       <Toaster />
     </div>
   );

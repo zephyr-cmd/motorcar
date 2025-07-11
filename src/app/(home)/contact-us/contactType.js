@@ -20,7 +20,7 @@ export const contactArray = [
   {
     id: "website-feedback",
     name: "Website Feedback",
-    bio: "Help us improve your experience.",
+    // bio: "Help us improve your experience.",
     description:
       "Your feedback is valuable to us! Share your thoughts, suggestions, or issues regarding our website so we can continue to enhance your user experience.",
     image: "/images/contact-us/website-feedback.jpg",

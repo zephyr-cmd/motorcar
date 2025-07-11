@@ -6,6 +6,8 @@ import {
   Nunito,
   Poppins,
   Noto_Sans,
+  // Geist,
+  // GeistMono,
 } from "next/font/google";
 
 export const inter = Inter({
@@ -50,3 +52,15 @@ export const notoSans = Noto_Sans({
   display: "swap",
   variable: "--font-noto-sans",
 });
+// export const geist = Geist({
+//   weight: "400",
+//   subsets: ["latin"],
+//   display: "swap",
+//   variable: "--font-geist",
+// });
+// export const geistMono = GeistMono({
+//   weight: "400",
+//   subsets: ["latin"],
+//   display: "swap",
+//   variable: "--font-geist-mono",
+// });
