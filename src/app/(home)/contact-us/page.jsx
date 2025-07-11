@@ -38,7 +38,7 @@ export default function ContactUs() {
             Back
           </span>
         </Link> */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-8 sm:mb-0 sm:my-16">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-8 sm:mb-0 sm:my-24">
           {/* <div className="md:col-span-6 lg:col-span-6">
             <h1 className="text-6xl md:text-7xl font-light mb-6">
               What's on your mind?
@@ -56,7 +56,7 @@ export default function ContactUs() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 my-28">
           <Link
             href={"/contact-us/request-for-services"}
             aria-label="Request for Services"
@@ -88,7 +88,7 @@ export default function ContactUs() {
           </Link>
         </div>
 
-        <div className="flex flex-col items-start justify-start md:items-center md:justify-center p-5 mt-28 bg-black/5 w-full rounded-md">
+        <div className="flex flex-col items-start justify-start md:items-center md:justify-center p-5 mt-20 sm:mt-40 bg-black/5 w-full rounded-md">
           <p className="text-gray-400 mb-6">Looking for something else?</p>
 
           <div className="flex flex-col sm:flex-row w-full items-start justify-start gap-5 sm:px-5">
@@ -104,11 +104,18 @@ export default function ContactUs() {
                 key={item.href}
                 href={item.href}
                 aria-label={item.label}
-                className="group flex justify-start sm:justify-center cursor-pointer w-full"
+                className="flex group  justify-start sm:justify-center cursor-pointer w-full"
               >
-                <span className="mr-2">{item.label}</span>
-                <div className="bg-gray-800 rounded-full p-1 group-hover:bg-blue-500 transition-colors flex items-center justify-center">
-                  <ChevronRight className="h-4 w-4 text-white" />
+                <div className="text-lg sm:text-xl flex flex-row items-center gap-5 group relative overflow-hidden">
+                  <div className="relative">
+                    <span className="relative transition-all duration-300">
+                      {item.label}
+                    </span>
+                    <div className="absolute bottom-0 left-0 w-full h-[2px] bg-current origin-bottom-right scale-x-0 transition-transform duration-300 ease-out group-hover:origin-bottom-left group-hover:scale-x-100"></div>
+                  </div>
+                  <div className="bg-blue-500 rounded-full text-black p-1 overflow-hidden">
+                    <ChevronRight className="h-5 w-5 transition-transform duration-300 ease-in-out group-hover:animate-slide-and-fade-once" />
+                  </div>
                 </div>
               </Link>
             ))}
