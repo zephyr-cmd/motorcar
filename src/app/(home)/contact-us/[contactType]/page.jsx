@@ -271,7 +271,7 @@ const ContactForm = () => {
                   className="w-5 h-5 text-white bg-transparent border-2 border-slate-600 rounded focus:ring-white focus:ring-2 focus:ring-offset-0 checked:bg-white checked:border-white mt-1"
                 />
                 <span className="text-sm text-slate-300 leading-relaxed">
-                  I acknowledge that Iris & Co. may use the information I
+                  I acknowledge that Adalabs & Co. may use the information I
                   provide in this form, to respond to my request, and process it
                   as outlined in the{" "}
                   <Link
