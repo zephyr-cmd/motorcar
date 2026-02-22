@@ -8,68 +8,7 @@ import BusinessImpact from "@/app/(home)/two/componentsB/BusinessImpact";
 import ProcessTransformation from "@/app/(home)/two/componentsB/ProcessTransformation";
 import PartnerSuccessLayout from "@/app/(home)/two/componentsB/PartnerSuccess";
 
-// const compo = () => {
-//   return (
-//     <div className="min-h-screen">
-//       {/* Page Sections */}
-//       <HeroPage />
-//       <SolutionPortfolio />
-//       <BusinessImpact />
-//       <ProcessTransformation />
-//       <PartnerSuccessLayout />
-//     </div>
-//   );
-// };
-
-// export default compo;
-
-// Mock components - replace these with your actual imports
-// const HeroPage = () => (
-//   <div className="min-h-screen bg-gradient-to-br from-blue-900 to-purple-900 flex items-center justify-center">
-//     <div className="text-center text-white">
-//       <h1 className="text-6xl font-bold mb-6">Hero Page</h1>
-//       <p className="text-xl">Welcome to our amazing platform</p>
-//     </div>
-//   </div>
-// );
-
-// const SolutionPortfolio = () => (
-//   <div className="min-h-screen bg-gradient-to-br from-green-900 to-teal-900 flex items-center justify-center">
-//     <div className="text-center text-white">
-//       <h1 className="text-6xl font-bold mb-6">Solution Portfolio</h1>
-//       <p className="text-xl">Discover our comprehensive solutions</p>
-//     </div>
-//   </div>
-// );
-
-// const BusinessImpact = () => (
-//   <div className="min-h-screen bg-gradient-to-br from-orange-900 to-red-900 flex items-center justify-center">
-//     <div className="text-center text-white">
-//       <h1 className="text-6xl font-bold mb-6">Business Impact</h1>
-//       <p className="text-xl">See how we transform businesses</p>
-//     </div>
-//   </div>
-// );
-
-// const ProcessTransformation = () => (
-//   <div className="min-h-screen bg-gradient-to-br from-purple-900 to-indigo-900 flex items-center justify-center">
-//     <div className="text-center text-white">
-//       <h1 className="text-6xl font-bold mb-6">Process Transformation</h1>
-//       <p className="text-xl">Streamline your operations</p>
-//     </div>
-//   </div>
-// );
-
-// const PartnerSuccessLayout = () => (
-//   <div className="min-h-screen bg-gradient-to-br from-gray-900 to-black flex items-center justify-center">
-//     <div className="text-center text-white">
-//       <h1 className="text-6xl font-bold mb-6">Partner Success</h1>
-//       <p className="text-xl">Build lasting partnerships</p>
-//     </div>
-//   </div>
-// );
-
-const PageSectionCarousel = () => {
+const SectionTwoCarousel = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [startX, setStartX] = useState(0);
   const [translateX, setTranslateX] = useState(0);
@@ -170,21 +109,21 @@ const PageSectionCarousel = () => {
   };
 
   return (
-    <div className="relative min-h-screen overflow-hidden">
+    <div className="relative min-h-[400px] overflow-hidden bg-pink-500">
       {/* Navigation Controls */}
-      <div className="fixed top-6 left-6 z-50 flex items-center gap-4">
+      <div className="absolute top-6 left-6 z-10 flex items-center justify-center gap-4">
         <div className="bg-black/50 backdrop-blur-sm text-white px-4 py-2 rounded-full">
           <span className="text-sm font-medium">
             {currentSlide + 1} of {slides.length}
           </span>
         </div>
-        <div className="text-white text-sm font-medium bg-black/50 backdrop-blur-sm px-4 py-2 rounded-full">
+        <div className="hidden sm:block text-white text-sm font-medium bg-black/50 backdrop-blur-sm px-4 py-2 rounded-full">
           {slides[currentSlide].title}
         </div>
       </div>
 
       {/* Navigation Buttons */}
-      <div className="fixed top-6 right-6 z-50 flex gap-3">
+      <div className="absolute top-6 right-6 z-10 flex gap-3">
         <button
           onClick={() => navigateSlide("prev")}
           className="bg-black/50 backdrop-blur-sm text-white p-3 rounded-full border border-white/20 hover:border-white/40 transition-all duration-300 hover:bg-black/70"
@@ -202,15 +141,15 @@ const PageSectionCarousel = () => {
       </div>
 
       {/* Slide Indicators */}
-      <div className="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50 flex gap-2">
+      <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-10 flex gap-2">
         {slides.map((_, index) => (
           <button
             key={index}
             onClick={() => goToSlide(index)}
             className={`w-3 h-3 rounded-full transition-all duration-300 ${
               index === currentSlide
-                ? "bg-white"
-                : "bg-white/40 hover:bg-white/60"
+                ? "bg-black"
+                : "bg-black/40 hover:bg-black/60"
             }`}
             disabled={isTransitioning}
           />
@@ -218,7 +157,7 @@ const PageSectionCarousel = () => {
       </div>
 
       {/* Progress Bar */}
-      <div className="fixed bottom-0 left-0 right-0 z-50 h-1 bg-black/30">
+      <div className="absolute top-0 left-0 right-0 z-10 h-1 bg-black/30">
         <div
           className="h-full bg-gradient-to-r from-blue-500 to-purple-500 transition-all duration-500 ease-out"
           style={{ width: `${((currentSlide + 1) / slides.length) * 100}%` }}
@@ -256,7 +195,7 @@ const PageSectionCarousel = () => {
       </div>
 
       {/* Keyboard Hint */}
-      <div className="fixed bottom-20 left-6 z-50 text-white/60 text-sm">
+      <div className="absolute hidden sm:block bottom-20 left-6 z-10 text-white/60 text-sm">
         <div className="bg-black/30 backdrop-blur-sm px-3 py-2 rounded-lg">
           Use ← → arrow keys to navigate
         </div>
@@ -265,4 +204,4 @@ const PageSectionCarousel = () => {
   );
 };
 
-export default PageSectionCarousel;
+export default SectionTwoCarousel;

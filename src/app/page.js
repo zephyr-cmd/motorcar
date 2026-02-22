@@ -8,7 +8,7 @@ import ContactForm from "@/app/_components/formSection";
 import Specialities from "@/app/_components/Specialities";
 import { Toaster } from "sonner";
 import Subscriber from "@/app/_components/subscriber";
-import SectionTwoCarousel from "@/app/_components/sectionTwo/page";
+import SectionTwoCarousel from "./(home)/two/page";
 
 export default function Home() {
   return (
