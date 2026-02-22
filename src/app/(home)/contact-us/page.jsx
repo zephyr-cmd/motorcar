@@ -1,6 +1,6 @@
-import Footer from "@/app/_components/footer/Footer";
-import Navbar from "@/app/_components/navbar";
 import Navbar2 from "@/app/_components/navbar2";
+import Subscriber from "@/app/_components/subscriber";
+import Footer from "@/app/_components/footer/Footer";
 import {
   ArrowLeft,
   BoxIcon,
@@ -125,6 +125,7 @@ export default function ContactUs() {
           </div>
         </section>
       </div>
+      <Subscriber />
       <Footer />
     </div>
   );

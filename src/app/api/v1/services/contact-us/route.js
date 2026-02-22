@@ -13,9 +13,8 @@ export async function GET(request) {
 
 export async function POST(request) {
   await DBConnect();
-  let { firstName, lastName, email, company, industry, message } =
+  let { firstName, lastName, email, company, industry, message, requestFrom } =
     await request.json();
-  // console.log("L-17, email ::", email);
   if (!email) {
     return NextResponse.json({ data: {} }, { status: 400 });
   }
@@ -29,6 +28,7 @@ export async function POST(request) {
         company,
         industry,
         message,
+        requestFrom,
       },
     },
     { new: true, upsert: true }
@@ -36,7 +36,6 @@ export async function POST(request) {
   if (!response) {
     return NextResponse.json({ data: {} }, { status: 400 });
   }
-  // console.log("L-29, response from server : ", response);
   return NextResponse.json({ data: response }, { status: 200 });
 }
 

@@ -23,7 +23,7 @@ import {
 import Navbar2 from "@/app/_components/navbar2";
 import Link from "next/link";
 import ContactForm from "@/app/_components/formSection";
-import Footer from "@/app/_components/Footer";
+import Footer from "@/app/_components/footer/Footer";
 
 const AboutUs = () => {
   const slides = [

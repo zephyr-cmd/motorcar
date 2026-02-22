@@ -1,3 +1,5 @@
+"use client";
+
 // Subscribe to the newsletter
 // Join our newsletter to stay up to date on features and releases.
 

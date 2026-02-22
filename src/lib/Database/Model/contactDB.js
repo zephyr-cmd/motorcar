@@ -32,6 +32,10 @@ const schema = new mongoose.Schema(
     message: {
       type: String,
     },
+    requestFrom: {
+      type: String,
+      default: "contact-us",
+    },
     isSubscribed: {
       type: Boolean,
       default: true,
