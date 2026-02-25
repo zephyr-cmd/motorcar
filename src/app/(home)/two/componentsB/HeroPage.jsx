@@ -1,9 +1,10 @@
-// components/HeroPage.js
-import React from "react";
+"use client";
+
+// componentsB/HeroPage.jsx
 
 const HeroPage = () => {
   return (
-    <div className="bg-white w-full min-h-screen flex items-center justify-center">
+    <div className="w-full min-h-screen flex items-center justify-center">
       <div className="container mx-auto max-w-7xl py-16 px-4">
         <div className="mb-2 block sm:hidden">
           <span className="bg-gray-700 text-white text-xs px-3 py-1 rounded">

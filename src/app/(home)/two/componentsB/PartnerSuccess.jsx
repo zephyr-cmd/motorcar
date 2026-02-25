@@ -1,11 +1,12 @@
-// components/PartnerSuccess.js
-import React from "react";
+"use client";
+
+// componentsB/PartnerSuccess.jsx
 
 import { ArrowRight, Users, Target, TrendingUp, Award } from "lucide-react";
 
 const PartnerSuccessLayout = () => {
   return (
-    <div className="bg-white text-black relative overflow-hidden">
+    <div className="relative overflow-hidden">
       {/* Main container */}
       <div className="relative z-10 min-h-screen flex items-center justify-center">
         <div className="container mx-auto max-w-7xl py-16 px-4">

@@ -1,11 +1,12 @@
-// components/SolutionPortfolio.js
+"use client";
+
+// componentsB/SolutionPortfolio.jsx
 import {
   ChartNoAxesColumn,
   Sparkle,
   TabletSmartphone,
   UsersRound,
 } from "lucide-react";
-import React from "react";
 
 const SolutionPortfolio = () => {
   const solutions = [
@@ -36,7 +37,7 @@ const SolutionPortfolio = () => {
   ];
 
   return (
-    <div className="bg-white text-black min-h-screen flex items-center justify-center">
+    <div className="min-h-screen flex items-center justify-center">
       <div className="container mx-auto max-w-7xl py-16 px-4">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
           {/* Left Section */}

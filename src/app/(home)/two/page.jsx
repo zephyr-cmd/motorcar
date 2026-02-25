@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import HeroPage from "@/app/(home)/two/componentsB/HeroPage";
 import SolutionPortfolio from "@/app/(home)/two/componentsB/SolutionPortfolio";
@@ -46,6 +46,24 @@ const SectionTwoCarousel = () => {
     },
   ];
 
+  // Navigation logic
+  const navigateSlide = useCallback(
+    (direction) => {
+      if (isTransitioning) return;
+
+      setIsTransitioning(true);
+      setCurrentSlide((prevSlide) =>
+        direction === "next"
+          ? (prevSlide + 1) % slides.length
+          : prevSlide === 0
+            ? slides.length - 1
+            : prevSlide - 1,
+      );
+      setTimeout(() => setIsTransitioning(false), 500);
+    },
+    [isTransitioning, slides.length],
+  );
+
   // Keyboard navigation
   useEffect(() => {
     const handleKeyDown = (event) => {
@@ -60,7 +78,7 @@ const SectionTwoCarousel = () => {
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [isTransitioning]);
+  }, [navigateSlide]);
 
   // Touch and mouse handlers
   const handleStart = (clientX) => {
@@ -86,21 +104,6 @@ const SectionTwoCarousel = () => {
     setTranslateX(0);
   };
 
-  // Navigation logic
-  const navigateSlide = (direction) => {
-    if (isTransitioning) return;
-
-    setIsTransitioning(true);
-    setCurrentSlide((prevSlide) =>
-      direction === "next"
-        ? (prevSlide + 1) % slides.length
-        : prevSlide === 0
-          ? slides.length - 1
-          : prevSlide - 1,
-    );
-    setTimeout(() => setIsTransitioning(false), 500);
-  };
-
   const goToSlide = (index) => {
     if (isTransitioning) return;
     setIsTransitioning(true);
@@ -109,7 +112,7 @@ const SectionTwoCarousel = () => {
   };
 
   return (
-    <div className="relative min-h-[400px] overflow-hidden bg-pink-500">
+    <div className="relative overflow-hidden bg-white text-black">
       {/* Navigation Controls */}
       <div className="absolute top-6 left-6 z-10 flex items-center justify-center gap-4">
         <div className="bg-black/50 backdrop-blur-sm text-white px-4 py-2 rounded-full">
@@ -126,6 +129,7 @@ const SectionTwoCarousel = () => {
       <div className="absolute top-6 right-6 z-10 flex gap-3">
         <button
           onClick={() => navigateSlide("prev")}
+          aria-label="Previous slide"
           className="bg-black/50 backdrop-blur-sm text-white p-3 rounded-full border border-white/20 hover:border-white/40 transition-all duration-300 hover:bg-black/70"
           disabled={isTransitioning}
         >
@@ -133,6 +137,7 @@ const SectionTwoCarousel = () => {
         </button>
         <button
           onClick={() => navigateSlide("next")}
+          aria-label="Next slide"
           className="bg-black/50 backdrop-blur-sm text-white p-3 rounded-full border border-white/20 hover:border-white/40 transition-all duration-300 hover:bg-black/70"
           disabled={isTransitioning}
         >
@@ -166,11 +171,14 @@ const SectionTwoCarousel = () => {
 
       {/* Carousel Container */}
       <div
-        className="relative flex w-full h-screen overflow-hidden"
+        className="relative flex w-full h-screen overflow-hidden select-none"
         onTouchStart={(e) => handleStart(e.touches[0].clientX)}
         onTouchMove={(e) => handleMove(e.touches[0].clientX)}
         onTouchEnd={handleEnd}
-        onMouseDown={(e) => handleStart(e.clientX)}
+        onMouseDown={(e) => {
+          e.preventDefault();
+          handleStart(e.clientX);
+        }}
         onMouseMove={(e) => handleMove(e.clientX)}
         onMouseUp={handleEnd}
         onMouseLeave={handleEnd}
@@ -183,7 +191,7 @@ const SectionTwoCarousel = () => {
             }% + ${translateX}px))`,
           }}
         >
-          {slides.map((slide, index) => (
+          {slides.map((slide) => (
             <div
               key={slide.id}
               className="relative flex-shrink-0 w-full h-full"

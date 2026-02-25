@@ -41,7 +41,7 @@ const ContactForm = () => {
     };
   }, [state]); // Add `toast` to the dependencies if it comes from outside the component or ensure it's stable
   return (
-    <div className="bg-gradient-to-r from-gray-50 to-gray-100 text-black py-10">
+    <div className="bg-white text-black py-10 border-b-2 border-black/10 border-dashed">
       {/* <Image
         src="/logo.svg"
         alt="Descriptive Alt Text"

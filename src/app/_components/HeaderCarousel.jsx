@@ -77,7 +77,7 @@ const HeaderCarousel = () => {
   return (
     <div className="">
       <header
-        className={`fixed top-0 left-0 w-full z-10 transition ease-in-out duration-700 
+        className={`fixed top-0 left-0 w-full z-20 transition ease-in-out duration-700 
               ${
                 isSticky
                   ? "bg-black/95 text-white px-5 py-3"
