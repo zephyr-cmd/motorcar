@@ -1,5 +1,4 @@
 import Navbar2 from "@/app/_components/navbar2";
-// import Subscriber from "@/app/_components/subscriber";
 import Footer from "@/app/_components/footer/Footer";
 import {
   ArrowLeft,
@@ -125,7 +124,7 @@ export default function ContactUs() {
           </div>
         </section>
       </div>
-      <Subscriber />
+      {/* <Subscriber /> */}
       <Footer />
     </div>
   );
