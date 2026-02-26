@@ -2,5 +2,165 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 0, 0, 0;
+  --background-end-rgb: 15, 15, 15;
+}
+
 @layer base {
+  :root {
+    --background: 0 0% 3%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 5%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 5%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 0 0% 14%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14%;
+    --muted-foreground: 0 0% 63%;
+    --accent: 0 0% 14%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14%;
+    --input: 0 0% 14%;
+    --ring: 0 0% 83%;
+    --radius: 0.75rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    background:
+      radial-gradient(
+        ellipse 80% 80% at 50% -20%,
+        rgba(120, 119, 198, 0.3),
+        transparent
+      ),
+      linear-gradient(180deg, #000000 0%, #0f0f0f 100%);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+}
+
+@layer components {
+  .gradient-text {
+    @apply bg-gradient-to-r from-white via-gray-200 to-white bg-clip-text text-transparent;
+  }
+
+  .glass-card {
+    @apply bg-white/[0.04] backdrop-blur-md border border-white/[0.08] rounded-2xl;
+    box-shadow:
+      0 8px 32px rgba(0, 0, 0, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  }
+
+  .premium-card {
+    @apply bg-white/[0.06] backdrop-blur-xl border border-white/[0.12] rounded-3xl;
+    box-shadow:
+      0 20px 40px rgba(0, 0, 0, 0.4),
+      0 1px 0 rgba(255, 255, 255, 0.06) inset,
+      0 -1px 0 rgba(255, 255, 255, 0.04) inset;
+  }
+
+  .popup {
+    @apply bg-white/10 text-white backdrop-blur-md border border-white/10 rounded-xl shadow-2xl z-[999] p-4;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  }
+
+  .hover-lift {
+    @apply transition-transform duration-300 ease-out;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-2px);
+    box-shadow:
+      0 25px 50px rgba(0, 0, 0, 0.5),
+      0 0 0 1px rgba(255, 255, 255, 0.1);
+  }
+
+  .glow-effect {
+    @apply relative overflow-hidden;
+  }
+
+  .glow-effect::before {
+    content: "";
+    @apply absolute inset-0 bg-gradient-to-r from-white/[0.1] via-white/[0.05] to-white/[0.1] opacity-0 transition-opacity duration-300;
+  }
+
+  .glow-effect:hover::before {
+    @apply opacity-100;
+  }
+
+  .chat-bubble {
+    @apply relative;
+  }
+
+  .chat-bubble::before {
+    content: "";
+    @apply absolute -inset-0.5 bg-gradient-to-r from-white/25 via-white/10 to-white/25 rounded-2xl opacity-0 transition-opacity duration-300;
+  }
+
+  .chat-bubble:hover::before {
+    @apply opacity-100;
+  }
+
+  .premium-button {
+    @apply relative overflow-hidden bg-gradient-to-r from-white to-gray-200 text-black font-semibold;
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+  }
+
+  .premium-button::before {
+    content: "";
+    @apply absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent translate-x-[-100%] transition-transform duration-500;
+  }
+
+  .premium-button:hover::before {
+    @apply translate-x-[100%];
+  }
+
+  .floating-orb {
+    @apply absolute rounded-full blur-3xl;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+.shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  transform: translateX(-100%);
+}
+
+.shimmer:hover::before {
+  transform: translateX(100%);
+  transition: transform 1s ease-in-out;
 }

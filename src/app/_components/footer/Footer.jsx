@@ -133,7 +133,64 @@ export default function Footer() {
 
   return (
     <footer className="relative bg-gradient-to-b from-black to-gray-900 text-white">
-      <div className="border-t border-white/10"></div>
+      <div className="border-b border-white/10">
+        <div className="max-w-7xl mx-auto px-4 py-12">
+          <div className="text-center max-w-4xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold gradient-text mb-4">
+              Subscribe to the newsletter
+            </h2>
+            <p className="text-lg text-white/70 mb-8 leading-relaxed">
+              Join our newsletter to stay up to date on features and releases.
+            </p>
+
+            {isSubscribed ? (
+              <div className="flex items-center justify-center gap-3 text-green-400 bg-green-400/10 p-4 rounded-2xl max-w-md mx-auto">
+                <CheckCircle className="w-5 h-5" />
+                <span className="text-base font-medium">
+                  Successfully subscribed! Thank you for joining us.
+                </span>
+              </div>
+            ) : (
+              <form onSubmit={handleSubscribe} className="max-w-2xl mx-auto">
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <div className="flex-1">
+                    <Input
+                      type="email"
+                      placeholder="Enter your email address"
+                      value={email}
+                      onChange={(e) => {
+                        setEmail(e.target.value);
+                        setEmailError("");
+                      }}
+                      className="h-12 px-5 bg-white/5 border-white/20 rounded-xl focus:border-white/40 text-white placeholder:text-white/50"
+                      disabled={isLoading}
+                    />
+                    {emailError && (
+                      <p className="text-red-400 text-sm mt-1 text-left">
+                        {emailError}
+                      </p>
+                    )}
+                  </div>
+                  <Button
+                    type="submit"
+                    disabled={isLoading}
+                    className="h-12 px-6 bg-white text-black hover:bg-white/90 rounded-xl font-semibold transition-all duration-300 disabled:opacity-50"
+                  >
+                    {isLoading ? (
+                      <div className="flex items-center gap-2">
+                        <div className="w-4 h-4 border-2 border-black/20 border-t-black rounded-full animate-spin" />
+                        Subscribing...
+                      </div>
+                    ) : (
+                      "Subscribe"
+                    )}
+                  </Button>
+                </div>
+              </form>
+            )}
+          </div>
+        </div>
+      </div>
       <div className="max-w-7xl mx-auto px-4 py-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div>
